@@ -1,6 +1,6 @@
 ![brandlogo](static/images/moviefindericon.svg)
 
-# Milestone Project 3 Data Centric - MovieFinder
+# Milestone Project 4 Fullstack Frameworks with Django - The Brilliant Greens E-commerce Shop
 <p align="center">
 <img src="static/images/moviefindergif.gif" height=340>
 </p>
