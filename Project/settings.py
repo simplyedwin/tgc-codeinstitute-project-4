@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'products'
 ]
 
@@ -69,6 +73,33 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+SITE_ID = 1
+
+# to login via email or username
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+# to indicate whether email address is require when registering
+ACCOUNT_EMAIL_REQUIRED = True
+# to indicate whether email verification is needed from the user before they can sign in
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+# to indicate whether user needs to provide the email address twice to prevent misspelling
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
+# to indicate the min length for username
+ACCOUNT_USERNAME_MIN_LENGTH = 4
+# the url for login
+LOGIN_URL = '/accounts/login/'
+# to direct to the page when login is successful
+LOGIN_REDIRECT_URL = '/success'
+
+# to test email reply in console
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 WSGI_APPLICATION = 'Project.wsgi.application'
 
