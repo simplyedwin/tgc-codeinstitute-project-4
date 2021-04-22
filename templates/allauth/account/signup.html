@@ -1,22 +1,68 @@
-{% extends 'account/logout.html' %}
+{% extends 'base-template.html' %}
 {% load static %}
 
-{% load i18n %}
-
-{% block head_title %}{% trans "Signup" %}{% endblock %}
-
 {% block content %}
-<h1>{% trans "Sign Up" %}</h1>
 
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
 
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-</form>
+
+<div class="container mx-auto border" id="accountlogin">
+    <div class="row">
+
+        <div class="col-6 d-flex justify-content-center border-right ">
+            <a href="{% url 'account_login' %}">
+                <p>Sign In</p>
+            </a>
+        </div>
+        <div class="col-6 d-flex justify-content-center ">
+            <p>Register</p>
+        </div>
+
+    </div>
+    <div class="d-flex flex-column border-top">
+
+        <form class="signup my-3" id="signup_form" method="post" action="{% url 'account_signup' %}">
+            {% csrf_token %}
+            {% for form in form %}
+            {% if form.label == 'Password' %}
+            <div class="form-group">
+                <label for="password">Type in a new password</label>
+                <input type="password" class="form-control" name="password" placeholder="Password"
+                    autocomplete="current-password" required="" id="id_password">
+            </div>
+            {% elif form.label == 'Password (again)' %}
+            <div class="form-group">
+                <label for="password2">Repeat your password again to confirm</label>
+                <input type="password" class="form-control" name="password2" placeholder="Password (again)" required=""
+                    id="id_password2">
+            </div>
+            {% elif form.label == 'E-mail' %}
+            <div class="form-group">
+                <label for="email">Type in your email address:</label>
+                <input type="email" class="form-control" name="email" placeholder="E-mail address" autocomplete="email"
+                    required="" id="id_email">
+            </div>
+            {% elif form.label == 'E-mail (again)' %}
+            <div class="form-group">
+                <label for="email2">Repeat your email address again to confirm</label>
+                <input type="email" class="form-control" name="email2" placeholder="E-mail address confirmation"
+                    required="" id="id_email2">
+            </div>
+            {% else %}
+            <div class="form-group">
+                <label for="username">Type in a username</label>
+                <input type="text" class="form-control" name="username" placeholder="Username" autocomplete="username"
+                    minlength="4" maxlength="150" required="" id="id_username">
+            </div>
+            {% endif %}
+            {% endfor %}
+            <div>
+                <button class="btn btn-primary primaryAction" type="submit">Sign up</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
 
 {% endblock %}
