@@ -11,7 +11,8 @@ class Review(models.Model):
     content = models.TextField(blank=False)
     date = models.DateField(default=datetime.date.today)
     plant = models.ForeignKey(Plant, on_delete=models.CASCADE)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    reviewed_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    rating = models.IntegerField(blank=False)
 
     def __str__(self):
         return self.title
