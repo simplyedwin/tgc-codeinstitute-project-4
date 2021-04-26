@@ -16,7 +16,7 @@ class UserInfo(models.Model):
                                         null=True)
 
     def __str__(self):
-        return self.user
+        return str(self.user)
 
 
 @receiver(post_save, sender=User)
@@ -27,4 +27,4 @@ def create_user_info(sender, instance, created, **kwargs):
 
 @receiver(post_save, sender=User)
 def save_user_info(sender, instance, **kwargs):
-    instance.profile.save()
+    instance.userinfo.save()

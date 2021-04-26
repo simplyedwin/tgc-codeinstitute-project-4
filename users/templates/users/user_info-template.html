@@ -1,0 +1,58 @@
+{% extends "base-template.html" %}
+{% block content %}
+<div class="container">
+    <div class="row ml-3">
+        <h1>My Account Info</h1>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <ul class="nav flex-column bg-light border" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+
+                    <a class="nav-link active" id="acc-detail-tab" data-toggle="tab" href="#acc-detail" role="tab"
+                        aria-controls="acc-detail" aria-selected="true">
+                        <h4>Account Details</h4>
+                    </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                        aria-controls="profile" aria-selected="false">
+                        <h4>Orders</h4>
+                    </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab"
+                        aria-controls="messages" aria-selected="false">
+                        <h4>Favourite Plants</h4>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-9">
+            <div class="tab-content">
+                <div class="tab-pane active" id="acc-detail" role="tabpanel" aria-labelledby="acc-detail-tab">
+                    <form method="post">
+                        {% csrf_token %}
+                        {% for form in user_form %}
+                        <div class="form-group">
+                            <label class ="h3" for="{{ form.label}}"> {{ form.label}} </label>
+                            <input type="{{form.type}}" class="form-control" name="{{form.name}}"
+                                placeholder="{{form.placeholder}}" maxlength="{{form.maxlength}}" value="{{form.value}}"
+                                required="" id="{{form.id}}">
+                        </div>
+                        {% endfor %}
+                        {{ userinfo_form.as_p }}
+                        <button type="submit">Save changes</button>
+                    </form>
+                </div>
+                <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">...</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
