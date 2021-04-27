@@ -1,52 +1,84 @@
 {% extends "base-template.html" %}
 {% block content %}
-<div class="container">
-    <div class="row ml-3">
+<div class="container my-4 mainsection">
+    <div class="row justify-content-center">
         <h1>My Account Info</h1>
     </div>
-    <div class="row">
-        <div class="col-3">
+    <div class="row justify-content-center">
+        <div class="col-2">
             <ul class="nav flex-column bg-light border" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
 
-                    <a class="nav-link active" id="acc-detail-tab" data-toggle="tab" href="#acc-detail" role="tab"
+                    <a class="nav-link" id="acc-detail-tab" data-toggle="tab" href="#acc-detail" role="tab"
                         aria-controls="acc-detail" aria-selected="true">
-                        <h4>Account Details</h4>
+                        <h5>Account Details</h5>
                     </a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                        aria-controls="profile" aria-selected="false">
-                        <h4>Orders</h4>
+                    <a class="nav-link" id="orders-tab" data-toggle="tab" href="#orders" role="tab"
+                        aria-controls="orders" aria-selected="false">
+                        <h5>Orders</h5>
                     </a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab"
-                        aria-controls="messages" aria-selected="false">
-                        <h4>Favourite Plants</h4>
+                    <a class="nav-link" id="fav-tab" data-toggle="tab" href="#fav" role="tab" aria-controls="messages"
+                        aria-selected="false">
+                        <h5>Favourite Plants</h5>
                     </a>
                 </li>
             </ul>
         </div>
         <div class="col-9">
             <div class="tab-content">
-                <div class="tab-pane active" id="acc-detail" role="tabpanel" aria-labelledby="acc-detail-tab">
+                <div class="tab-pane" id="acc-detail" role="tabpanel" aria-labelledby="acc-detail-tab">
                     <form method="post">
                         {% csrf_token %}
                         {% for form in user_form %}
                         <div class="form-group">
-                            <label class ="h3" for="{{ form.label}}"> {{ form.label}} </label>
-                            <input type="{{form.type}}" class="form-control" name="{{form.name}}"
-                                placeholder="{{form.placeholder}}" maxlength="{{form.maxlength}}" value="{{form.value}}"
-                                required="" id="{{form.id}}">
+                            <label class="h4" for="{{ form.label}}"> {{ form.label|title}} </label>
+                            {% if form.label == "First name" %}
+                            <input class="form-control" type="text" name="first_name" value="{{form.value}}"
+                                maxlength="150" id="id_first_name">
+                            {% elif form.label == "Last name" %}
+                            <input class="form-control" type="text" name="last_name" value="{{form.value}}"
+                                maxlength="150" id="id_last_name">
+                            {% elif form.label == "Email address" %}
+                            <input class="form-control" type="email" name="email" value="{{form.value}}" maxlength="254"
+                                id="id_email">
+                            {% endif %}
                         </div>
                         {% endfor %}
-                        {{ userinfo_form.as_p }}
-                        <button type="submit">Save changes</button>
+                        {% for form in password_change_form %}
+                            {% if form.label == "Old password" %}
+                                <label class="h4" for="{{ form.label}}">Current Password</label>
+                                <input class="form-control" type="password" name="old_password" autocomplete="current-password" autofocus="" required="" id="id_old_password">
+                            {% else %}
+                                <label class="h4" for="{{ form.label}}"> {{ form.label|title}} </label>
+                                {% if form.label == "New password" %}
+                                <input class="form-control" type="password" name="new_password1" autocomplete="new-password" required="" id="id_new_password1">
+                                {% else %}
+                                <input class="form-control" type="password" name="new_password2" autocomplete="new-password" required="" id="id_new_password2">
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                        {% for form in userinfo_form %}
+                        <div class="form-group">
+                            <label class="h4" for="{{ form.label}}"> {{ form.label|title}} </label>
+                            {% if form.label == "Date of birth"%}
+                            <input type="date" class="form-control" name="date_of_birth"
+                                value="{{form.value|date:'Y-m-d'}}" id="id_date_of_birth">
+                            {% else %}
+                            <select class="form-control" name="favourite_plant" id="id_favourite_plant">
+                                <option value="{{form.value}}" selected="">---------</option>
+                            </select>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                        <button class="btn btn-primary" type="submit">Save changes</button>
                     </form>
                 </div>
-                <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-                <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">...</div>
+                <div class="tab-pane" id="orders" role="tabpanel" aria-labelledby="orders-tab">...</div>
+                <div class="tab-pane" id="fav" role="tabpanel" aria-labelledby="fav-tab">...</div>
             </div>
 
         </div>

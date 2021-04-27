@@ -14,6 +14,8 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -109,7 +111,7 @@ ACCOUNT_USERNAME_MIN_LENGTH = 4
 # the url for login
 LOGIN_URL = '/accounts/login/'
 # to direct to the page when login is successful
-LOGIN_REDIRECT_URL = '/success'
+LOGIN_REDIRECT_URL = '/'
 
 # to test email reply in console
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
