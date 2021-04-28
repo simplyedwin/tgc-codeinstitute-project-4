@@ -40,6 +40,12 @@ h6 {
     font-family: 'Oswald', sans-serif;
 }
 
+#shopnow {
+    background-color: white;
+    opacity: 70%;
+    color: #3cb371;
+    border-radius: 1rem;
+}
 
 
 /* Extra small devices (portrait phones, less than 576px)
