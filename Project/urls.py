@@ -20,7 +20,7 @@ import products.views
 urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('admin/', admin.site.urls),
-    path('', products.views.index),
+    path('', products.views.index, name="landing_page"),
     path('users/', include('users.urls')),
 
 ]
