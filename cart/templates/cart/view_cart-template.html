@@ -1,0 +1,20 @@
+{% extends 'base-template.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+<div class="container mainsection d-flex justify-content-center">
+    {% for key, item in cart.items %}
+    {{item.name}}
+    {{item.qty}}
+    {{item.price}}
+
+    {% endfor %}
+
+</div>
+
+
+
+{% endblock %}
