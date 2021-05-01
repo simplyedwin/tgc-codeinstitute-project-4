@@ -44,3 +44,27 @@ def view_cart(request):
     return render(request, 'cart/view_cart-template.html', {
         'cart': cart
     })
+
+
+# def post_flash_msg(request):
+
+#     django_messages = []
+
+#     for message in messages.get_messages(request):
+#         django_messages.append({
+#             "level": message.level,
+#             "message": message.message,
+#             "extra_tags": message.tags,
+#         })
+
+#     data = []
+
+#     # data['success'] = success
+#     data.append(django_messages)
+
+#     # serialize in new friend object in json
+#     ser_instance = serializers.serialize('json', data)
+#     # send to client side.
+#     return JsonResponse({success: ser_instance}, status=200)
+
+#     # return HttpResponse(json.dumps(data), content_type="application/json")
