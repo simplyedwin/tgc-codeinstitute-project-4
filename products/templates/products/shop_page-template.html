@@ -23,12 +23,13 @@
                 <h5>${{plant.price}}</h5>
 
             </div>
-            <div>
-                <a href="#" class="btn btn-primary">Info</a>
-                <a href="{% url 'add_to_cart' plant_id=plant.id  %}" id="add-cart" class="btn btn-primary">Add to cart</a>
-            </div>
-
         </div>
+        <div>
+            <a href="#" class="btn btn-primary">Info</a>
+            <a href="{% url 'add_to_cart' plant_id=plant.id  %}" id="add-cart" class="btn btn-primary">Add to cart</a>
+            <p id = "hitlimit">Limit to 5 per user!</p>
+        </div>
+
     </div>
 
     {% endfor %}

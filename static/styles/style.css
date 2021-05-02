@@ -53,7 +53,7 @@ h6 {
     margin-top: 4px !important;
 }
 .flash-messages {
-    z-index: 100;
+    z-index: 2000;
     position: fixed;
     right: 2em;
     margin-top: -1em;

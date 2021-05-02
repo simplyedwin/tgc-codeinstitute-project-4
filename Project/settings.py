@@ -14,8 +14,6 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os
 
-MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -170,3 +168,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
+
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
