@@ -59,6 +59,7 @@ h6 {
     margin-top: -1em;
     list-style: none;
     text-align: right;
+    top: 10px;
 }
 .alert {
     margin-top: 1rem;

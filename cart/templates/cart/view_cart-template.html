@@ -23,7 +23,7 @@
                                 <li class="list-group-item">Plant: {{item.name}}</li>
                                 <li class="list-group-item">Price: {{item.price}}</li>
                             </ul>
-                            <form method="POST">
+                            <form method="POST" action="{% url 'update_cart' plant_id=item.id %}">
                                 <div class="container">
                                     {% csrf_token %}
                                     <div class="col-6 form-group">

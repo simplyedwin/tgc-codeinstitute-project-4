@@ -12,10 +12,13 @@ def add_to_cart(request, plant_id):
     cart = request.session.get('shopping_cart', {})
 
     plant = get_object_or_404(Plant, pk=plant_id)
+    unit_price = plant.price
 
     if plant_id in cart:
 
         cart[plant_id]['qty'] += 1
+        cart[plant_id]['price'] = float(
+            unit_price) * cart[plant_id]['qty']
 
     else:
 
@@ -47,6 +50,24 @@ def remove_from_cart(request, plant_id):
         request.session['shopping_cart'] = cart
 
         messages.success(request, "The item has been removed from the cart.")
+
+    return redirect(reverse('view_cart'))
+
+
+def update_cart(request, plant_id):
+
+    plant = get_object_or_404(Plant, pk=plant_id)
+    unit_price = plant.price
+
+    # retrive the shopping cart from session
+    cart = request.session.get('shopping_cart', {})
+    if plant_id in cart:
+        cart[plant_id]['qty'] = int(request.POST['qty'])
+        cart[plant_id]['price'] = float(
+            unit_price) * int(request.POST['qty'])
+        request.session['shopping_cart'] = cart
+        messages.success(
+            request, 'The quantity for the item has been updated.')
 
     return redirect(reverse('view_cart'))
 
