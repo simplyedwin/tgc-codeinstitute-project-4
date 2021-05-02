@@ -27,7 +27,15 @@
         <div>
             <a href="#" class="btn btn-primary">Info</a>
             <a href="{% url 'add_to_cart' plant_id=plant.id  %}" id="add-cart" class="btn btn-primary">Add to cart</a>
-            <p id = "hitlimit">Limit to 5 per user!</p>
+            {% for key, item in cart.items %}
+            {% if plant.id ==  item.id|add:"0" %}
+            {% if item.qty > 5 %}
+               <p>Limit to 5 per user!</p>
+            {% endif %}
+            {% else %}
+               <p > </p>
+            {% endif %}
+            {% endfor %}
         </div>
 
     </div>

@@ -13,4 +13,7 @@ def shop_page(request):
 
     plants = Plant.objects.all()
 
-    return render(request, 'products/shop_page-template.html', {'plants': plants})
+    cart = request.session['shopping_cart']
+
+    return render(request, 'products/shop_page-template.html',
+                  {'plants': plants, 'cart': cart})
