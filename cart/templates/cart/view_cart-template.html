@@ -9,6 +9,7 @@
     <div class="row">
         <div class="col-8">
             {% for key, item in cart.items %}
+
             <div class="card mb-2">
                 <div class="row no-gutters">
                     <div class="col-md-4">
@@ -85,10 +86,14 @@
 
         </div>
         <div class="col-4 h-25" style="position: fixed;right: 0;">
-            <h3>Total Amount:</h3>
+
+            <h3>Total Amount: {{item.total_price}} </h3>
             <button class="btn btn-primary m-0">
-                Check Out
+                <a href="{% url 'checkout' %}">
+                <h4>CheckOut</h4>
+            </a>
             </button>
+
         </div>
     </div>
 </div>

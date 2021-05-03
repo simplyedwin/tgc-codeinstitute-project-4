@@ -170,3 +170,9 @@ STATICFILES_DIRS = [
 ]
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
+
+STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
+STRIPE_SUCCESS_URL = os.environ.get('STRIPE_SUCCESS_URL')
+STRIPE_CANCEL_URL = os.environ.get('STRIPE_CANCEL_URL')

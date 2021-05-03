@@ -2,9 +2,10 @@ from django.shortcuts import get_object_or_404, redirect, render, reverse
 from django.contrib import messages
 from products.models import Plant
 from decimal import Decimal
-
+from Project import settings
 
 # Create your views here.
+
 
 def add_to_cart(request, plant_id):
 
@@ -65,6 +66,7 @@ def update_cart(request, plant_id):
         cart[plant_id]['qty'] = int(request.POST['qty'])
         cart[plant_id]['price'] = float(
             unit_price) * int(request.POST['qty'])
+
         request.session['shopping_cart'] = cart
         messages.success(
             request, 'The quantity for the item has been updated.')

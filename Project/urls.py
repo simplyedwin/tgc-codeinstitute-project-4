@@ -24,5 +24,6 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('', products.views.index, name="landing_page"),
     path('cart/', include('cart.urls')),
+    path('checkout/', include('checkout.urls')),
 
 ]
