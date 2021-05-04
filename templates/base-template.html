@@ -7,7 +7,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="icon" href="{% static 'images/TBGs_BrandIcon.svg' %}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
@@ -48,25 +48,25 @@
 
                 <div class="navbar-nav col-4 my-lg-0 pr-0 navbar-nav-scroll justify-content-end align-items-center"
                     style="max-height: 100px;">
-                    <a class="nav-item mr-5 text-center" href="{% url 'shop_page' %}">
+                    <a class="navbaricon nav-item mr-5 text-center" href="{% url 'shop_page' %}">
                         <img src="{% static 'images/shopicon.svg' %}" style="max-height: 4vh;" alt="shopicon">
                         <h5>Shop</h5>
                     </a>
 
-                    <a class="nav-item text-center" href="{% url 'view_cart' %}">
+                    <a class="navbaricon nav-item text-center" href="{% url 'view_cart' %}">
                         <img src="{% static 'images/carticon.svg' %}" style="max-height: 4vh;" alt="carticon">
                         <h5>Cart</h5>
                     </a>
 
                     {% if request.user.is_authenticated %}
-                    <div class="nav-item ml-4 text-center">
-                        <a class="nav-link" href="{% url 'user_account' %}" aria-expanded="false">
+                    <div class="navbaricon nav-item ml-4 text-center">
+                        <a class=" nav-link" href="{% url 'user_account' %}" aria-expanded="false">
                             <img src="{% static 'images/accountsicon.svg' %}" style="max-height: 4vh;"
                                 alt="accounticon">
                             <h5>{{request.user|title}}</h5>
                         </a>
                     </div>
-                    <div class="nav-item ml-4 text-center">
+                    <div class="navbaricon nav-item ml-4 text-center">
                         <a href="#accout-logout" role="button" data-toggle="modal">
                             <img src="{% static 'images/logouticon.svg' %}" style="max-height: 4vh;" alt="logouticon">
                             <h5>Logout</h5>
@@ -74,7 +74,7 @@
                         </a>
                     </div>
                     {% else %}
-                    <div class="nav-item dropdown dropright active ml-4 text-center">
+                    <div class="navbaricon nav-item dropdown dropright active ml-4 text-center">
                         <a class="nav-link" href="#" id="navbarScrollingDropdown" role="button" data-toggle="dropdown"
                             aria-expanded="false">
                             <img src="{% static 'images/accountsicon.svg' %}" style="max-height: 4vh;"

@@ -17,7 +17,7 @@
                 <li class="nav-item" role="presentation">
                     <a class="nav-link" id="orders-tab" data-toggle="tab" href="#orders" role="tab"
                         aria-controls="orders" aria-selected="false">
-                        <h5>Orders</h5>
+                        <h5>Orders History</h5>
                     </a>
                 </li>
                 <li class="nav-item" role="presentation">
@@ -30,7 +30,7 @@
         </div>
         <div class="col-9">
             <div class="tab-content">
-                <div class="tab-pane" id="acc-detail" role="tabpanel" aria-labelledby="acc-detail-tab">
+                <div class="tab-pane fade show " id="acc-detail" role="tabpanel" aria-labelledby="acc-detail-tab">
                     <form method="post">
                         {% csrf_token %}
                         {% for form in user_form %}
@@ -49,17 +49,20 @@
                         </div>
                         {% endfor %}
                         {% for form in password_change_form %}
-                            {% if form.label == "Old password" %}
-                                <label class="h4" for="{{ form.label}}">Current Password</label>
-                                <input class="form-control" type="password" name="old_password" autocomplete="current-password" autofocus="" required="" id="id_old_password">
-                            {% else %}
-                                <label class="h4" for="{{ form.label}}"> {{ form.label|title}} </label>
-                                {% if form.label == "New password" %}
-                                <input class="form-control" type="password" name="new_password1" autocomplete="new-password" required="" id="id_new_password1">
-                                {% else %}
-                                <input class="form-control" type="password" name="new_password2" autocomplete="new-password" required="" id="id_new_password2">
-                                {% endif %}
-                            {% endif %}
+                        {% if form.label == "Old password" %}
+                        <label class="h4" for="{{ form.label}}">Current Password</label>
+                        <input class="form-control" type="password" name="old_password" autocomplete="current-password"
+                            autofocus="" required="" id="id_old_password">
+                        {% else %}
+                        <label class="h4" for="{{ form.label}}"> {{ form.label|title}} </label>
+                        {% if form.label == "New password" %}
+                        <input class="form-control" type="password" name="new_password1" autocomplete="new-password"
+                            required="" id="id_new_password1">
+                        {% else %}
+                        <input class="form-control" type="password" name="new_password2" autocomplete="new-password"
+                            required="" id="id_new_password2">
+                        {% endif %}
+                        {% endif %}
                         {% endfor %}
                         {% for form in userinfo_form %}
                         <div class="form-group">
@@ -77,8 +80,23 @@
                         <button class="btn btn-primary" type="submit">Save changes</button>
                     </form>
                 </div>
-                <div class="tab-pane" id="orders" role="tabpanel" aria-labelledby="orders-tab">...</div>
-                <div class="tab-pane" id="fav" role="tabpanel" aria-labelledby="fav-tab">...</div>
+                <div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+
+                    {% for order in orders %}
+
+                    <div class="jumbotron">
+                        <h1 class="display-5">{{order.title}} ordered on: {{order.datetime_ordered}} </h1>
+                        <hr class="my-4">
+                        <p class="lead">Price: SGD${{order.price}} Qty: {{order.qty}}</p>
+                        <a class="btn btn-primary btn-lg" href="#" role="button">Write a review</a>
+                    </div>
+
+                    {% endfor %}
+
+
+
+                </div>
+                <div class="tab-pane fade" id="fav" role="tabpanel" aria-labelledby="fav-tab">...</div>
             </div>
 
         </div>

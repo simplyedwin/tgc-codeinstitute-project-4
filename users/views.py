@@ -4,12 +4,26 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
+from checkout.models import Order
+from django.db.models import Q
 
 # Create your views here.
 
 
 @login_required
 def user_account(request):
+
+    # to retrieve the current user
+    user = request.user
+
+    # to retrieve all the orders
+    orders = Order.objects.all()
+
+    # to filter the orders by current user
+    query = Q(order_by__exact=user)
+
+    # to retrieve all the orders for the current user
+    orders = orders.filter(query).values().distinct()
 
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)
@@ -34,5 +48,6 @@ def user_account(request):
     return render(request, 'users/user_info-template.html', {
         'user_form': user_form,
         'userinfo_form': userinfo_form,
-        'password_change_form': password_change_form
+        'password_change_form': password_change_form,
+        'orders': orders
     })

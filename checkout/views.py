@@ -3,10 +3,18 @@ from django.conf import settings
 import stripe
 from products.models import Plant
 import json
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
+import datetime
+from django.contrib import auth
+from checkout.models import Order
+from django.contrib.auth.models import User
+
 
 # Create your views here.
 
 
+@login_required
 def checkout(request):
 
     stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -21,6 +29,7 @@ def checkout(request):
     all_plant_ids = []
 
     for plant_id, plant in cart.items():
+
         plant_model = get_object_or_404(Plant, pk=plant_id)
 
         cart_item = {
@@ -37,9 +46,10 @@ def checkout(request):
         # what is the quantity ordered
         all_plant_ids.append({
             'plant_id': plant_id,
-            'qty': plant['qty']
+            'qty': plant['qty'],
+            'price': plant['price'],
+            'user': request.user.id
         })
-
 
     session = stripe.checkout.Session.create(
         payment_method_types=['card'],
@@ -62,11 +72,67 @@ def checkout(request):
     })
 
 
-def checkout_completed(request):
+@login_required
+def order_completed(request):
 
     return render(request, "checkout/order_completed-template.html")
 
 
-def checkout_not_completed(request):
+@login_required
+def order_not_completed(request):
 
     return render(request, "checkout/order_not_completed-template.html")
+
+# To exempt the payment completed function from CSRF
+
+
+@csrf_exempt
+def payment_completed(request):
+
+    payload = request.body
+
+    signature_header = request.META['HTTP_STRIPE_SIGNATURE']
+
+    # To store the data that stripe is sending back to server
+    event = None
+
+    endpoint_secret = settings.STRIPE_ENDPOINT_SECRET
+
+    try:
+        event = stripe.Webhook.construct_event(
+            payload, signature_header, endpoint_secret
+        )
+
+    except ValueError as e:
+        return HttpResponse(status=400)
+    except stripe.error.SignatureVerificationError as e:
+        # means the data is not from Stripe
+        return HttpResponse(status=400)
+
+    if event['type'] == 'checkout.session.completed':
+
+        hours = 8
+
+        hours_added = datetime.timedelta(hours=hours)
+
+        session = event['data']['object']
+        session_created = datetime.datetime.fromtimestamp(
+            event['created']) + hours_added
+
+        all_plant_ids_jsonstr = session['metadata']['all_plant_ids']
+
+        all_plant_ids = json.loads(all_plant_ids_jsonstr)
+
+        for item in all_plant_ids:
+
+            plant_model = get_object_or_404(Plant, pk=item['plant_id'])
+            user_model = get_object_or_404(User, pk=item['user'])
+
+            order = Order(
+                title=plant_model.name, price=float(item['price']),
+                datetime_ordered=session_created, plant=plant_model,
+                order_by=user_model, qty=item['qty'])
+
+            order.save()
+
+    return HttpResponse(status=200)

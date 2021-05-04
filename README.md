@@ -273,15 +273,12 @@ The project uses Cloudinary to store image files and provides the image url link
 ### Bugs/Problems Encountered
 There are a numbers of bugs or problems encountered during the development of the project. The main ones are as explained below:
 
-- ***Retriving data after looping through a pymongo.cursor.Cursor object*** <br>
-During looping of movie database on the html side using Jinja2 language, the looping can only be looped once. It was discovered that the return type of the movie database was a pymongo cursor which resulted only a single scan in the loop. 
-This was solved by changing the type from pymongo cursor to list object on the server side before passing it to the html.
 
-- ***Reading same file*** <br>
-During uploading of the image file to the Cloudinary cloud database, the Cloudinary api responded with an error on empty file being uploaded.
-It was discovered that after performing a read operation on the file in the form validation function, the pointer of the file was shifted to the end
-of the file. Hence, this caused Cloudinary to detect an [empty image file](https://stackoverflow.com/questions/28320658/python-why-a-file-is-empty-after-reading-it-and-writing-to-another-one). This was solved by shifting the file pointer to the start of the file using 
-[seek](https://www.codestudyblog.com/questions/sf/0421194141.html) and then read the file again.
+
+- ***Status Code 302 response from Stripe Webhook*** <br>
+During processing the payment by stripe with webhook enabled, the stripe webhook keeps responding back with a status code 302 even though
+payment_completed function was exempted from CSRF. It was found out the "login_required" decorator was added on the payment_completed function
+which caused the problem. 
     
 
 ## Deployment

@@ -1,13 +1,13 @@
 from django.contrib import admin
 from django.urls import path, include
-import checkout.views
+from .views import checkout, payment_completed, order_completed, order_not_completed
 
 urlpatterns = [
-    path('',
-         checkout.views.checkout, name="checkout"),
-    path('checkout_completed/',
-         checkout.views.checkout_completed, name="checkout_completed"),
-    path('checkout_not_completed/',
-         checkout.views.checkout_not_completed, name="checkout_not_completed"),
+    path('', checkout, name="checkout"),
+    path('order_completed/',
+         order_completed, name="order_completed"),
+    path('order_not_completed/',
+         order_not_completed, name="order_not_completed"),
+    path('payment_completed', payment_completed)
 
 ]
