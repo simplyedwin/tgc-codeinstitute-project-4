@@ -25,5 +25,7 @@ urlpatterns = [
     path('', products.views.index, name="landing_page"),
     path('cart/', include('cart.urls')),
     path('checkout/', include('checkout.urls')),
+    path('review/', include('reviews.urls')),
+
 
 ]
