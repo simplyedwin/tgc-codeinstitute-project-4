@@ -3,35 +3,70 @@
 {% block content %}
 <div class="container mainsection d-flex justify-content-center">
     <div class="container shadow m-4">
-        <div class="row justify-content-center">
-            <img src="{{ plant.image }}" class="img-fluid rounded" alt="...">
-            <h3 class="text-center">{{plant.name}}
-            </h3>
-        </div>
         <div class="row">
-            <div class="col">
+            <div class="col-6">
+                <img src="{{ plant.image }}" class="img-fluid rounded" alt="...">
+
+            </div>
+            <div class="col-6">
+                <h3 class="text-center">{{plant.name}}</h3>
                 {{plant.watering}}
                 {{plant.sunlight}}
                 {{plant.level}}
+                <h5>Ratings:
+                    {% if plant.rating > 0 %}
+                    <span class="fa fa-star {% if plant.rating >= 1 %} starchecked {% endif %}"></span>
+                    <span class="fa fa-star {% if plant.rating >= 2 %} starchecked {% endif %}"></span>
+                    <span class="fa fa-star {% if plant.rating >= 3 %} starchecked {% endif %}"></span>
+                    <span class="fa fa-star {% if plant.rating >= 4 %} starchecked {% endif %}"></span>
+                    <span class="fa fa-star {% if plant.rating >= 5 %} starchecked {% endif %}"></span>
+                    <span><a href="#productreviews">({{ plant.rating }})</a></span>
+                    {% else %}
+                    No ratings yet.
+                    {% endif %}
+                </h5>
+                <h5>Reviews:
+                    {% if plant.reviews > 0 %}
+                    <span><a href="#productreviews">{{ plant.reviews }}</a></span>
+                    {% else %}
+                    No reviews yet.
+                    {% endif %}
+                </h5>
+                <p> {{plant.description}}
+                </p>
+                <div>
+                    <h5>${{plant.price}}</h5>
+                    <a href="{% url 'add_to_cart' plant_id=plant.id  %}" id="add-cart" class="btn btn-primary">Add to
+                        cart</a>
+                    {% for key, item in cart.items %}
+                    {% if plant.id ==  item.id|add:"0" %}
+                    {% if item.qty > 5 %}
+                    <p>Limit to 5 per user!</p>
+                    {% endif %}
+                    {% else %}
+                    <p> </p>
+                    {% endif %}
+                    {% endfor %}
+                </div>
             </div>
-            <div class="col">
-                <h5>Ratings</h5>
-                <h5>Reviews</h5>
-                <h5>${{plant.price}}</h5>
+            <div class="w-100"></div>
+            <div class="col" id="productreviews">
+                {% for review in plant_reviews %}
+                <p>"{{review.content}}"</p>
+                {% for user in users%}
+                {% if review.reviewed_by_id == user.id %}
+                <p>Reviewed by: {{user}}</p>
+                {% endif %}
+                {% endfor %}
+                <span class="fa fa-star {% if review.rating >= 1 %} starchecked {% endif %}"></span>
+                <span class="fa fa-star {% if review.rating >= 2 %} starchecked {% endif %}"></span>
+                <span class="fa fa-star {% if review.rating >= 3 %} starchecked {% endif %}"></span>
+                <span class="fa fa-star {% if review.rating >= 4 %} starchecked {% endif %}"></span>
+                <span class="fa fa-star {% if review.rating >= 5 %} starchecked {% endif %}"></span>
+                <small>Date of review: {{review.date}}</small>
+                {% endfor %}
+
             </div>
-        </div>
-        <div>
-            <a href="#" class="btn btn-primary">Info</a>
-            <a href="{% url 'add_to_cart' plant_id=plant.id  %}" id="add-cart" class="btn btn-primary">Add to cart</a>
-            {% for key, item in cart.items %}
-            {% if plant.id ==  item.id|add:"0" %}
-            {% if item.qty > 5 %}
-               <p>Limit to 5 per user!</p>
-            {% endif %}
-            {% else %}
-               <p > </p>
-            {% endif %}
-            {% endfor %}
         </div>
     </div>
 </div>

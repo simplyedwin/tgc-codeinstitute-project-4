@@ -29,6 +29,8 @@ def user_account(request):
     # to retrieve all the orders for the current user
     orders = orders.filter(query).values().distinct()
 
+    print(reviews.count())
+
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)
         userinfo_form = UserInfoForm(

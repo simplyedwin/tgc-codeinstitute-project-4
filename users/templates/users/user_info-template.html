@@ -72,18 +72,24 @@
                 <div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
 
                     {% for order in orders %}
-                    {% for review in reviews %}
                     <div class="jumbotron">
                         <h1 class="display-5">{{order.title}} ordered on: {{order.datetime_ordered}} </h1>
                         <hr class="my-4">
-                        <p class="lead">Price: SGD${{order.price}} Qty: {{order.qty}}</p>  
-                        {% if review.order.id != order.id%}
-                        <a class="btn btn-primary btn-lg" href="{% url 'write_review' order_id=order.id %}" role="button">Write a review</a>
+                        <p class="lead">Price: SGD${{order.price}} Qty: {{order.qty}}</p>
+                        {% if reviews|length != 0 %}
+                        {% for review in reviews %}
+                            {% if review.order.id != order.id%}
+                            <a class="btn btn-primary btn-lg" href="{% url 'write_review' order_id=order.id %}"
+                                role="button">Write a review</a>
+                            {% else %}
+                            <h5>You have reviewed this order on {{review.date}}.</h5>
+                            {% endif %}
+                            {% endfor %}
                         {% else %}
-                        <h5>You have reviewed this order on {{review.date}}.</h5>
+                            <a class="btn btn-primary btn-lg" href="{% url 'write_review' order_id=order.id %}"
+                            role="button">Write a review</a>
                         {% endif %}
                     </div>
-                    {% endfor %}
                     {% endfor %}
 
 

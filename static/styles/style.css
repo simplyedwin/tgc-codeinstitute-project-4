@@ -99,6 +99,10 @@ li {
     list-style:none;
 }
 
+.starchecked {
+  color: #FFD700;
+}
+
 .product-ratingSelector input + label {
     color: #FFD700;
 }
