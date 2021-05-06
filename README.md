@@ -273,9 +273,14 @@ The project uses Cloudinary to store image files and provides the image url link
 ### Bugs/Problems Encountered
 There are a numbers of bugs or problems encountered during the development of the project. The main ones are as explained below:
 
+- *** Form is not valid post back*** <br>
+Intially, whenever an invalid form is posted back to the url, there is no means to verify the invalid causes. It was later found 
+out from the django form api that it exists an form.error api to retrieve the problematic form field. Subsequently, all form invalid
+was easily resolved.
 
 
-- ***Status Code 302 response from Stripe Webhook*** <br>
+
+- *** Status Code 302 response from Stripe Webhook*** <br>
 During processing the payment by stripe with webhook enabled, the stripe webhook keeps responding back with a status code 302 even though
 payment_completed function was exempted from CSRF. It was found out the "login_required" decorator was added on the payment_completed function
 which caused the problem. 

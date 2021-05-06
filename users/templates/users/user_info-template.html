@@ -21,12 +21,6 @@
                         <h5>Orders History</h5>
                     </a>
                 </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="fav-tab" data-toggle="tab" href="#fav" role="tab" aria-controls="messages"
-                        aria-selected="false">
-                        <h5>Favourite Plants</h5>
-                    </a>
-                </li>
             </ul>
         </div>
         <div class="col-9">
@@ -89,7 +83,7 @@
                         <h1 class="display-5">{{order.title}} ordered on: {{order.datetime_ordered}} </h1>
                         <hr class="my-4">
                         <p class="lead">Price: SGD${{order.price}} Qty: {{order.qty}}</p>
-                        <a class="btn btn-primary btn-lg" href="{% url 'create_review' order_id=order.id %}" role="button">Write a review</a>
+                        <a class="btn btn-primary btn-lg" href="{% url 'write_review' order_id=order.id %}" role="button">Write a review</a>
                     </div>
 
                     {% endfor %}

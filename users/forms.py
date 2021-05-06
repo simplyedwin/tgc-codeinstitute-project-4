@@ -13,4 +13,4 @@ class UserForm(forms.ModelForm):
 class UserInfoForm(forms.ModelForm):
     class Meta:
         model = UserInfo
-        fields = ('date_of_birth', 'favourite_plant')
+        fields = ('date_of_birth',)

@@ -1,14 +1,29 @@
 $(function () {
 
-    $('#myTab li:first-child a').tab('show')
-
-     $("div").on("click", "#myorders", function () {
-            $('#myTab li:second-child a').tab('show')
-  });
+    $('#myTab li:first-child a').tab('show');
 
     setTimeout(() => {
         $("#flash-messages-content").fadeOut("slow")
     }, 3000);
 
+    $('#productstars-1-5').checked = true;
+
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
 
 })

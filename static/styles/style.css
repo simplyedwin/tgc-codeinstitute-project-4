@@ -11,7 +11,13 @@ html,body{
     font-size: 12px;
     display: flex;
     flex-direction: column;
+    user-select: none; /* supported by Chrome and Opera */
+   -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+   -moz-user-select: none; /* Firefox */
+   -ms-user-select: none; /* Internet Explorer/Edge */
 }
+
 
 .footer {
     flex-shrink: 0;
@@ -76,6 +82,51 @@ h6 {
     border-color: #ebcccc;
     color: #a94442;
 }
+
+/* styling for product star rating */
+
+.product-rating input {
+    display: none;
+}
+.product-rating label:before {
+    margin: 5px;
+    font-size: 1.25em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content:"\f005";
+}
+li {
+    list-style:none;
+}
+
+.product-ratingSelector input + label {
+    color: #FFD700;
+}
+.product-ratingSelector input:checked ~ input:not(:checked) ~ label {
+    color: #ddd;
+}
+.product-ratingSelector input:checked ~ input:not(:checked) + label:hover ~ label {
+    color: #ddd;
+}
+.product-ratingSelector:hover input + label,
+.product-ratingSelector:hover input:checked + label {
+    color: #FFED85;
+}
+.product-ratingSelector:hover input:checked ~ input:not(:checked) ~ label:hover,
+.product-ratingSelector:hover input:checked ~ input:not(:checked) + label {
+    color: #FFD700;
+}
+.product-ratingSelector:hover input:checked ~ input:not(:checked) ~ label:hover ~ label {
+    color: #ddd !important;
+}
+.product-ratingSelector input + label:hover ~ label {
+    color: #ddd !important;
+}
+
+
+
+
+
 
 
 /* Extra small devices (portrait phones, less than 576px)

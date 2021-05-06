@@ -11,9 +11,6 @@ class UserInfo(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     date_of_birth = models.DateField(null=True, blank=True)
-    favourite_plant = models.ForeignKey(Plant, models.SET_NULL,
-                                        blank=True,
-                                        null=True)
 
     def __str__(self):
         return str(self.user)
