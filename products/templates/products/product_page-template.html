@@ -1,8 +1,39 @@
 {% extends 'base-template.html' %}
 {% load static %}
-
-
 {% block content %}
-
+<div class="container mainsection d-flex justify-content-center">
+    <div class="container shadow m-4">
+        <div class="row justify-content-center">
+            <img src="{{ plant.image }}" class="img-fluid rounded" alt="...">
+            <h3 class="text-center">{{plant.name}}
+            </h3>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{plant.watering}}
+                {{plant.sunlight}}
+                {{plant.level}}
+            </div>
+            <div class="col">
+                <h5>Ratings</h5>
+                <h5>Reviews</h5>
+                <h5>${{plant.price}}</h5>
+            </div>
+        </div>
+        <div>
+            <a href="#" class="btn btn-primary">Info</a>
+            <a href="{% url 'add_to_cart' plant_id=plant.id  %}" id="add-cart" class="btn btn-primary">Add to cart</a>
+            {% for key, item in cart.items %}
+            {% if plant.id ==  item.id|add:"0" %}
+            {% if item.qty > 5 %}
+               <p>Limit to 5 per user!</p>
+            {% endif %}
+            {% else %}
+               <p > </p>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
 
 {% endblock %}

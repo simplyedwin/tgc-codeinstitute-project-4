@@ -8,7 +8,6 @@
     <h1>My Review</h1>
     <form method="POST" action="{% url 'create_review' order_id=order.id %}" class="needs-validation" novalidate>
         {% csrf_token %}
-        <fieldset disabled>
             <div class="form-group row">
                 <label for="title-id" class="col-sm-2 col-form-label">Review for:</label>
                 <div class="col-sm-10">
@@ -23,7 +22,6 @@
                         id="date-id" name="date">
                 </div>
             </div>
-        </fieldset>
         <div class="form-group row">
             <label for="content-id" class="col-sm-2 col-form-label">Content:</label>
             <div class="col-sm-10">

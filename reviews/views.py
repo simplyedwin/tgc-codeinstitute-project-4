@@ -36,6 +36,8 @@ def create_review(request, order_id):
 
             filled_review_form.plant = order_model.plant
 
+            filled_review_form.order = order_model
+
             filled_review_form.save()
 
             messages.success(request, "Your review is successfully added.")

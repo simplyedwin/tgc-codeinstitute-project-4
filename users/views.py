@@ -6,6 +6,7 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from checkout.models import Order
 from django.db.models import Q
+from reviews.models import Review
 
 # Create your views here.
 
@@ -15,6 +16,9 @@ def user_account(request):
 
     # to retrieve the current user
     user = request.user
+
+    # to retrieve all the reviews
+    reviews = Review.objects.all()
 
     # to retrieve all the orders
     orders = Order.objects.all()
@@ -30,7 +34,8 @@ def user_account(request):
         userinfo_form = UserInfoForm(
             request.POST, instance=request.user.userinfo)
         password_change_form = PasswordChangeForm(request.user, request.POST)
-        if user_form.is_valid() and userinfo_form.is_valid() and password_change_form.is_valid():
+        if (user_form.is_valid() and userinfo_form.is_valid()
+                and password_change_form.is_valid()):
             user = password_change_form.save()
             update_session_auth_hash(request, user)  # Important!
             user_form.save()
@@ -49,5 +54,6 @@ def user_account(request):
         'user_form': user_form,
         'userinfo_form': userinfo_form,
         'password_change_form': password_change_form,
-        'orders': orders
+        'orders': orders,
+        "reviews": reviews
     })
