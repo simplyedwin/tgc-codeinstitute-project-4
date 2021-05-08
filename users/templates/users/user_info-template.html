@@ -2,10 +2,10 @@
 {% load static %}
 {% block content %}
 <div class="container my-4 mainsection">
-    <div class="row justify-content-center">
+    <!-- <div class="row justify-content-center">
         <h1>My Account Info</h1>
-    </div>
-    <div class="row justify-content-center">
+    </div> -->
+    <div class="row justify-content-center mt-3">
         <div class="col-2">
             <ul class="nav flex-column bg-light border" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
@@ -26,6 +26,9 @@
         <div class="col-9">
             <div class="tab-content">
                 <div class="tab-pane fade show " id="acc-detail" role="tabpanel" aria-labelledby="acc-detail-tab">
+                    <div class="row justify-content-center mb-2">
+                        <h1>My Account Details</h1>
+                    </div>
                     <form method="post">
                         {% csrf_token %}
                         {% for form in user_form %}
@@ -70,30 +73,28 @@
                     </form>
                 </div>
                 <div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
-
+                    <div class="row justify-content-center mb-2">
+                        <h1>Order History</h1>
+                    </div>
                     {% for order in orders %}
                     <div class="jumbotron">
-                        <h1 class="display-5">{{order.title}} ordered on: {{order.datetime_ordered}} </h1>
+                        <a href="{% url 'product_page' plant_id=order.plant_id %}">
+                            <h1 class="display-5">{{order.title}} ordered on: {{order.datetime_ordered}} </h1>
+                        </a>
                         <hr class="my-4">
                         <p class="lead">Price: SGD${{order.price}} Qty: {{order.qty}}</p>
-                        {% if reviews|length != 0 %}
+                        {% if  order.plant_id in reviewed_plant_dict.plant_ids %}
                         {% for review in reviews %}
-                            {% if review.order.id != order.id%}
-                            <a class="btn btn-primary btn-lg" href="{% url 'write_review' order_id=order.id %}"
-                                role="button">Write a review</a>
-                            {% else %}
-                            <h5>You have reviewed this order on {{review.date}}.</h5>
-                            {% endif %}
-                            {% endfor %}
+                        {% if review.plant_id == order.plant_id %}
+                        <h5>You have reviewed this order on {{review.date}}.</h5>
+                        {% endif %}
+                        {% endfor %}
                         {% else %}
-                            <a class="btn btn-primary btn-lg" href="{% url 'write_review' order_id=order.id %}"
+                        <a class="btn btn-primary btn-lg" href="{% url 'write_review' order_id=order.id %}"
                             role="button">Write a review</a>
                         {% endif %}
                     </div>
                     {% endfor %}
-
-
-
                 </div>
                 <div class="tab-pane fade" id="fav" role="tabpanel" aria-labelledby="fav-tab">...</div>
             </div>

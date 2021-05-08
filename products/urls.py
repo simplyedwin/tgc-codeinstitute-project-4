@@ -6,4 +6,5 @@ urlpatterns = [
          name='shop_page'),
     path('product/<plant_id>', product_page,
          name='product_page')
+    
 ]

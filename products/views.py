@@ -16,7 +16,29 @@ def index(request):
 
 def shop_page(request):
 
+    # to retrieve all the plants
     plants = Plant.objects.all()
+    # to retrieve the query in the search box
+    search_query = request.GET
+    # run the search engine if there is query provided
+    if search_query:
+
+        query = Q(name__icontains=search_query['search-input']) | Q(
+            species__icontains=search_query['search-input']) | Q(
+            size__icontains=search_query['search-input']) | Q(
+            description__icontains=search_query['search-input']) | Q(
+            reviews__icontains=search_query['search-input']) | Q(
+            watering__icontains=search_query['search-input']) | Q(
+            sunlight__icontains=search_query['search-input']) | Q(
+            level__icontains=search_query['search-input']) | Q(
+            country__icontains=search_query['search-input'])
+
+        plants = plants.filter(query)
+
+        # display no result found page if no result is found
+        if not plants:
+
+            return render(request, 'products/no_result-template.html')
 
     # to determine the qty of items in cart
     cart = request.session.get('shopping_cart', {})

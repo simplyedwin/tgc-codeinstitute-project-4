@@ -39,10 +39,10 @@
             </button>
             <div class="collapse navbar-collapse col-10" id="navbarScroll">
 
-                <form class="form-inline col-8 justify-content-center ">
-                    <input class="form-control col-11 bg-light" style="height: 6vh;" type="search" placeholder="Search"
-                        aria-label="Search">
-                    <button class="btn btn-outline-success col-1 px-1 border-0" type="submit">
+                <form method="get" class="form-inline col-8 justify-content-center " action="{% url 'shop_page' %}">
+                    <input class="form-control col-11 bg-light" style="height: 6vh;" type="search" placeholder="Search for any plant info..."
+                        aria-label="Search" name="search-input">
+                    <button class="btn btn-outline-success col-1 px-1 border-0"  type="submit">
                         <img src="{% static 'images/searchicon.svg' %}" style="max-height: 4vh;" alt="searchicon">
                     </button>
                 </form>

@@ -14,6 +14,11 @@ from reviews.models import Review
 @login_required
 def user_account(request):
 
+    # to retrieve review status
+    reviewed_plant_ids = []
+
+    reviewed_plant_dict = {}
+
     # to retrieve the current user
     user = request.user
 
@@ -29,7 +34,13 @@ def user_account(request):
     # to retrieve all the orders for the current user
     orders = orders.filter(query).values().distinct()
 
-    print(reviews.count())
+    if reviews:
+        for review in reviews:
+            reviewed_plant_ids.append(review.plant.id)
+
+        reviewed_plant_dict["plant_ids"] = reviewed_plant_ids
+
+    print(reviewed_plant_dict)
 
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)
@@ -57,5 +68,6 @@ def user_account(request):
         'userinfo_form': userinfo_form,
         'password_change_form': password_change_form,
         'orders': orders,
+        "reviewed_plant_dict": reviewed_plant_dict,
         "reviews": reviews
     })
