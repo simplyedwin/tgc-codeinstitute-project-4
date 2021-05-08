@@ -11,6 +11,7 @@ class Plant(models.Model):
     description = models.TextField(blank=False)
     rating = models.DecimalField(max_digits=10, decimal_places=4, blank=False)
     reviews = models.IntegerField(blank=False)
+    qty = models.IntegerField(blank=False)
     watering = models.CharField(blank=False, max_length=100)
     sunlight = models.CharField(blank=False, max_length=100)
     level = models.CharField(blank=False, max_length=100)

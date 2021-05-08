@@ -9,6 +9,7 @@ import datetime
 from django.contrib import auth
 from checkout.models import Order
 from django.contrib.auth.models import User
+from django.db.models import Q
 
 
 # Create your views here.
@@ -111,6 +112,8 @@ def payment_completed(request):
 
     if event['type'] == 'checkout.session.completed':
 
+        plants = Plant.objects.all()
+
         hours = 8
 
         hours_added = datetime.timedelta(hours=hours)
@@ -127,6 +130,10 @@ def payment_completed(request):
 
             plant_model = get_object_or_404(Plant, pk=item['plant_id'])
             user_model = get_object_or_404(User, pk=item['user'])
+
+            plant_model.qty = plant_model.qty - item['qty']
+
+            plant_model.save(update_fields=["qty"])
 
             order = Order(
                 title=plant_model.name, price=float(item['price']),

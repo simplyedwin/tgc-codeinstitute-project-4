@@ -52,6 +52,7 @@
                 <a href="#" class="btn btn-primary">Info</a>
                 <a href="{% url 'add_to_cart' plant_id=plant.id  %}" id="add-cart" class="btn btn-primary">Add to
                     cart</a>
+                    Qty in stock: {{plant.qty}} {% if plant.qty <= 3 %} (Stock is running low) {% endif %}
                 {% for key, item in cart.items %}
                 {% if plant.id ==  item.id|add:"0" %}
                 {% if item.qty > 5 %}
