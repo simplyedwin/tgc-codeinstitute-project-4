@@ -32,7 +32,7 @@ SECRET_KEY = 'z@8gj!oy$g-%!*_hh5j0s2+60ly6&t5w#qpacyhfg!^7+4jigh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*','simplyedwin-tgc-proj4.herokuapp.com']
 
 
 # Application definition
@@ -66,6 +66,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'Project.urls'
@@ -168,6 +169,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
+
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
