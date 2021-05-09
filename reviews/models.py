@@ -14,8 +14,7 @@ class Review(models.Model):
     plant = models.ForeignKey(Plant, on_delete=models.CASCADE)
     reviewed_by = models.ForeignKey(User, on_delete=models.CASCADE)
     rating = models.IntegerField(blank=False)
-    order = models.OneToOneField(Order, on_delete=models.CASCADE,
-                                    primary_key=True,)
+    order = models.OneToOneField(Order, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return self.title

@@ -1,40 +1,44 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: 'Lato', sans-serif;;
-    color:saddlebrown;
-
+    font-family: "Lato", sans-serif;
+    color: saddlebrown;
 }
 
-html,body{
+html,
+body {
     height: 100%;
     font-size: 12px;
     display: flex;
     flex-direction: column;
-    user-select: none; /* supported by Chrome and Opera */
-   -webkit-user-select: none; /* Safari */
-   -khtml-user-select: none; /* Konqueror HTML */
-   -moz-user-select: none; /* Firefox */
-   -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+    /* supported by Chrome and Opera */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
 }
-
 
 .footer {
     flex-shrink: 0;
-    background-color: #FFFAF0;
+    background-color: #fffaf0;
 }
 
-.mainsection{
+.mainsection {
     flex: 1 0 auto;
 }
 
-.sloganpage{
-    background-image: url('/static/images/landingpage-cover.png');
+.sloganpage {
+    background-image: url("/static/images/landingpage-cover.png");
 }
 
 .navbar {
     height: 15vh;
-    background-color: #FFFAF0;
+    background-color: #fffaf0;
 }
 
 .navbaricon:hover {
@@ -50,7 +54,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Oswald', sans-serif;
+    font-family: "Oswald", sans-serif;
 }
 
 #shopnow {
@@ -65,6 +69,7 @@ h6 {
     margin-bottom: 4px !important;
     margin-top: 4px !important;
 }
+
 .flash-messages {
     z-index: 2000;
     position: fixed;
@@ -74,9 +79,11 @@ h6 {
     text-align: right;
     top: 10px;
 }
+
 .alert {
     margin-top: 1rem;
 }
+
 .alert-error {
     background-color: #f2dede;
     border-color: #ebcccc;
@@ -88,50 +95,110 @@ h6 {
 .product-rating input {
     display: none;
 }
+
 .product-rating label:before {
     margin: 5px;
     font-size: 1.25em;
     font-family: FontAwesome;
     display: inline-block;
-    content:"\f005";
+    content: "\f005";
 }
+
 li {
-    list-style:none;
+    list-style: none;
 }
 
 .starchecked {
-  color: #FFD700;
+    color: #ffd700;
 }
 
-.product-ratingSelector input + label {
-    color: #FFD700;
+.product-ratingSelector input+label {
+    color: #ffd700;
 }
-.product-ratingSelector input:checked ~ input:not(:checked) ~ label {
+
+.product-ratingSelector input:checked~input:not(:checked)~label {
     color: #ddd;
 }
-.product-ratingSelector input:checked ~ input:not(:checked) + label:hover ~ label {
+
+.product-ratingSelector input:checked~input:not(:checked)+label:hover~label {
     color: #ddd;
 }
-.product-ratingSelector:hover input + label,
-.product-ratingSelector:hover input:checked + label {
-    color: #FFED85;
+
+.product-ratingSelector:hover input+label,
+.product-ratingSelector:hover input:checked+label {
+    color: #ffed85;
 }
-.product-ratingSelector:hover input:checked ~ input:not(:checked) ~ label:hover,
-.product-ratingSelector:hover input:checked ~ input:not(:checked) + label {
-    color: #FFD700;
+
+.product-ratingSelector:hover input:checked~input:not(:checked)~label:hover,
+.product-ratingSelector:hover input:checked~input:not(:checked)+label {
+    color: #ffd700;
 }
-.product-ratingSelector:hover input:checked ~ input:not(:checked) ~ label:hover ~ label {
+
+.product-ratingSelector:hover input:checked~input:not(:checked)~label:hover~label {
     color: #ddd !important;
 }
-.product-ratingSelector input + label:hover ~ label {
+
+.product-ratingSelector input+label:hover~label {
     color: #ddd !important;
 }
 
+.icon {
+    display: flexbox;
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
 
+.icon-search {
+    background-image: url("/static/images/searchicon.svg");
+}
 
+.icon-search:hover,
+.icon-search:focus {
+    filter: invert(55%) sepia(71%) saturate(362%) hue-rotate(94deg) brightness(150%) contrast(93%);
+}
 
+.icon-shop {
+    background-image: url("/static/images/shopicon.svg");
+}
 
+.icon-shop:hover,
+.icon-shop:focus {
+    filter: invert(55%) sepia(71%) saturate(362%) hue-rotate(94deg) brightness(150%) contrast(93%);
+}
 
+.icon-cart {
+    background-image: url("/static/images/carticon.svg");
+}
+
+.icon-cart:hover,
+.icon-cart:focus {
+    filter: invert(55%) sepia(71%) saturate(362%) hue-rotate(94deg) brightness(150%) contrast(93%);
+}
+
+.icon-account {
+    background-image: url("/static/images/accountsicon.svg");
+}
+
+.icon-account:hover,
+.icon-account:focus {
+    filter: invert(55%) sepia(71%) saturate(362%) hue-rotate(94deg) brightness(150%) contrast(93%);
+}
+
+.icon-logout {
+    background-image: url("/static/images/logouticon.svg");
+}
+
+.icon-logout:hover,
+.icon-logout:focus {
+    filter: invert(55%) sepia(71%) saturate(362%) hue-rotate(94deg) brightness(150%) contrast(93%);
+}
+
+#searchbtn {
+    background-color: transparent;
+    border: none;
+}
 
 /* Extra small devices (portrait phones, less than 576px)
  No media query for `xs` since this is the default in Bootstrap
