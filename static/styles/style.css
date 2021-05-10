@@ -1,51 +1,46 @@
 * {
-    padding: 0;
-    margin: 0;
-    font-family: "Lato", sans-serif;
-    color: saddlebrown;
+  padding: 0;
+  margin: 0;
+  font-family: "Lato", sans-serif;
+  color: saddlebrown;
 }
 
 html,
 body {
-    height: 100%;
-    font-size: 12px;
-    display: flex;
-    flex-direction: column;
-    user-select: none;
-    /* supported by Chrome and Opera */
-    -webkit-user-select: none;
-    /* Safari */
-    -khtml-user-select: none;
-    /* Konqueror HTML */
-    -moz-user-select: none;
-    /* Firefox */
-    -ms-user-select: none;
-    /* Internet Explorer/Edge */
+  height: 100%;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  user-select: none; /* supported by Chrome and Opera */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
 }
 
 .footer {
-    flex-shrink: 0;
-    background-color: #fffaf0;
+  flex-shrink: 0;
+  background-color: #fffaf0;
 }
 
 .mainsection {
-    flex: 1 0 auto;
+  flex: 1 0 auto;
 }
 
 .sloganpage {
-    background-image: url("/static/images/landingpage-cover.png");
+  background-image: url("/static/images/landingpage-cover.png");
 }
 
 .navbar {
-    height: 15vh;
-    background-color: #fffaf0;
+  height: 15vh;
+  background-color: #fffaf0;
 }
 
 .navbaricon:hover {
-    /* background-bor: #3cb371; */
-    border-width: 3px;
-    border-radius: 10px;
-    /* color: white; */
+  /* background-bor: #3cb371; */
+  border-width: 3px;
+  border-radius: 10px;
+  /* color: white; */
 }
 
 h1,
@@ -54,178 +49,244 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Oswald", sans-serif;
+  font-family: "Oswald", sans-serif;
 }
 
 #shopnow {
-    background-color: white;
-    opacity: 70%;
-    color: #3cb371;
-    border-radius: 1rem;
+  background-color: white;
+  opacity: 70%;
+  color: #3cb371;
+  border-radius: 1rem;
 }
 
 .msg {
-    margin: 0 !important;
-    margin-bottom: 4px !important;
-    margin-top: 4px !important;
+  margin: 0 !important;
+  margin-bottom: 4px !important;
+  margin-top: 4px !important;
 }
-
 .flash-messages {
-    z-index: 2000;
-    position: fixed;
-    right: 2em;
-    margin-top: -1em;
-    list-style: none;
-    text-align: right;
-    top: 10px;
+  z-index: 2000;
+  position: fixed;
+  right: 2em;
+  margin-top: -1em;
+  list-style: none;
+  text-align: right;
+  top: 10px;
 }
-
 .alert {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
-
 .alert-error {
-    background-color: #f2dede;
-    border-color: #ebcccc;
-    color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebcccc;
+  color: #a94442;
 }
 
 /* styling for product star rating */
 
 .product-rating input {
-    display: none;
+  display: none;
 }
-
 .product-rating label:before {
-    margin: 5px;
-    font-size: 1.25em;
-    font-family: FontAwesome;
-    display: inline-block;
-    content: "\f005";
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
 }
-
 li {
-    list-style: none;
+  list-style: none;
 }
 
 .starchecked {
-    color: #ffd700;
+  color: #ffd700;
 }
 
-.product-ratingSelector input+label {
-    color: #ffd700;
+.product-ratingSelector input + label {
+  color: #ffd700;
 }
-
-.product-ratingSelector input:checked~input:not(:checked)~label {
-    color: #ddd;
+.product-ratingSelector input:checked ~ input:not(:checked) ~ label {
+  color: #ddd;
 }
-
-.product-ratingSelector input:checked~input:not(:checked)+label:hover~label {
-    color: #ddd;
+.product-ratingSelector
+  input:checked
+  ~ input:not(:checked)
+  + label:hover
+  ~ label {
+  color: #ddd;
 }
-
-.product-ratingSelector:hover input+label,
-.product-ratingSelector:hover input:checked+label {
-    color: #ffed85;
+.product-ratingSelector:hover input + label,
+.product-ratingSelector:hover input:checked + label {
+  color: #ffed85;
 }
-
-.product-ratingSelector:hover input:checked~input:not(:checked)~label:hover,
-.product-ratingSelector:hover input:checked~input:not(:checked)+label {
-    color: #ffd700;
+.product-ratingSelector:hover input:checked ~ input:not(:checked) ~ label:hover,
+.product-ratingSelector:hover input:checked ~ input:not(:checked) + label {
+  color: #ffd700;
 }
-
-.product-ratingSelector:hover input:checked~input:not(:checked)~label:hover~label {
-    color: #ddd !important;
+.product-ratingSelector:hover
+  input:checked
+  ~ input:not(:checked)
+  ~ label:hover
+  ~ label {
+  color: #ddd !important;
 }
-
-.product-ratingSelector input+label:hover~label {
-    color: #ddd !important;
+.product-ratingSelector input + label:hover ~ label {
+  color: #ddd !important;
 }
 
 .icon {
-    display: flexbox;
-    width: 40px;
-    height: 40px;
-    background-size: contain;
-    background-repeat: no-repeat;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .icon-search {
-    background-image: url("/static/images/searchicon.svg");
+  background-image: url("/static/images/searchicon.svg");
 }
-
 .icon-search:hover,
 .icon-search:focus {
-    filter: invert(55%) sepia(71%) saturate(362%) hue-rotate(94deg) brightness(150%) contrast(93%);
+    filter: invert(55%) sepia(71%) saturate(362%) hue-rotate(94deg)
+    brightness(150%) contrast(93%);
 }
-
 .icon-shop {
-    background-image: url("/static/images/shopicon.svg");
+  background-image: url("/static/images/shopicon.svg");
 }
-
 .icon-shop:hover,
-.icon-shop:focus {
-    filter: invert(55%) sepia(71%) saturate(362%) hue-rotate(94deg) brightness(150%) contrast(93%);
+.icon-shop:focus,
+.icon-shop.clicked{
+  filter: invert(55%) sepia(71%) saturate(362%) hue-rotate(94deg)
+    brightness(150%) contrast(93%);
 }
-
 .icon-cart {
-    background-image: url("/static/images/carticon.svg");
+  background-image: url("/static/images/carticon.svg");
 }
-
 .icon-cart:hover,
 .icon-cart:focus {
-    filter: invert(55%) sepia(71%) saturate(362%) hue-rotate(94deg) brightness(150%) contrast(93%);
+    filter: invert(55%) sepia(71%) saturate(362%) hue-rotate(94deg)
+    brightness(150%) contrast(93%);
 }
-
 .icon-account {
-    background-image: url("/static/images/accountsicon.svg");
+  background-image: url("/static/images/accountsicon.svg");
 }
-
 .icon-account:hover,
 .icon-account:focus {
-    filter: invert(55%) sepia(71%) saturate(362%) hue-rotate(94deg) brightness(150%) contrast(93%);
+    filter: invert(55%) sepia(71%) saturate(362%) hue-rotate(94deg)
+    brightness(150%) contrast(93%);
 }
-
 .icon-logout {
-    background-image: url("/static/images/logouticon.svg");
+  background-image: url("/static/images/logouticon.svg");
 }
-
 .icon-logout:hover,
 .icon-logout:focus {
-    filter: invert(55%) sepia(71%) saturate(362%) hue-rotate(94deg) brightness(150%) contrast(93%);
+    filter: invert(55%) sepia(71%) saturate(362%) hue-rotate(94deg)
+    brightness(150%) contrast(93%);
+}
+
+.addcartbtn {
+  background-color: #3cb371;
 }
 
 #searchbtn {
-    background-color: transparent;
-    border: none;
+  background-color: transparent;
+  border: none;
+}
+
+.iconnoshade {
+  display: inline-block;
+  width: 3vw;
+  height: 3vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("/static/images/shadenoicon.svg");
+}
+.iconhalfshade {
+  display: inline-block;
+  width: 3vw;
+  height: 3vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("/static/images/shadehalficon.svg");
+}
+.iconfullshade {
+  display: inline-block;
+  width: 3vw;
+  height: 3vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("/static/images/shadefullicon.svg");
+}
+
+.iconlowwatering {
+  display: inline-block;
+  width: 3vw;
+  height: 3vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("/static/images/wateringlowicon.svg");
+}
+.iconmidwatering {
+  display: inline-block;
+  width: 3vw;
+  height: 3vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("/static/images/wateringmediumicon.svg");
+}
+.iconhighwatering {
+  display: inline-block;
+  width: 3vw;
+  height: 3vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("/static/images/wateringhighicon.svg");
+}
+
+
+.iconreviews {
+  display: inline-block;
+  width: 3vw;
+  height: 3vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("/static/images/reviewsicon.svg");
 }
 
 /* Extra small devices (portrait phones, less than 576px)
  No media query for `xs` since this is the default in Bootstrap
  Small devices (landscape phones, 576px and up) */
 @media (min-width: 539px) {
-    #accountlogin {
-        width: 60vw;
-    }
+  #accountlogin {
+    width: 60vw;
+  }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-    #accountlogin {
-        width: 50vw;
-    }
+  #accountlogin {
+    width: 50vw;
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-    #accountlogin {
-        width: 40vw;
-    }
+  #accountlogin {
+    width: 40vw;
+  }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-    #accountlogin {
-        width: 30vw;
-    }
+  #accountlogin {
+    width: 30vw;
+  }
 }
