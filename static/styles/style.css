@@ -21,6 +21,7 @@ body {
 .footer {
   flex-shrink: 0;
   background-color: #fffaf0;
+  height: 12vh;
 }
 
 .mainsection {
@@ -259,6 +260,37 @@ li {
   background-repeat: no-repeat;
   background-position: center;
   background-image: url("/static/images/reviewsicon.svg");
+}
+
+
+.iconfb {
+  display: inline-block;
+  width: 3vw;
+  height: 4vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("/static/images/footerfacebookicon.svg");
+}
+
+.iconinst {
+  display: inline-block;
+  width: 3vw;
+  height: 4vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("/static/images/footerinstagramicon.svg");
+}
+
+.iconutube {
+  display: inline-block;
+  width: 3vw;
+  height: 4vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("/static/images/footeryoutubeicon.svg");
 }
 
 /* Extra small devices (portrait phones, less than 576px)
