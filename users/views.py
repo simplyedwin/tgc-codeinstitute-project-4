@@ -11,26 +11,27 @@ from reviews.models import Review
 
 # Create your views here.
 
+
 def contact_us(request):
 
     return render(request, 'users/contact_us-template.html')
-
 
 
 @login_required
 def user_account(request):
 
     # to retrieve review status
-    reviewed_plant_ids = []
+    reviewed_order_ids = []
 
-    reviewed_plant_dict = {}
+    # to pass the reviewed order id
+    reviewed_order_ids_dict = {}
 
     # to retrieve the current user
     user = request.user
 
     # to retrieve all the reviews
     reviews = Review.objects.all()
-    
+
     # to retrieve all the plants
     plants = Plant.objects.all()
 
@@ -45,11 +46,10 @@ def user_account(request):
 
     if reviews:
         for review in reviews:
-            reviewed_plant_ids.append(review.plant.id)
 
-        reviewed_plant_dict["plant_ids"] = reviewed_plant_ids
+            reviewed_order_ids.append(review.order.id)
 
-    print(reviewed_plant_dict)
+    reviewed_order_ids_dict["reviewed_order_ids"] = reviewed_order_ids
 
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)
@@ -77,7 +77,7 @@ def user_account(request):
         'userinfo_form': userinfo_form,
         'password_change_form': password_change_form,
         'orders': orders,
-        "reviewed_plant_dict": reviewed_plant_dict,
+        "reviewed_plant_order_ids_dict": reviewed_order_ids_dict,
         "reviews": reviews,
-        'plants':plants
+        'plants': plants
     })

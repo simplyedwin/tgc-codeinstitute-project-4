@@ -80,11 +80,12 @@ def view_cart(request):
 
     total_sum = 0
 
-    if cart != None:
+    if cart is not None:
 
         for item in cart:
 
-            item_total = cart[item]['price'] * cart[item]['qty']
+            item_total = (cart[item]['price']/cart[item]
+                          ['qty']) * cart[item]['qty']
 
             total_sum = total_sum + item_total
 
