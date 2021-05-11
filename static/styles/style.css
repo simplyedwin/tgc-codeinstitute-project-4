@@ -57,17 +57,17 @@ h6 {
     font-family: "Oswald", sans-serif;
 }
 
-#acc-detail-tab,
-#acc-detail-tab {
-    background-color: transparent;
-    border: none;
-}
 
 #myTab {
     background-color: #fffaf0;
     border-radius: 10px;
 }
 
+[aria-selected="true"] {
+    background-color: #696969;
+    color: white;
+    border-radius: 10px;
+}
 
 #a-viewcart:hover {
     color: saddlebrown;
@@ -92,6 +92,8 @@ h6 {
     color: white;
     border-radius: 10px;
 }
+
+
 
 #shopnow {
     background-color: white;
