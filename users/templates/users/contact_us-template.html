@@ -1,0 +1,41 @@
+{% extends "base-template.html" %}
+{% load static %}
+{% block content %}
+<div class="container my-4 mainsection">
+
+    <div class="row">
+        <p class="contents">
+            Hi there! Thanks for visting my website! If you would like to know more about me or
+            want to make more of my kind, please leave your info as follow:
+        </p>
+
+        <div class="w-100"></div>
+        <div class="col-8">
+            <form>
+                <div class="form-group">
+                    <label class="formlabel" for="visitorName">What's your name?</label>
+                    <input type="text" class="form-control" id="visitorName">
+                    <label class="formlabel" for="visitorEmail">What's your email address?</label>
+                    <input type="email" class="form-control" id="visitorEmail">
+                    <label class="formlabel" for="visitorSubject">What's it about?</label>
+                    <select class="form-control" id="visitorSubject">
+                        <option value="">&nbsp;</option>
+                        <option>Make more of my kind</option>
+                        <option>Collaboration</option>
+                        <option>Job offer</option>
+                        <option>Improve me</option>
+                        <option>Need help</option>
+                    </select>
+                    <label class="formlabel" for="visitorQuery">What do you wanna ask me?</label>
+                    <textarea class="form-control" id="visitorQuery" cols="30" rows="10"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+</div>
+
+{% endblock %}

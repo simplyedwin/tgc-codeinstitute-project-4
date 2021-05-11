@@ -11,6 +11,11 @@ from reviews.models import Review
 # Create your views here.
 
 
+def contact_us(request):
+
+    return render(request, 'users/contact_us-template.html')
+
+
 @login_required
 def user_account(request):
 
