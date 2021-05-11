@@ -14,6 +14,11 @@ def index(request):
     return render(request, 'products/landing_page-template.html')
 
 
+def about_us(request):
+
+    return render(request, 'products/about_us-template.html')
+
+
 def shop_page(request):
 
     # to retrieve all the plants
