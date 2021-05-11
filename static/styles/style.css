@@ -5,6 +5,12 @@
   color: saddlebrown;
 }
 
+a{
+  color: saddlebrown;
+  outline:none
+}
+
+
 html,
 body {
   height: 100%;
@@ -37,13 +43,6 @@ body {
   background-color: #fffaf0;
 }
 
-.navbaricon:hover {
-  /* background-bor: #3cb371; */
-  border-width: 3px;
-  border-radius: 10px;
-  /* color: white; */
-}
-
 h1,
 h2,
 h3,
@@ -51,6 +50,40 @@ h4,
 h5,
 h6 {
   font-family: "Oswald", sans-serif;
+}
+
+#acc-detail-tab,
+#acc-detail-tab{
+  background-color:transparent;
+  border: none;
+}
+
+#myTab{
+  background-color: #fffaf0;
+  border-radius: 10px;
+}
+
+
+#a-viewcart:hover{
+  color: saddlebrown;
+}
+
+#acc-detail-tab:focus{
+  background-color: #3cb371;
+  color: white;
+}
+
+#acc-detail-tab:hover{
+  color: saddlebrown;
+}
+
+
+#orders-tab:focus{
+  background-color: #3cb371;
+  color: white;
+}
+#orders-tab:hover{
+  color: saddlebrown;
 }
 
 #shopnow {
@@ -156,8 +189,7 @@ li {
   background-image: url("/static/images/shopicon.svg");
 }
 .icon-shop:hover,
-.icon-shop:focus,
-.icon-shop.clicked{
+.icon-shop:focus{
   filter: invert(55%) sepia(71%) saturate(362%) hue-rotate(94deg)
     brightness(150%) contrast(93%);
 }

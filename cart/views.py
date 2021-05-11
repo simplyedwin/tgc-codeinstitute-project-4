@@ -77,23 +77,18 @@ def update_cart(request, plant_id):
 def view_cart(request):
 
     cart = request.session.get('shopping_cart')
-    
-    print(cart)
-    
+
     total_sum = 0
 
-    
-    for item in cart:
-        
-        print(cart[item])
-        
-        item_total = cart[item]['price'] * cart[item]['qty']
-        
-        total_sum = total_sum + item_total
-    
-    print(total_sum)
+    if cart != None:
+
+        for item in cart:
+
+            item_total = cart[item]['price'] * cart[item]['qty']
+
+            total_sum = total_sum + item_total
 
     return render(request, 'cart/view_cart-template.html', {
         'cart': cart,
-        'total_sum':total_sum
+        'total_sum': total_sum
     })

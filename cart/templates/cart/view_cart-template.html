@@ -5,85 +5,88 @@
 {% block content %}
 {% if cart|length > 0 %}
 <div class="container mainsection d-flex flex-column">
-    <h1 class="text-center font-weight-bold">ITEMS IN CART</h1>
-    <div class="row">
-        <div class="col-9">
-            {% for key, item in cart.items %}
-            <div class="row mb-3 rounded" style="background-color:#fffaf0">
-                <div class="col-md-2 text-center p-0">
-                    <img src="{{ item.image }}" class="w-100" alt="plant image">
-                </div>
-                <div class="col-md-10">
-                    <div class="d-flex col-12 justify-content-end">
-                        <a href="{% url 'remove_from_cart' plant_id=item.id %}">
-                            <span class="iconbin my-3"></span>
-                        </a>
-                    </div>
-                    <div class="row mt-3">                 
-                        <div class="col-3 h3">
-                            {{item.name}}
+    <div class="row mt-5">
+            <div class="col-9">
+                {% for key, item in cart.items %}
+                    <div class="row mb-3 rounded" style="background-color:#fffaf0">
+                        <div class="col-md-2 text-center p-0">
+                            <a href="{% url 'product_page' plant_id=item.id %}" class="text-decoration-none">
+                            <img src="{{ item.image }}" class="w-100" alt="plant image">
+                            </a>
                         </div>
-                        <div class="col-3 h3">
-                            SGD ${{item.price|floatformat:2}}
-                        </div>
-                        <div class="col-6">
-                            <form method="POST" action="{% url 'update_cart' plant_id=item.id %}">
-                                <div class="row">
-                                    {% csrf_token %}
-                                    <div class="col-6 h3 form-group">
-                                        <label for="Quantity">Qty</label>
-                                        {% if item.qty == 1 %}
-                                        <select class="form-control" id="Quantity" name="qty">
-                                            <option selected>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select>
-                                        {% elif item.qty == 2 %}
-                                        <select class="form-control" id="Quantity" name="qty">
-                                            <option>1</option>
-                                            <option selected>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select>
-                                        {% elif item.qty == 3 %}
-                                        <select class="form-control" id="Quantity" name="qty">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option selected>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select>
-                                        {% elif item.qty == 4 %}
-                                        <select class="form-control" id="Quantity" name="qty">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option selected>4</option>
-                                            <option>5</option>
-                                        </select>
-                                        {% else %}
-                                        <select class="form-control" id="Quantity" name="qty">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option selected>5</option>
-                                        </select>
-                                        {% endif %}
-                                    </div>
-                                    <button class="h4 button">Update</button>
+                        <div class="col-md-10">
+                            <div class="d-flex col-12 justify-content-end">
+                                <a href="{% url 'remove_from_cart' plant_id=item.id %}">
+                                    <span class="iconbin my-3"></span>
+                                </a>
+                            </div>
+                            <div class="row mt-3">                 
+                                <div class="col-3 h3">
+                                    <a href="{% url 'product_page' plant_id=item.id %}" class="text-decoration-none" id="a-viewcart">
+                                    {{item.name}}
+                                    </a>
                                 </div>
-                            </form>
+                                <div class="col-3 h3">
+                                    SGD ${{item.price|floatformat:2}}
+                                </div>
+                                <div class="col-6">
+                                    <form method="POST" action="{% url 'update_cart' plant_id=item.id %}">
+                                        <div class="row">
+                                            {% csrf_token %}
+                                            <div class="col-6 h3 form-group">
+                                                <label for="Quantity">Qty</label>
+                                                {% if item.qty == 1 %}
+                                                <select class="form-control" id="Quantity" name="qty">
+                                                    <option selected>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                                                {% elif item.qty == 2 %}
+                                                <select class="form-control" id="Quantity" name="qty">
+                                                    <option>1</option>
+                                                    <option selected>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                                                {% elif item.qty == 3 %}
+                                                <select class="form-control" id="Quantity" name="qty">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option selected>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                                                {% elif item.qty == 4 %}
+                                                <select class="form-control" id="Quantity" name="qty">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option selected>4</option>
+                                                    <option>5</option>
+                                                </select>
+                                                {% else %}
+                                                <select class="form-control" id="Quantity" name="qty">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option selected>5</option>
+                                                </select>
+                                                {% endif %}
+                                            </div>
+                                            <button class="h4 button">Update</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            {% endfor %}
+                {% endfor %}
 
-        </div>
+            </div>
         <div class="col-3 font-weight-bold h2 h-25" style="position: fixed;right: 0;">
             <h3>Total Amount:</h3> SGD ${{total_sum|floatformat:2}} 
             <div class="mt-3">

@@ -1,3 +1,4 @@
+from products.models import Plant
 from django.shortcuts import redirect, render, reverse
 from .forms import UserForm, UserInfoForm
 from django.contrib import messages
@@ -10,10 +11,10 @@ from reviews.models import Review
 
 # Create your views here.
 
-
 def contact_us(request):
 
     return render(request, 'users/contact_us-template.html')
+
 
 
 @login_required
@@ -29,6 +30,9 @@ def user_account(request):
 
     # to retrieve all the reviews
     reviews = Review.objects.all()
+    
+    # to retrieve all the plants
+    plants = Plant.objects.all()
 
     # to retrieve all the orders
     orders = Order.objects.all()
@@ -74,5 +78,6 @@ def user_account(request):
         'password_change_form': password_change_form,
         'orders': orders,
         "reviewed_plant_dict": reviewed_plant_dict,
-        "reviews": reviews
+        "reviews": reviews,
+        'plants':plants
     })
