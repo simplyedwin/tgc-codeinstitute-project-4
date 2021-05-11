@@ -199,8 +199,6 @@
                                             {% for key, item in cart.items %}
                                                 {% if plant.id == item.id|add:"0" %}
                                                     {% if item.qty < 6 %} 
-                                                        <p>
-                                                        </p>
                                                     {% else %}
                                                         <h6>Limit to 5 per user!</h6>
                                                     {% endif %}
