@@ -2,73 +2,254 @@
 {% load static %}
 {% block content %}
 <div class="container mainsection d-flex justify-content-center">
-    <div class="container shadow m-4">
+    <div class="container m-4" style="background-color:#fffaf0">
         <div class="row">
-            <div class="col-6">
-                <img src="{{ plant.image }}" class="img-fluid rounded" alt="...">
+            <div class="col-12">
+                <div class="row p-5">
+                        <div class="col-6 text-center">
+                        <img src="{{ plant.image }}" class="img w-100 rounded" alt="...">
+                        </div>
+                        <div class="col-6">
+                            <h1 class="card-title">{{plant.name}}</h1>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item" style="background-color:#fffaf0">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="row align-items-center">
+                                                {% if plant.rating > 0 %}
+                                                <div class="col-6 h4">
+                                                    <span class="fa fa-star {% if plant.rating >= 1 %} starchecked {% endif %}"></span>
+                                                    <span class="fa fa-star {% if plant.rating >= 2 %} starchecked {% endif %}"></span>
+                                                    <span class="fa fa-star {% if plant.rating >= 3 %} starchecked {% endif %}"></span>
+                                                    <span class="fa fa-star {% if plant.rating >= 4 %} starchecked {% endif %}"></span>
+                                                    <span class="fa fa-star {% if plant.rating >= 5 %} starchecked {% endif %}"></span>    
+                                                </div>
+                                                <div class="col-6 h4">
+                                                    ({{ plant.rating|floatformat:2 }})
+                                                </div>
+                                                {% else %}
+                                                <h4>No ratings yet.</h4>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item" style="background-color:#fffaf0">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="row align-items-center">
+                                                <div class="col-6 h4">
+                                                    <div class="iconreviews" title="Total no. of reviews" style="width: 3vw;height: 6vh;">
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 h4">
+                                                    {% if plant.reviews == 1 %}
+                                                    {{ plant.reviews}} review
+                                                    {% elif plant.reviews > 1 %}
+                                                    {{ plant.reviews}} reviews
+                                                    {% else %}
+                                                    No reviews yet.
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </li>
+                                <li class="list-group-item" style="background-color:#fffaf0">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="row align-items-center">
+                                                <div class="col-6 h4">
+                                                    <div class="
+                                                    {% if plant.watering == 'Low' %}
+                                                    iconlowwatering
+                                                    {% elif plant.watering == 'Medium' %}
+                                                    iconmidwatering
+                                                    {% elif plant.watering == 'High' %}
+                                                    iconhighwatering
+                                                    {% endif %}                                    
+                                                    "
+                                                    title = "
+                                                    {% if plant.watering == 'Low' %}
+                                                    Low watering
+                                                    {% elif plant.watering == 'Medium' %}
+                                                    Medium watering
+                                                    {% elif plant.watering == 'High' %}
+                                                    High watering
+                                                    {% endif %}  "
+                                                    style="width: 3vw;height: 6vh;">
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 h4">
+                                                    {% if plant.watering == 'Low' %}
+                                                    Low watering
+                                                    {% elif plant.watering == 'Medium' %}
+                                                    Medium watering
+                                                    {% elif plant.watering == 'High' %}
+                                                    High watering
+                                                    {% endif %} 
+                                                </div>
+                                           </div>
+                                        </div>
 
-            </div>
-            <div class="col-6">
-                <h3 class="text-center">{{plant.name}}</h3>
-                {{plant.species}}
-                {{plant.country}}
-                {{plant.size}}
-                {{plant.watering}}
-                {{plant.sunlight}}
-                {{plant.level}}
-                <h5>Ratings:
-                    {% if plant.rating > 0 %}
-                    <span class="fa fa-star {% if plant.rating >= 1 %} starchecked {% endif %}"></span>
-                    <span class="fa fa-star {% if plant.rating >= 2 %} starchecked {% endif %}"></span>
-                    <span class="fa fa-star {% if plant.rating >= 3 %} starchecked {% endif %}"></span>
-                    <span class="fa fa-star {% if plant.rating >= 4 %} starchecked {% endif %}"></span>
-                    <span class="fa fa-star {% if plant.rating >= 5 %} starchecked {% endif %}"></span>
-                    <span><a href="#productreviews">({{ plant.rating }})</a></span>
-                    {% else %}
-                    No ratings yet.
-                    {% endif %}
-                </h5>
-                <h5>Reviews:
-                    {% if plant.reviews > 0 %}
-                    <span><a href="#productreviews">{{ plant.reviews }}</a></span>
-                    {% else %}
-                    No reviews yet.
-                    {% endif %}
-                </h5>
-                <p> {{plant.description}}
-                </p>
-                <div>
-                    <h5>${{plant.price}}</h5>
-                    <a href="{% url 'add_to_cart' plant_id=plant.id  %}" id="add-cart" class="btn btn-primary">Add to
-                        cart</a>
-                        Qty in stock: {{plant.qty}}{% if plant.qty <= 3 %} (Stock is running low) {% endif %}
-                    {% for key, item in cart.items %}
-                    {% if plant.id ==  item.id|add:"0" %}
-                    {% if item.qty > 5 %}
-                    <p>Limit to 5 per user!</p>
-                    {% endif %}
-                    {% else %}
-                    <p> </p>
-                    {% endif %}
-                    {% endfor %}
+                                    </div>
+                                </li>
+                                <li class="list-group-item" style="background-color:#fffaf0">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="row align-items-center">
+                                                <div class="col-6 h4">
+                                                    <div class="
+                                                    {% if plant.sunlight == 'No_Shade' %}
+                                                    iconnoshade
+                                                    {% elif plant.sunlight == 'Half_Shade' %}
+                                                    iconhalfshade
+                                                    {% elif plant.sunlight == 'Full_Shade' %}
+                                                    iconfullshade
+                                                    {% endif %}                                    
+                                                    "
+                                                    title = "
+                                                    {% if plant.sunlight == 'No_Shade' %}
+                                                    Direct sunlight
+                                                    {% elif plant.sunlight == 'Half_Shade' %}
+                                                    Direct sunlight under shade
+                                                    {% elif plant.sunlight == 'Full_Shade' %}
+                                                    Indrect sunlight
+                                                    {% endif %}  "
+                                                    style="width: 3vw;height: 6vh;">
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 h4">
+                                                    {% if plant.sunlight == 'No_Shade' %}
+                                                    Direct sunlight
+                                                    {% elif plant.sunlight == 'Half_Shade' %}
+                                                    Direct sunlight under shade
+                                                    {% elif plant.sunlight == 'Full_Shade' %}
+                                                    Indrect sunlight
+                                                    {% endif %}
+                                                </div>
+                                           </div>
+                                        </div>
+
+                                    </div>
+                                </li>
+                                <li class="list-group-item" style="background-color:#fffaf0">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="row align-items-center">
+                                                <div class="col-6 h4">
+                                                    Difficulty
+                                                </div>
+                                                <div class="col-6 h4">
+                                                    {{plant.level}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item" style="background-color:#fffaf0">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="row align-items-center">
+                                                <div class="col-6 h4">
+                                                    Species
+                                                </div>
+                                                <div class="col-6 h4">
+                                                    {{plant.species}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item" style="background-color:#fffaf0">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="row align-items-center">
+                                                <div class="col-6 h4">
+                                                    Country of Origin
+                                                </div>
+                                                <div class="col-6 h4">
+                                                    {{plant.country}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="w-100"></div>
+                            <div class="row h4 pt-2">
+                                <p> {{plant.description}}
+                                </p>
+                            </div>
+                            <div class="row pt-2">
+                                <div class="row py-4">
+                                    <div class="col-6 h1">
+                                        SGD ${{plant.price|floatformat:2}}
+                                    </div>
+                                    <div class="col-6 h1">
+                                        Qty left: {{plant.qty}}
+                                        {% if plant.qty <= 3 %}
+                                        <h6 style="color:tomato">(running low)</h6>
+                                        {% endif %}      
+                                    </div>
+                                    <div class="w-100">
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        {% if not cart.shopping_cart %}
+                                            {% for key, item in cart.items %}
+                                                {% if plant.id == item.id|add:"0" %}
+                                                    {% if item.qty < 6 %} 
+                                                        <p>
+                                                        </p>
+                                                    {% else %}
+                                                        <h6>Limit to 5 per user!</h6>
+                                                    {% endif %}
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="w-100"></div>
+                                <div class="card-body btn addcartbtn">
+                                        <a href="{% url 'add_to_cart' plant_id=plant.id  %}"
+                                        class="text-decoration-none">
+                                        <h4 class="text-center" style="color:white;">Add to cart</h4>
+                                    </a>                   
+                                </div>
+                            </div>
+
+                        </div>
                 </div>
             </div>
             <div class="w-100"></div>
-            <div class="col" id="productreviews">
-                {% for review in plant_reviews %}
-                <p>"{{review.content}}"</p>
-                {% for user in users%}
-                {% if review.reviewed_by_id == user.id %}
-                <p>Reviewed by: {{user}}</p>
-                {% endif %}
-                {% endfor %}
-                <span class="fa fa-star {% if review.rating >= 1 %} starchecked {% endif %}"></span>
-                <span class="fa fa-star {% if review.rating >= 2 %} starchecked {% endif %}"></span>
-                <span class="fa fa-star {% if review.rating >= 3 %} starchecked {% endif %}"></span>
-                <span class="fa fa-star {% if review.rating >= 4 %} starchecked {% endif %}"></span>
-                <span class="fa fa-star {% if review.rating >= 5 %} starchecked {% endif %}"></span>
-                <small>Date of review: {{review.date}}</small>
-                {% endfor %}
+            <div class="col-12" id="productreviews">
+                <div class="row p-5">
+                    <div class="col-12">
+                        <div class="row">
+                            {% for review in plant_reviews %}
+                            <span class="h5 fa fa-star {% if review.rating >= 1 %} starchecked {% endif %}"></span>
+                            <span class="h5 fa fa-star {% if review.rating >= 2 %} starchecked {% endif %}"></span>
+                            <span class="h5 fa fa-star {% if review.rating >= 3 %} starchecked {% endif %}"></span>
+                            <span class="h5 fa fa-star {% if review.rating >= 4 %} starchecked {% endif %}"></span>
+                            <span class="h5 fa fa-star {% if review.rating >= 5 %} starchecked {% endif %}"></span>
+                            <h5>{{review.date}}</h5>
+                        </div>
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col-12 p-0">
+                        {% for user in users%}
+                        {% if review.reviewed_by_id == user.id %}
+                        <p>Reviewed by: {{user}}</p>
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col-12 h2">
+                        {% endif %}
+                        {% endfor %}
+                        <p>"{{review.content}}"</p>
+                        {% endfor %}
+                    </div>
+                </div>
+                
 
             </div>
         </div>
