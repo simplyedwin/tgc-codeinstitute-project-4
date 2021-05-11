@@ -10,6 +10,10 @@ a {
     outline: none
 }
 
+.tbgbkg {
+    background-color: #fffaf0;
+}
+
 
 html,
 body {
@@ -83,7 +87,8 @@ h6 {
     border-radius: 10px;
 }
 
-#orders-tab:hover {
+#orders-tab:hover,
+#signinbtn:hover {
     color: saddlebrown;
 }
 
@@ -92,7 +97,6 @@ h6 {
     color: white;
     border-radius: 10px;
 }
-
 
 
 #shopnow {
