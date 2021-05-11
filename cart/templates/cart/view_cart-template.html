@@ -7,28 +7,31 @@
 <div class="container mainsection d-flex flex-column">
     <h1 class="text-center font-weight-bold">ITEMS IN CART</h1>
     <div class="row">
-        <div class="col-8">
+        <div class="col-9">
             {% for key, item in cart.items %}
-
-            <div class="card mb-2">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img src="{{ item.image }}" style="max-width: 30vw ; max-height: 30vh;" alt="...">
-                    </div>
-                    <div class="col-md-8">
+            <div class="row mb-3 rounded" style="background-color:#fffaf0">
+                <div class="col-md-2 text-center p-0">
+                    <img src="{{ item.image }}" class="w-100" alt="plant image">
+                </div>
+                <div class="col-md-10">
+                    <div class="d-flex col-12 justify-content-end">
                         <a href="{% url 'remove_from_cart' plant_id=item.id %}">
-                            <h2 class="text-right mr-3">x</h2>
+                            <span class="iconbin my-3"></span>
                         </a>
-                        <div class="card-body">
-                            <ul class="list-group border">
-                                <li class="list-group-item">Plant: {{item.name}}</li>
-                                <li class="list-group-item">Price: {{item.price}}</li>
-                            </ul>
+                    </div>
+                    <div class="row mt-3">                 
+                        <div class="col-3 h3">
+                            {{item.name}}
+                        </div>
+                        <div class="col-3 h3">
+                            SGD ${{item.price|floatformat:2}}
+                        </div>
+                        <div class="col-6">
                             <form method="POST" action="{% url 'update_cart' plant_id=item.id %}">
-                                <div class="container">
+                                <div class="row">
                                     {% csrf_token %}
-                                    <div class="col-6 form-group">
-                                        <label for="Quantity">Qty</label>                
+                                    <div class="col-6 h3 form-group">
+                                        <label for="Quantity">Qty</label>
                                         {% if item.qty == 1 %}
                                         <select class="form-control" id="Quantity" name="qty">
                                             <option selected>1</option>
@@ -71,13 +74,9 @@
                                         </select>
                                         {% endif %}
                                     </div>
-                                    <div class=" col-6">
-                                        <button class="mx-auto my-auto btn btn-primary">Update</button>
-                                    </div>
+                                    <button class="h4 button">Update</button>
                                 </div>
-
                             </form>
-
                         </div>
                     </div>
                 </div>
@@ -85,14 +84,13 @@
             {% endfor %}
 
         </div>
-        <div class="col-4 h-25" style="position: fixed;right: 0;">
-
-            <h3>Total Amount: {{item.total_price}} </h3>
-            <button class="btn btn-primary m-0">
-                <a href="{% url 'checkout' %}">
-                <h4>CheckOut</h4>
-            </a>
-            </button>
+        <div class="col-3 font-weight-bold h2 h-25" style="position: fixed;right: 0;">
+            <h3>Total Amount:</h3> SGD ${{total_sum|floatformat:2}} 
+            <div class="mt-3">
+                <a class="h4 button text-decoration-none" href="{% url 'checkout' %}">
+                    CheckOut
+                </a>
+            </div>
 
         </div>
     </div>
