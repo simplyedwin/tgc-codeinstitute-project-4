@@ -3,8 +3,6 @@
 
 {% block content %}
 
-
-
 <div class="container mx-auto my-5 mainsection" id="accountlogin">
     <div class="row">
 
@@ -29,9 +27,9 @@
                 <label for="password">{{form.label}}</label>
                 <input type="password" class="form-control" name="password" placeholder="Password"
                     autocomplete="current-password" required="" id="id_password">
-                    <div class="invalid-feedback">
-                                    Please key in your password.
-                                </div>
+                <div class="invalid-feedback">
+                    Please key in your password.
+                </div>
             </div>
             {% elif form.label == 'Remember Me' %}
             <div class="d-flex flex-column form-group form-check">
@@ -43,9 +41,9 @@
                 <label for="login">{{form.label}}</label>
                 <input type="text" class="form-control" name="login" placeholder="Username or e-mail"
                     autocomplete="email" required="" id="id_login">
-                    <div class="invalid-feedback">
-                                    Please fill in your username or email address.
-                                </div>
+                <div class="invalid-feedback">
+                    Please fill in your username or email address.
+                </div>
             </div>
             {% endif %}
             {% endfor %}
@@ -53,18 +51,12 @@
             <div class="mx-auto mb-2">
                 <button class="h6 button primaryAction" type="submit">Sign In</button>
             </div>
-                <a id="signinbtn" class="secondaryAction text-decoration-none" href="{% url 'account_reset_password' %}">Forgot Password?</a>
+            <a id="signinbtn" class="secondaryAction text-decoration-none"
+                href="{% url 'account_reset_password' %}">Forgot Password?</a>
         </form>
 
     </div>
 
 </div>
-
-
-
-
-
-
-
 
 {% endblock %}
