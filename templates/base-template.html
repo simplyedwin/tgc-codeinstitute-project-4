@@ -56,8 +56,12 @@
                         <a class="nav-link icon icon-shop" href="{% url 'shop_page' %}">
                         </a>
                     </div>
+
                     <div class="navbaricon nav-item text-center" title="Cart">
-                        <a class=" nav-link icon icon-cart" href="{% url 'view_cart' %}">
+                        <a class=" nav-link icon {% if cart|length > 0 %} icon-cart {% else %} icon-cartempty {% endif %} text-white h4 font-weight-bold m-0 pt-0" href="{% url 'view_cart' %}">
+                        {% if cart|length >= 1 %}
+                            <p class="m-0">{{cart|length}}</p>
+                        {% endif %}
                         </a>
                     </div>
                     {% if request.user.is_authenticated %}

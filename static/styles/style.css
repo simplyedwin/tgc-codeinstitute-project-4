@@ -224,6 +224,15 @@ li {
     filter: invert(55%) sepia(71%) saturate(362%) hue-rotate(94deg) brightness(150%) contrast(93%);
 }
 
+.icon-cartempty {
+    background-image: url("/static/images/cartemptyicon.svg");
+}
+
+.icon-cartempty:hover,
+.icon-cartempty:focus {
+    filter: invert(55%) sepia(71%) saturate(362%) hue-rotate(94deg) brightness(150%) contrast(93%);
+}
+
 .icon-account {
     background-image: url("/static/images/accountsicon.svg");
 }
