@@ -89,12 +89,13 @@ def account_login(request):
         password = request.POST['password']
         user = authenticate(username=username, password=password)
 
-        if user is not None:
+        if user is not None and form.is_valid():
             if user.is_active:
                 login(request, user)
                 return redirect(reverse(shop_page))
         else:
             form = AuthenticationForm()
+            print(form)
             messages.error(request, 'Username or password is not correct!')
             return render(request, 'account/login.html', {'form': form})
 
