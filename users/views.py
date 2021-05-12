@@ -3,11 +3,12 @@ from django.shortcuts import redirect, render, reverse
 from .forms import UserForm, UserInfoForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import update_session_auth_hash
-from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import authenticate, update_session_auth_hash, login
+from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from checkout.models import Order
 from django.db.models import Q
 from reviews.models import Review
+from products.views import shop_page
 
 # Create your views here.
 
@@ -81,3 +82,27 @@ def user_account(request):
         "reviews": reviews,
         'plants': plants
     })
+
+
+def account_login(request):
+
+    print("login")
+
+    if request.method == 'POST':
+        form = AuthenticationForm(request.POST)
+        username = request.POST['login']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return redirect(reverse(shop_page))
+        else:
+            form = AuthenticationForm()
+            messages.error(request, 'Username or password is not correct!')
+            return render(request, 'account/login.html', {'form': form})
+
+    else:
+        form = AuthenticationForm()
+    return render(request, 'account/login.html', {'form': form})
