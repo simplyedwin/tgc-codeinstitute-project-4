@@ -4,7 +4,7 @@
 <div class="container mainsection d-flex justify-content-center">
     <div class="row align-items-center">
         {% for plant in plants%}
-        <a href="{% url 'product_page' plant_id=plant.id %}" class="text-decoration-none">
+        <a href="{% url 'product_page' plant_id=plant.id %}" class="tbgatag">
             <div class="col-sm-12 col-lg-3">
                 <div class="card shadow" style="width: 18rem; background-color:#fffaf0">
                     <img src="{{ plant.image }}" class="card-img-top" alt="...">
@@ -94,8 +94,13 @@
                                     <h5>${{plant.price|floatformat:2}}</h5>
                                 </div>
                                 <div class="col-8">
+                                    {% if plant.qty > 3 %}
                                     <h5>Qty in stock: {{plant.qty}}</h5>
-                                    {% if plant.qty <= 3 %}
+                                    {% elif  plant.qty < 0 %}
+                                    <h5>Qty in stock: 0</h5>
+                                    <h6 style="color:tomato">(out of stock)</h6>
+                                    {% elif plant.qty <= 3 %}
+                                    <h5>Qty in stock: {{plant.qty}}</h5>
                                     <h6 style="color:tomato">(running low)</h6>
                                     {% endif %}      
                                 </div>

@@ -181,15 +181,20 @@
                                 <p> {{plant.description}}
                                 </p>
                             </div>
-                            <div class="row pt-2">
-                                <div class="row py-4">
+                            <div class="row pt-2 justify-content-around">
+                                <div class="row py-4 w-100">
                                     <div class="col-6 h1">
                                         SGD ${{plant.price|floatformat:2}}
                                     </div>
                                     <div class="col-6 h1">
-                                        Qty left: {{plant.qty}}
-                                        {% if plant.qty <= 3 %}
-                                        <h6 style="color:tomato">(running low)</h6>
+                                        {% if plant.qty > 3 %}
+                                        Qty in stock: {{plant.qty}}
+                                        {% elif  plant.qty < 0 %}
+                                        Qty in stock: 0
+                                        <h3 style="color:tomato">(out of stock)</h3>
+                                        {% elif plant.qty <= 3 %}
+                                        Qty in stock: {{plant.qty}}
+                                        <h3 style="color:tomato">(running low)</h3>
                                         {% endif %}      
                                     </div>
                                     <div class="w-100">

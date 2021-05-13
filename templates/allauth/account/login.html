@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<div class="container mx-auto my-5 mainsection" id="accountlogin">
+<div class="container mx-auto my-5 mainsection tbgbodywidth">
     <div class="row">
 
         <div class="col-6 pt-2 d-flex border border-bottom-0 justify-content-center tbgbkg">
@@ -17,7 +17,7 @@
         </div>
 
     </div>
-    <div class="row border border-top-0 justify-content-center tbgbkg h5">
+    <div class="row border border-top-0 justify-content-center tbgbkg h4">
 
         <form class="login my-3 w-75 needs-validation" method="POST" action="{% url 'account_login' %}" novalidate>
             {% csrf_token %}

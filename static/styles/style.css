@@ -30,12 +30,12 @@ a {
     outline: none
 }
 
-.tbgfielderror {
-    color: tomato !important;
-}
-
 .shoppageitem {
     max-height: fit-content;
+}
+
+.tbgfielderror {
+    color: tomato !important;
 }
 
 .tbgbkg {
@@ -44,6 +44,19 @@ a {
 
 .tbgbrder {
     border-color: saddlebrown;
+}
+
+.tbgatag:hover {
+    color: saddlebrown;
+    text-decoration: none;
+}
+
+.tbgbigh1 {
+    font-size: 4.5rem;
+}
+
+.form-control{
+    font-size: 1.5rem;
 }
 
 .dropdown-menu {
@@ -293,10 +306,7 @@ a:hover {
     color: white;
 }
 
-.tbgatag:hover {
-    color: saddlebrown;
-    text-decoration: none;
-}
+
 
 #searchbtn {
     background-color: transparent;
@@ -419,28 +429,28 @@ a:hover {
  No media query for `xs` since this is the default in Bootstrap
  Small devices (landscape phones, 576px and up) */
 @media (min-width: 539px) {
-    #accountlogin {
+    .tbgbodywidth {
         width: 60vw;
     }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-    #accountlogin {
+    .tbgbodywidth {
         width: 50vw;
     }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-    #accountlogin {
+    .tbgbodywidth {
         width: 40vw;
     }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-    #accountlogin {
+    .tbgbodywidth {
         width: 30vw;
     }
 }

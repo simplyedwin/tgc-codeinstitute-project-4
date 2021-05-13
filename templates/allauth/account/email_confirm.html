@@ -3,26 +3,38 @@
 {% load account %}
 
 {% block content %}
-<h1> Confirm E-mail Address </h1>
 
-{% if confirmation %}
+<div class="container mx-auto d-flex mainsection tbgbodywidth">
+    <div class="row flex-column justify-content-center h4">
 
-{% user_display confirmation.email_address.user as user_display %}
+            {% if confirmation %}
 
-<p>Please confirm that <a href="mailto:{{ email }}">{{ email }}</a> is an e-mail address for user {{ user_display }}./p>
 
-    <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
-        {% csrf_token %}
-        <button type="submit">Confirm</button>
-    </form>
+            <div class="tbgbigh1"> Confirm E-mail Address </div>
 
-    {% else %}
+            {% user_display confirmation.email_address.user as user_display %}
 
-    {% url 'account_email' as email_url %}
+            <div class="py-3">
+                <p>Please confirm that <a href="mailto:{{ email }}"><span
+                            class="tbgatag h3">{{ confirmation.email_address.email }}</span></a> is an e-mail
+                    address for user
+                    {{ user_display|title }}.
+                </p>
+            </div>
 
-    <p>This e-mail confirmation link expired or is invalid. Please <a href="{{ email_url }}">issue a new e-mail
-            confirmation request</a>.</p>
 
-    {% endif %}
+            <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+                {% csrf_token %}
+                <button class="h6 button" type="submit">Confirm</button>
+            </form>
 
-    {% endblock %}
+            {% else %}
+
+            {% url 'account_email' as email_url %}
+
+            <p>This e-mail confirmation link expired or is invalid. Please <a href="{{ email_url }}">issue a new e-mail
+                    confirmation request</a>.</p>
+            {% endif %}
+    </div>
+</div>
+{% endblock %}

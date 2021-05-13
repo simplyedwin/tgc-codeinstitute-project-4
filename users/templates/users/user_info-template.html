@@ -87,40 +87,47 @@
                     </form>
                 </div>
                 <div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
-                    {% for order in orders %}
-                    {% for plant in plants %}
-                    {% if order.plant_id == plant.id %}
-                        <div class="jumbotron" style="background-color: #fffaf0;">
-                            <h2 class="display-5">ORDER REFENCE NO.:
-                                SG-{{order.id}}-{{order.datetime_ordered|date:'Ymd'}}</h2>
-                            <hr class="my-2">
-                            <div class="row">
-                                <div class="col-md-2 text-center p-0">
-                                    <img src="{{plant.image}}" class="w-50" alt="plant image">
+                    {% if orders %}
+                        {% for order in orders %}
+                        {% for plant in plants %}
+                        {% if order.plant_id == plant.id %}
+                            <div class="jumbotron" style="background-color: #fffaf0;">
+                                <h2 class="display-5">ORDER REFENCE NO.:
+                                    SG-{{order.id}}-{{order.datetime_ordered|date:'Ymd'}}</h2>
+                                <hr class="my-2">
+                                <div class="row">
+                                    <div class="col-md-2 text-center p-0">
+                                        <img src="{{plant.image}}" class="w-50" alt="plant image">
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="row h4">
+                                            {{order.title}} ordered on: {{order.datetime_ordered}}
+                                        </div>
+                                        <div class="row h4">
+                                            Total spent: SGD ${{order.price|floatformat:2}}
+                                        </div>
+                                        <div class="row h4">
+                                            Qty ordered: {{order.qty}}
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-md-10">
-                                    <div class="row h4">
-                                        {{order.title}} ordered on: {{order.datetime_ordered}}
-                                    </div>
-                                    <div class="row h4">
-                                        Total spent: SGD ${{order.price|floatformat:2}}
-                                    </div>
-                                    <div class="row h4">
-                                        Qty ordered: {{order.qty}}
-                                    </div>
-                                </div>
+                                <hr class="my-2">
+                                {% if  order.id in reviewed_plant_order_ids_dict.reviewed_order_ids %}
+                                <h5>You have reviewed this order.</h5>
+                                {% else %}
+                                <a class="h4 button text-decoration-none" href="{% url 'write_review' order_id=order.id %}"
+                                    role="button">Write a review</a>
+                                {% endif %}   
                             </div>
-                            <hr class="my-2">
-                            {% if  order.id in reviewed_plant_order_ids_dict.reviewed_order_ids %}
-                            <h5>You have reviewed this order.</h5>
-                            {% else %}
-                            <a class="h4 button text-decoration-none" href="{% url 'write_review' order_id=order.id %}"
-                                role="button">Write a review</a>
-                            {% endif %}   
-                        </div>
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+
+                    {% else %}
+                    <div class="tbgbigh1">
+                        <p>You have no order history.</p>
+                    </div>
                     {% endif %}
-                    {% endfor %}
-                    {% endfor %}
                 </div>
                 <div class="tab-pane fade" id="fav" role="tabpanel" aria-labelledby="fav-tab">...</div>
             </div>
