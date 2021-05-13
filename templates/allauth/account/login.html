@@ -21,36 +21,46 @@
 
         <form class="login my-3 w-75 needs-validation" method="POST" action="{% url 'account_login' %}" novalidate>
             {% csrf_token %}
-            {% for form in form %}
-            {% if form.label == 'Password' %}
+            {% for field in form %}
+            {% if field.label == 'Password' %}
             <div class="form-group">
-                <label for="password">{{form.label}}</label>
+                <label for="password">{{field.label}}</label>
                 <input type="password" class="form-control" name="password" placeholder="Password"
-                    autocomplete="current-password" required="" id="id_password">
+                    autocomplete="current-password" required=""  value="{% if form.non_field_errors %}{{field.data}}{% endif %}" id="id_password">
                 <div class="invalid-feedback">
-                    Please key in your password.
+                    This is required.
                 </div>
             </div>
-            {% elif form.label == 'Remember Me' %}
+            {% elif field.label == 'Remember Me' %}
             <div class="d-flex flex-column form-group form-check">
-                <label for="remember">{{form.label}}</label>
+                <label for="remember">{{field.label}}</label>
                 <input type="checkbox" class="form-check-input" name="remember" id="id_remember">
             </div>
             {% else %}
             <div class="form-group">
-                <label for="login">{{form.label}}</label>
+                <label for="login">{{field.label}}</label>
                 <input type="text" class="form-control" name="login" placeholder="Username or e-mail"
-                    autocomplete="email" required="" id="id_login">
+                    autocomplete="email" required="" value="{% if form.non_field_errors %}{{field.data}}{% endif %}" id="id_login">
                 <div class="invalid-feedback">
-                    Please fill in your username or email address.
+                    This is required.
                 </div>
             </div>
             {% endif %}
+
+
             {% endfor %}
 
             <div class="mx-auto mb-2">
-                <button class="h6 button primaryAction" type="submit">Sign In</button>
+                <div class="row">
+                    <div class="col-5 ">
+                        <button class="h6 button primaryAction" type="submit">Sign In</button>
+                    </div>
+                    <div class="col-8 h6 tbgfielderror">
+                        {{form.non_field_errors}}
+                    </div>
+                </div>
             </div>
+
             <a id="signinbtn" class="secondaryAction text-decoration-none"
                 href="{% url 'account_reset_password' %}">Forgot Password?</a>
         </form>

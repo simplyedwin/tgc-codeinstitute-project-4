@@ -24,63 +24,84 @@
                 <div class="tab-pane fade show " id="acc-detail" role="tabpanel" aria-labelledby="acc-detail-tab">
                     <form method="post" class="needs-validation" novalidate>
                         {% csrf_token %}
-                        {% for form in user_form %}
+                        {% for field in user_form %}
                         <div class="form-group">
-                            <label class="h4" for="{{ form.label}}"> {{ form.label|title}} </label>
-                            {% if form.label == "First name" %}
-                            <input class="form-control" type="text" name="first_name" value="{{form.value}}"
-                                maxlength="150" id="id_first_name">
-                                <div class="invalid-feedback">
-                                    Please fill in your first name.
-                                </div>
-                            {% elif form.label == "Last name" %}
-                            <input class="form-control" type="text" name="last_name" value="{{form.value}}"
-                                maxlength="150" id="id_last_name">
-                                <div class="invalid-feedback">
-                                    Please fill in your last name.
-                                </div>
-                            {% elif form.label == "Email address" %}
-                            <input class="form-control" type="email" name="email" value="{{form.value}}" maxlength="254"
-                                id="id_email">
-                                <div class="invalid-feedback">
-                                    Please fill in your email address.
-                                </div>
+                            <label class="h4" for="{{ form.label}}"> {{ field.label|title}} </label>
+                            {% if field.label == "First name" %}
+                            <input class="form-control" type="text" name="first_name" value="{{field.value}}"
+                                maxlength="150" required="" id="id_first_name">
+                            <div class="h6 tbgfielderror pt-1">
+                                {{field.errors}}
+                            </div>
+                            <div class="invalid-feedback">
+                                This field is required
+                            </div>
+                            {% elif field.label == "Last name" %}
+                            <input class="form-control" type="text" name="last_name" value="{{field.value}}"
+                                maxlength="150" required="" id="id_last_name">
+                            <div class="h6 tbgfielderror pt-1">
+                                {{field.errors}}
+                            </div>
+                            <div class="invalid-feedback">
+                                This field is required
+                            </div>
+                            {% elif field.label == "Email address" %}
+                            <input class="form-control" type="email" name="email" value="{{field.value}}"
+                                maxlength="254" required="" id="id_email">
+                            <div class="h6 tbgfielderror pt-1">
+                                {{field.errors}}
+                            </div>
+                            <div class="invalid-feedback">
+                                This field is required
+                            </div>
                             {% endif %}
                         </div>
                         {% endfor %}
-                        {% for form in password_change_form %}
-                        {% if form.label == "Old password" %}
-                        <label class="h4" for="{{ form.label}}">Current Password</label>
+                        {% for field in password_change_form %}
+                        {% if field.label == "Old password" %}
+                        <label class="h4" for="{{ field.label}}">Current Password</label>
                         <input class="form-control" type="password" name="old_password" autocomplete="current-password"
                             autofocus="" required="" id="id_old_password">
+                        <div class="h6 tbgfielderror pt-1">
+                                {{field.errors}}
+                            </div>
                             <div class="invalid-feedback">
-                                Please key in your current password.
+                                This field is required
                             </div>
                         {% else %}
-                        <label class="h4" for="{{ form.label}}"> {{ form.label|title}} </label>
-                        {% if form.label == "New password" %}
+                        <label class="h4" for="{{ field.label}}"> {{ field.label|title}} </label>
+                        {% if field.label == "New password" %}
                         <input class="form-control" type="password" name="new_password1" autocomplete="new-password"
                             required="" id="id_new_password1">
+                        <div class="h6 tbgfielderror pt-1">
+                                {{field.errors}}
+                            </div>
                             <div class="invalid-feedback">
-                                Please key in your new password.
+                                This field is required
                             </div>
                         {% else %}
                         <input class="form-control" type="password" name="new_password2" autocomplete="new-password"
                             required="" id="id_new_password2">
+                        <div class="h6 tbgfielderror pt-1">
+                                {{field.errors}}
+                            </div>
                             <div class="invalid-feedback">
-                                Please key in your new password again to confirm.
+                                This field is required
                             </div>
                         {% endif %}
                         {% endif %}
                         {% endfor %}
-                        {% for form in userinfo_form %}
+                        {% for field in userinfo_form %}
                         <div class="form-group">
-                            <label class="h4" for="{{ form.label}}"> {{ form.label|title}} </label>
+                            <label class="h4" for="{{ field.label}}"> {{ field.label|title}} </label>
                             <input type="date" class="form-control" name="date_of_birth"
-                                value="{{form.value|date:'Y-m-d'}}" id="id_date_of_birth">
-                                <div class="invalid-feedback">
-                                    Please key in your birthday.
-                                </div>
+                                value="{{field.value|date:'Y-m-d'}}" required="" id="id_date_of_birth">
+                            <div class="h6 tbgfielderror pt-1">
+                                {{field.errors}}
+                            </div>
+                            <div class="invalid-feedback">
+                                This field is required
+                            </div>
                         </div>
                         {% endfor %}
                         <button class="h4 button" type="submit">Save changes</button>
@@ -88,40 +109,40 @@
                 </div>
                 <div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
                     {% if orders %}
-                        {% for order in orders %}
-                        {% for plant in plants %}
-                        {% if order.plant_id == plant.id %}
-                            <div class="jumbotron" style="background-color: #fffaf0;">
-                                <h2 class="display-5">ORDER REFENCE NO.:
-                                    SG-{{order.id}}-{{order.datetime_ordered|date:'Ymd'}}</h2>
-                                <hr class="my-2">
-                                <div class="row">
-                                    <div class="col-md-2 text-center p-0">
-                                        <img src="{{plant.image}}" class="w-50" alt="plant image">
-                                    </div>
-                                    <div class="col-md-10">
-                                        <div class="row h4">
-                                            {{order.title}} ordered on: {{order.datetime_ordered}}
-                                        </div>
-                                        <div class="row h4">
-                                            Total spent: SGD ${{order.price|floatformat:2}}
-                                        </div>
-                                        <div class="row h4">
-                                            Qty ordered: {{order.qty}}
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr class="my-2">
-                                {% if  order.id in reviewed_plant_order_ids_dict.reviewed_order_ids %}
-                                <h5>You have reviewed this order.</h5>
-                                {% else %}
-                                <a class="h4 button text-decoration-none" href="{% url 'write_review' order_id=order.id %}"
-                                    role="button">Write a review</a>
-                                {% endif %}   
+                    {% for order in orders %}
+                    {% for plant in plants %}
+                    {% if order.plant_id == plant.id %}
+                    <div class="jumbotron" style="background-color: #fffaf0;">
+                        <h2 class="display-5">ORDER REFENCE NO.:
+                            SG-{{order.id}}-{{order.datetime_ordered|date:'Ymd'}}</h2>
+                        <hr class="my-2">
+                        <div class="row">
+                            <div class="col-md-2 text-center p-0">
+                                <img src="{{plant.image}}" class="w-50" alt="plant image">
                             </div>
+                            <div class="col-md-10">
+                                <div class="row h4">
+                                    {{order.title}} ordered on: {{order.datetime_ordered}}
+                                </div>
+                                <div class="row h4">
+                                    Total spent: SGD ${{order.price|floatformat:2}}
+                                </div>
+                                <div class="row h4">
+                                    Qty ordered: {{order.qty}}
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="my-2">
+                        {% if  order.id in reviewed_plant_order_ids_dict.reviewed_order_ids %}
+                        <h5>You have reviewed this order.</h5>
+                        {% else %}
+                        <a class="h4 button text-decoration-none" href="{% url 'write_review' order_id=order.id %}"
+                            role="button">Write a review</a>
                         {% endif %}
-                        {% endfor %}
-                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    {% endfor %}
 
                     {% else %}
                     <div class="tbgbigh1">
