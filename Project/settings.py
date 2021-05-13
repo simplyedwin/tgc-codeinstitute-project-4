@@ -33,7 +33,7 @@ SECRET_KEY = 'z@8gj!oy$g-%!*_hh5j0s2+60ly6&t5w#qpacyhfg!^7+4jigh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*','simplyedwin-tgc-proj4.herokuapp.com']
+ALLOWED_HOSTS = ['*', 'simplyedwin-tgc-proj4.herokuapp.com']
 
 
 # Application definition
@@ -113,24 +113,20 @@ LOGIN_URL = '/accounts/login/'
 # to direct to the page when login is successful
 LOGIN_REDIRECT_URL = '/'
 
-# instead of sending emails, just display them in the terminal for us to see
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
-# # simulate Django to send out emails
-# TEST_EMAIL = os.environ.get("TEST_EMAIL")
-# print(TEST_EMAIL)
-# if TEST_EMAIL == 1:    
-#     print("result")
-#     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-#     print(EMAIL_BACKEND)
-# else:
-#     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-#     EMAIL_USE_TLS = True
-#     EMAIL_PORT = 587
-#     EMAIL_HOST = "smtp.gmail.com"
-#     EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASS")
-#     EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
-#     DEFAULT_FROM_EMAIL = os.environ.get("EMAIL_HOST_USER")
+# simulate Django to send out emails
+TEST_EMAIL = os.environ.get("TEST_EMAIL")
+
+if TEST_EMAIL == 1:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_USE_TLS = True
+    EMAIL_PORT = 587
+    EMAIL_HOST = "smtp.gmail.com"
+    EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASS")
+    EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
+    DEFAULT_FROM_EMAIL = os.environ.get("EMAIL_HOST_USER")
 
 WSGI_APPLICATION = 'Project.wsgi.application'
 
@@ -191,7 +187,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 

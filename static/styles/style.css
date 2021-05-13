@@ -1,8 +1,28 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: "Lato", sans-serif;
+    font-family: "Oswald", sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
     color: saddlebrown;
+    /* font-family: "Lato", sans-serif; */
+
+    /* supported by Chrome and Opera */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
 }
 
 a {
@@ -10,7 +30,11 @@ a {
     outline: none
 }
 
-.shoppageitem{
+.tbgfielderror {
+    color: tomato !important;
+}
+
+.shoppageitem {
     max-height: fit-content;
 }
 
@@ -47,24 +71,6 @@ a {
     display: block;
 }
 
-html,
-body {
-    height: 100%;
-    font-size: 12px;
-    display: flex;
-    flex-direction: column;
-    user-select: none;
-    /* supported by Chrome and Opera */
-    -webkit-user-select: none;
-    /* Safari */
-    -khtml-user-select: none;
-    /* Konqueror HTML */
-    -moz-user-select: none;
-    /* Firefox */
-    -ms-user-select: none;
-    /* Internet Explorer/Edge */
-}
-
 .footer {
     flex-shrink: 0;
     background-color: #fffaf0;
@@ -83,16 +89,6 @@ body {
     height: 15vh;
     background-color: #fffaf0;
 }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: "Oswald", sans-serif;
-}
-
 
 #myTab {
     background-color: #fffaf0;
@@ -163,8 +159,6 @@ h6 {
     border-color: #ebcccc;
     color: tomato;
 }
-
-/* styling for product star rating */
 
 .product-rating input {
     display: none;
@@ -299,6 +293,11 @@ a:hover {
     color: white;
 }
 
+.tbgatag:hover {
+    color: saddlebrown;
+    text-decoration: none;
+}
+
 #searchbtn {
     background-color: transparent;
     border: none;
@@ -414,6 +413,7 @@ a:hover {
     background-position: center;
     background-image: url("/static/images/deletecarticon.svg");
 }
+
 
 /* Extra small devices (portrait phones, less than 576px)
  No media query for `xs` since this is the default in Bootstrap
