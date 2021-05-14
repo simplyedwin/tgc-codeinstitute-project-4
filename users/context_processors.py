@@ -1,4 +1,4 @@
-# this context processor is need to pass the information of the cart
+# this context processor is needed to pass the information of the cart
 # to the base-template.html to render when the user is in the login/signup page
 
 def cartinfo(request):

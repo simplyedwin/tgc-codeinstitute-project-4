@@ -41,12 +41,18 @@ def user_account(request):
     orders = Order.objects.all()
 
     # to filter the orders by current user
-    query = Q(order_by__exact=user)
+    query_order = Q(order_by__exact=user)
 
-    # to retrieve all the orders for the current user
-    orders = orders.filter(query).values().distinct()
+    # to filter the orders by current user
+    query_review = Q(reviewed_by__exact=user)
 
-    # to retreive all the reviews id if true
+    # to retrieve all the orders made by the current user
+    orders = orders.filter(query_order).values().distinct()
+
+    # to retrieve all the reviews done by the current user
+    reviewed_by_user = reviews.filter(query_review).values().distinct()
+
+    # to retreive all the reviewed id
     if reviews:
         for review in reviews:
 
@@ -54,6 +60,7 @@ def user_account(request):
 
     reviewed_order_ids_dict["reviewed_order_ids"] = reviewed_order_ids
 
+    # to save the user information updated from the account details tab
     if request.method == 'POST':
 
         user_form = UserForm(request.POST, instance=request.user)
@@ -81,7 +88,8 @@ def user_account(request):
                 'orders': orders,
                 "reviewed_plant_order_ids_dict": reviewed_order_ids_dict,
                 "reviews": reviews,
-                'plants': plants
+                'plants': plants,
+                'cart': cart
             })
 
     else:
@@ -97,5 +105,6 @@ def user_account(request):
         "reviewed_plant_order_ids_dict": reviewed_order_ids_dict,
         "reviews": reviews,
         'plants': plants,
-        'cart': cart
+        'cart': cart,
+        'reviewed_by_user': reviewed_by_user
     })

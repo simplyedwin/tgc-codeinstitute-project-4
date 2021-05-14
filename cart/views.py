@@ -95,7 +95,7 @@ def view_cart(request):
     total_sum = 0
 
     if cart is not None:
-
+        # this is to find the total cost in the cart
         for item in cart:
 
             item_total = (cart[item]['price']/cart[item]

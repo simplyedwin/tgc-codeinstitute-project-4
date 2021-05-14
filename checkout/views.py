@@ -14,7 +14,7 @@ from django.db.models import Q
 
 # Create your views here.
 
-
+# this view require login to continue payment as well as saving user order information
 @login_required
 def checkout(request):
 
@@ -26,7 +26,7 @@ def checkout(request):
     # To create line items in the cart
     cart_items = []
 
-    #
+    # To retrieve all the plants info in the cart for orders accounting purposes
     all_plant_ids = []
 
     for plant_id, plant in cart.items():
@@ -35,7 +35,7 @@ def checkout(request):
 
         cart_item = {
             "name": plant_model.name,
-            # because Stripe deals only with cents
+            # need to convert due to stripe monetary handling is in cents
             "amount": int(plant_model.price * 100),
             "quantity": plant['qty'],
             "currency": "SGD"
@@ -43,8 +43,7 @@ def checkout(request):
 
         cart_items.append(cart_item)
 
-        # store a record to remember that for a given book id,
-        # what is the quantity ordered
+        # for accounting order purposes
         all_plant_ids.append({
             'plant_id': plant_id,
             'qty': plant['qty'],
@@ -72,11 +71,15 @@ def checkout(request):
         'public_key': settings.STRIPE_PUBLISHABLE_KEY
     })
 
+# this view show the complete payment status
+
 
 @login_required
 def order_completed(request):
 
     return render(request, "checkout/order_completed-template.html")
+
+# this view show the incomplete payment status
 
 
 @login_required
@@ -116,6 +119,7 @@ def payment_completed(request):
 
         hours = 8
 
+        # to convert the date session in local SGT
         hours_added = datetime.timedelta(hours=hours)
 
         session = event['data']['object']
@@ -126,6 +130,7 @@ def payment_completed(request):
 
         all_plant_ids = json.loads(all_plant_ids_jsonstr)
 
+        # to retrieve the order item and save them in the database
         for item in all_plant_ids:
 
             plant_model = get_object_or_404(Plant, pk=item['plant_id'])

@@ -3,20 +3,20 @@
 
 {% block content %}
 
-<div class="container mx-auto my-5 mainsection tbgbodywidth">
+<div class="container mx-auto my-5 mainsection tbgbodywidth tbgbkg border shadow">
     <div class="row">
 
-        <div class="col-6 pt-2 d-flex border border-right-0 justify-content-center">
+        <div class="col-6 pt-2 d-flex  border-bottom justify-content-center" style="background-color: white;">
             <a class="tbgatag" href="{% url 'account_login' %}">
                 <h5>Sign In</h5>
             </a>
         </div>
-        <div class="col-6 pt-2 d-flex border border-bottom-0 justify-content-center tbgbkg">
+        <div class="col-6 pt-2 d-flex border-left justify-content-center ">
             <h5>Register</h5>
         </div>
 
     </div>
-    <div class="row border border-top-0 justify-content-center tbgbkg h4">
+    <div class="row border-top-0 justify-content-center tbgbkg h4">
         <form class="signup my-3 w-75 needs-validation" id="signup_form" method="post"
             action="{% url 'account_signup' %}" novalidate>
             {% csrf_token %}

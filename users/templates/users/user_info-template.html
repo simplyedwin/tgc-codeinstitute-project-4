@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container my-4 mainsection">
     <div class="row justify-content-center mt-3">
-        <div class="col-3">
+        <div class="col-2">
             <ul class="nav flex-column h3 text-decoration-none text-center" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <a class="nav-link" id="acc-detail-tab" data-toggle="tab" href="#acc-detail" role="tab"
@@ -25,10 +25,10 @@
                 </li>
             </ul>
         </div>
-        <div class="col-9">
-            <div class="tab-content">
-                <div class="tab-pane fade show " id="acc-detail" role="tabpanel" aria-labelledby="acc-detail-tab">
-                    <form method="post" class="needs-validation" novalidate>
+        <div class="col-10">
+            <div class="tab-content w-75 mx-auto">
+                <div class="tab-pane tbgbkg shadow fade show " id="acc-detail" role="tabpanel" aria-labelledby="acc-detail-tab">
+                    <form method="post" class="needs-validation p-5" novalidate>
                         {% csrf_token %}
                         {% for field in user_form %}
                         <div class="form-group">
@@ -113,12 +113,12 @@
                         <button class="h4 button" type="submit">Save changes</button>
                     </form>
                 </div>
-                <div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+                <div class="tab-pane fade shadow" id="orders" role="tabpanel" aria-labelledby="orders-tab">
                     {% if orders %}
                     {% for order in orders %}
                     {% for plant in plants %}
                     {% if order.plant_id == plant.id %}
-                    <div class="jumbotron" style="background-color: #fffaf0;">
+                    <div class="jumbotron my-0" style="background-color: #fffaf0;">
                         <h2 class="display-5">ORDER REFENCE NO.:
                             SG-{{order.id}}-{{order.datetime_ordered|date:'Ymd'}}</h2>
                         <hr class="my-2">
@@ -152,13 +152,13 @@
 
                     {% else %}
                     <div class="tbgbigh1">
-                        <p>You have no order history.</p>
+                        <p>There are no orders history.</p>
                     </div>
                     {% endif %}
                 </div>
-                <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="fav-tab">
-                    {% for review in reviews %}
-                    {% if review.reviewed_by_id == user.id %}
+                <div class="tab-pane fade shadow" id="reviews" role="tabpanel" aria-labelledby="fav-tab">
+                    {% if reviewed_by_user %}
+                    {% for review in reviewed_by_user %}
                     <div class="row tbgbkg py-2">
                         <div class="col-12 h5">
                             <span class="fa fa-star {% if review.rating >= 1 %} starchecked {% endif %}"></span>
@@ -167,14 +167,20 @@
                             <span class="fa fa-star {% if review.rating >= 4 %} starchecked {% endif %}"></span>
                             <span class="fa fa-star {% if review.rating >= 5 %} starchecked {% endif %}"></span>
                             {{review.date}}
+                        {{review.title}}   
                         </div>
                         <div class="w-100"></div>
                         <div class="col-12 h2">
                             <p>"{{review.content}}"</p>
                         </div>
                     </div>
-                    {% endif %}
                     {% endfor %}
+                    {% else  %}
+                    <div class="tbgbigh1">
+                        <p></p>There are no reviews history.</p>
+                    </div>
+                    {% endif %}
+
                 </div>
             </div>
 

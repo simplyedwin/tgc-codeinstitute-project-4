@@ -7,7 +7,7 @@ from users.views import user_account
 
 # Create your views here.
 
-
+# this view shows the review form
 def write_review(request, order_id):
 
     order_model = get_object_or_404(Order, pk=order_id)
@@ -16,6 +16,8 @@ def write_review(request, order_id):
 
     return render(request, "reviews/user_review-template.html",
                   {"form": review_form, "order": order_model})
+
+# this view save the user review into the database
 
 
 def create_review(request, order_id):
@@ -26,8 +28,8 @@ def create_review(request, order_id):
 
         review_form = ReviewForm(request.POST)
 
-        print(review_form.errors)
-
+        # save the review into the database and flash out a review
+        # successfully added message
         if review_form.is_valid():
 
             filled_review_form = review_form.save(commit=False)

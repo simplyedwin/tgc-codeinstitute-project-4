@@ -87,6 +87,7 @@ def product_page(request, plant_id):
     # to retrieve total number of reviews for the selected plant
     plant_total_reviews = plant_reviews.count()
 
+    # to save the plant total reviews and average ratings
     if plant_ave_rating != None and plant_total_reviews:
 
         plant.rating = float(plant_ave_rating['rating__avg'])
