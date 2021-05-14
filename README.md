@@ -278,7 +278,8 @@ Intially, whenever an invalid form is posted back to the url, there is no means 
 out from the django form api that it exists an form.error api to retrieve the problematic form field. Subsequently, all form invalid
 was easily resolved.
 
-
+- *** Render model for all template *** <br>
+Intially, 
 
 - *** Status Code 302 response from Stripe Webhook*** <br>
 During processing the payment by stripe with webhook enabled, the stripe webhook keeps responding back with a status code 302 even though

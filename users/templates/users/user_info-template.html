@@ -17,6 +17,12 @@
                         Orders History
                     </a>
                 </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="orders-tab" data-toggle="tab" href="#reviews" role="tab"
+                        aria-controls="orders" aria-selected="false">
+                        Reviews History
+                    </a>
+                </li>
             </ul>
         </div>
         <div class="col-9">
@@ -63,31 +69,31 @@
                         <input class="form-control" type="password" name="old_password" autocomplete="current-password"
                             autofocus="" required="" id="id_old_password">
                         <div class="h6 tbgfielderror pt-1">
-                                {{field.errors}}
-                            </div>
-                            <div class="invalid-feedback">
-                                This field is required
-                            </div>
+                            {{field.errors}}
+                        </div>
+                        <div class="invalid-feedback">
+                            This field is required
+                        </div>
                         {% else %}
                         <label class="h4" for="{{ field.label}}"> {{ field.label|title}} </label>
                         {% if field.label == "New password" %}
                         <input class="form-control" type="password" name="new_password1" autocomplete="new-password"
                             required="" id="id_new_password1">
                         <div class="h6 tbgfielderror pt-1">
-                                {{field.errors}}
-                            </div>
-                            <div class="invalid-feedback">
-                                This field is required
-                            </div>
+                            {{field.errors}}
+                        </div>
+                        <div class="invalid-feedback">
+                            This field is required
+                        </div>
                         {% else %}
                         <input class="form-control" type="password" name="new_password2" autocomplete="new-password"
                             required="" id="id_new_password2">
                         <div class="h6 tbgfielderror pt-1">
-                                {{field.errors}}
-                            </div>
-                            <div class="invalid-feedback">
-                                This field is required
-                            </div>
+                            {{field.errors}}
+                        </div>
+                        <div class="invalid-feedback">
+                            This field is required
+                        </div>
                         {% endif %}
                         {% endif %}
                         {% endfor %}
@@ -150,7 +156,26 @@
                     </div>
                     {% endif %}
                 </div>
-                <div class="tab-pane fade" id="fav" role="tabpanel" aria-labelledby="fav-tab">...</div>
+                <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="fav-tab">
+                    {% for review in reviews %}
+                    {% if review.reviewed_by_id == user.id %}
+                    <div class="row tbgbkg py-2">
+                        <div class="col-12 h5">
+                            <span class="fa fa-star {% if review.rating >= 1 %} starchecked {% endif %}"></span>
+                            <span class="fa fa-star {% if review.rating >= 2 %} starchecked {% endif %}"></span>
+                            <span class="fa fa-star {% if review.rating >= 3 %} starchecked {% endif %}"></span>
+                            <span class="fa fa-star {% if review.rating >= 4 %} starchecked {% endif %}"></span>
+                            <span class="fa fa-star {% if review.rating >= 5 %} starchecked {% endif %}"></span>
+                            {{review.date}}
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col-12 h2">
+                            <p>"{{review.content}}"</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
             </div>
 
         </div>

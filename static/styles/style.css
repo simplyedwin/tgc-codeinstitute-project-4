@@ -55,11 +55,11 @@ a {
     font-size: 4.5rem;
 }
 
-.tbgshpgheight{
+.tbgshpgheight {
     min-height: 65px;
 }
 
-.tbgshpgimgheight{
+.tbgshpgimgheight {
     max-height: 22rem;
 }
 
@@ -82,9 +82,9 @@ a {
     display: block;
 }
 
-.dropdown-content a:hover .dropdown-item {
+.dropdown-menu a:hover {
     background-color: #696969;
-    color: saddlebrown;
+    color: white;
 }
 
 
