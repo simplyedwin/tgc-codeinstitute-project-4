@@ -7,12 +7,12 @@
         <a href="{% url 'product_page' plant_id=plant.id %}" class="tbgatag">
             <div class="col-sm-12 col-lg-3">
                 <div class="card shadow" style="width: 18rem; background-color:#fffaf0">
-                    <img src="{{ plant.image }}" class="card-img-top" alt="...">
+                    <img src="{{ plant.image }}" class="card-img-top tbgshpgimgheight" alt="...">
                     <div class="card-body p-0 pt-1 text-center">
                         <h5 class="card-title">{{plant.name}}</h5>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item" style="background-color:#fffaf0">
+                        <li class="list-group-item py-1" style="background-color:#fffaf0">
                             <div class="row">
                                 <div class="col-12">
                                     <h5>
@@ -88,31 +88,31 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="list-group-item" style="background-color:#fffaf0">
+                        <li class="d-flex align-items-center list-group-item tbgshpgheight" style="background-color:#fffaf0">
                             <div class="row">
-                                <div class="col-4">
+                                <div class="col-4 py-0">
                                     <h5>${{plant.price|floatformat:2}}</h5>
                                 </div>
-                                <div class="col-8">
+                                <div class="col-8 py-0">
                                     {% if plant.qty > 3 %}
-                                    <h5>Qty in stock: {{plant.qty}}</h5>
-                                    {% elif  plant.qty < 0 %}
-                                    <h5>Qty in stock: 0</h5>
-                                    <h6 style="color:tomato">(out of stock)</h6>
-                                    {% elif plant.qty <= 3 %}
-                                    <h5>Qty in stock: {{plant.qty}}</h5>
-                                    <h6 style="color:tomato">(running low)</h6>
+                                    <h5 class="m-0">Qty in stock: {{plant.qty}}</h5>
+                                    {% elif  plant.qty <= 0 %}
+                                    <h5 class="m-0">Qty in stock: 0</h5>
+                                    <h6 class="m-0" style="color:tomato">(out of stock)</h6>
+                                    {% elif plant.qty <= 3 and plant.qty > 0 %}
+                                    <h5 class="m-0">Qty in stock: {{plant.qty}}</h5>
+                                    <h6 class="m-0" style="color:tomato">(running low)</h6>
                                     {% endif %}      
                                 </div>
                                 <div class="w-100">
                                 </div>
-                                <div class="col-12 text-center">
+                                <div class="col-12 text-center tbgfielderror">
                                     {% if not cart.shopping_cart %}
                                         {% for key, item in cart.items %}
                                             {% if plant.id == item.id|add:"0" %}
-                                                {% if item.qty < 6 %} 
+                                                {% if  item.qty < 6 %} 
                                                 {% else %}
-                                                    <h6>Limit to 5 per user!</h6>
+                                                    <h6 class="m-0" >Limit to 5 per user!</h6>
                                                 {% endif %}
                                             {% endif %}
                                         {% endfor %}

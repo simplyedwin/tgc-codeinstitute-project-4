@@ -8,15 +8,26 @@ from django.db.models.aggregates import Avg
 
 # Create your views here.
 
-
+# this view shows the landing page
 def index(request):
 
-    return render(request, 'products/landing_page-template.html')
+    # to determine the qty of items in cart
+    cart = request.session.get('shopping_cart', {})
+
+    return render(request, 'products/landing_page-template.html',
+                  {'cart': cart})
+
+# this view display the information about the e-shop
 
 
 def about_us(request):
 
-    return render(request, 'products/about_us-template.html')
+    # to determine the qty of items in cart
+    cart = request.session.get('shopping_cart', {})
+
+    return render(request, 'products/about_us-template.html', {'cart': cart})
+
+# this view show the overview product page
 
 
 def shop_page(request):
@@ -51,8 +62,13 @@ def shop_page(request):
     return render(request, 'products/shop_page-template.html',
                   {'plants': plants, 'cart': cart})
 
+# this view show the product page
+
 
 def product_page(request, plant_id):
+
+    # to determine the qty of items in cart
+    cart = request.session.get('shopping_cart', {})
 
     # to retrieve all users
     users = User.objects.all()
@@ -83,4 +99,4 @@ def product_page(request, plant_id):
 
     return render(request, "products/product_page-template.html",
                   {"plant": plant, "users": users,
-                   "plant_reviews": plant_reviews})
+                   "plant_reviews": plant_reviews, 'cart': cart})

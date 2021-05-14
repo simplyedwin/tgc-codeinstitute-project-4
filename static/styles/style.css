@@ -55,7 +55,15 @@ a {
     font-size: 4.5rem;
 }
 
-.form-control{
+.tbgshpgheight{
+    min-height: 65px;
+}
+
+.tbgshpgimgheight{
+    max-height: 22rem;
+}
+
+.form-control {
     font-size: 1.5rem;
 }
 
@@ -94,9 +102,6 @@ a {
     flex: 1 0 auto;
 }
 
-.sloganpage {
-    background-image: url("/static/images/landingpage-cover.png");
-}
 
 .navbar {
     height: 15vh;
@@ -306,11 +311,16 @@ a:hover {
     color: white;
 }
 
-
-
 #searchbtn {
     background-color: transparent;
     border: none;
+}
+
+.sloganpage {
+    background-image: url("/static/images/landingpage-cover.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .iconnoshade {
