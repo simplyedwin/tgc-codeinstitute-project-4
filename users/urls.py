@@ -6,6 +6,4 @@ from .views import user_account
 urlpatterns = [
     path('user_account/', user_account,
          name='user_account'),
-    # path('account_login/', account_login,
-    #      name='account_login')
 ]

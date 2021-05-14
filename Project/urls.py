@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import products.views
+import users.views
 
 urlpatterns = [
     path('accounts/', include('allauth.urls')),
@@ -25,7 +26,5 @@ urlpatterns = [
     path('', products.views.index, name="landing_page"),
     path('cart/', include('cart.urls')),
     path('checkout/', include('checkout.urls')),
-    path('review/', include('reviews.urls')),
-
-
+    path('review/', include('reviews.urls'))
 ]
