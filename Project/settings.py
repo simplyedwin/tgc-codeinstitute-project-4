@@ -31,7 +31,7 @@ UPLOADCARE = {
 SECRET_KEY = 'z@8gj!oy$g-%!*_hh5j0s2+60ly6&t5w#qpacyhfg!^7+4jigh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*', 'simplyedwin-tgc-proj4.herokuapp.com']
 

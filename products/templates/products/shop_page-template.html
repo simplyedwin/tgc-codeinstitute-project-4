@@ -5,7 +5,7 @@
     <div class="row align-items-center">
         {% for plant in plants%}
         <a href="{% url 'product_page' plant_id=plant.id %}" class="tbgatag">
-            <div class="col-sm-12 col-lg-3">
+            <div class="col">
                 <div class="card shadow tbgbkg" style="width: 18rem;">
                     <img src="{{ plant.image }}" class="card-img-top tbgshpgimgheight" alt="...">
                     <div class="card-body p-0 pt-1 text-center">
