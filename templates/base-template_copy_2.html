@@ -31,6 +31,8 @@
     <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="container">
 
+
+
             <a class="navbar-brand col-2 pl-0" href="{% url 'landing_page' %}">
                 <img src="{% static 'images/TBGsBrandlogo.svg' %}" style="max-height: 12vh;" alt="TBGsLogo">
             </a>
@@ -39,73 +41,88 @@
 
 
             <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
-                data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false"
+                data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
 
-            <div class="navbar-collapse collapse tbgbkg" id="navbarToggler">
+            <div class="navbar-collapse collapse" id="navbarTogglerDemo03" style="">
 
-                <div class="navbar-nav nav-fill w-100 row mx-auto py-2">
-                    <form method="get" class="form-inline col-md-8 col-12 justify-content-md-center "
-                        action="{% url 'shop_page' %}">
-                        <div class="input-group w-100 my-auto">
-                            <input class="form-control bg-light" style="height: 6vh;" type="search"
-                                placeholder="Search for any plant info..." aria-label="Search" name="search-input">
-                            <div class="input-group-append ml-1">
-                                <button id="searchbtn" class="icon icon-search border-0" type="submit">
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                    <div class="col-md-4 col-12 pt-2">
-                        <div class="row justify-content-md-around">
-                            <div class="col-3" title="Shop">
-                                <a class="icon icon-shop" href="{% url 'shop_page' %}">
-                                </a>
-                            </div>
-                            <div class=" col-3 text-center" title="Cart">
-                                <a class="icon {% if cart|length > 0 %} icon-cart {% else %} icon-cartempty {% endif %} h4 font-weight-bold m-0 pt-0"
-                                    href="{% url 'view_cart' %}">
-                                    {% if cart|length >= 1 %}
-                                    <p class="m-0">{{cart|length}}</p>
-                                    {% endif %}
-                                </a>
-                            </div>
-                            {% if request.user.is_authenticated %}
-                            <div class="col-3" title="Account">
-                                <a class=" icon icon-account" href="{% url 'user_account' %}" aria-expanded="false">
-                                </a>
-                            </div>
-                            <div class="col-3 ml-4 text-center" title="Logout">
-                                <a class=" icon icon-logout" href="#accout-logout" role="button" data-toggle="modal">
-                                </a>
-                            </div>
-                            {% else %}
-                            <div class="col-3 dropdown dropright active" title="Account">
-                                <a class="icon icon-account" href="#" id="navbarScrollingDropdown" role="button"
-                                    data-toggle="dropdown" aria-expanded="false">
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right"
-                                    aria-labelledby="navbarScrollingDropdown">
-                                    <a class="dropdown-item h5" href="{% url 'account_login' %}">Sign In</a>
-                                    <hr class="dropdown-divider">
-                                    <a class="dropdown-item h5" href="{% url 'account_signup' %}">Create Account</a>
-                                </div>
-                            </div>
-                            {% endif %}
-                            {% if request.user.is_authenticated %}
-                            <div>
-                                <h5>Welcome {{request.user|title}} !</h5>
-                            </div>
-                            {% endif %}
-                        </div>
-                    </div>
+                <div class="navbar-nav nav-fill w-100">
+                    ABC
+
                 </div>
-
             </div>
 
+
+
+            <form method="get" class="form-inline col-6 justify-content-md-center " action="{% url 'shop_page' %}">
+                <div class="input-group w-100 my-auto">
+                    <input class="form-control bg-light" style="height: 6vh;" type="search"
+                        placeholder="Search for any plant info..." aria-label="Search" name="search-input">
+                    <div class="input-group-append ml-1">
+                        <button id="searchbtn" class="icon icon-search border-0" type="submit">
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+                aria-controls="navbarTogglerDemo03" aria-expanded="true" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse col-4" id="navbarTogglerDemo03">
+                <!-- <div class="row"> -->
+                <div class="col-md-4">
+                    <div class="navbaricon nav-item" title="Shop">
+                        <a class="nav-link icon icon-shop" href="{% url 'shop_page' %}">
+                        </a>
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <div class="navbaricon nav-item text-center" title="Cart">
+                        <a class=" nav-link icon {% if cart|length > 0 %} icon-cart {% else %} icon-cartempty {% endif %} h4 font-weight-bold m-0 pt-0"
+                            href="{% url 'view_cart' %}">
+                            {% if cart|length >= 1 %}
+                            <p class="m-0">{{cart|length}}</p>
+                            {% endif %}
+                        </a>
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    {% if request.user.is_authenticated %}
+                    <div class="navbaricon nav-item" title="Account">
+                        <a class=" nav-link icon icon-account" href="{% url 'user_account' %}" aria-expanded="false">
+                        </a>
+                    </div>
+                    <div class="navbaricon nav-item ml-4 text-center" title="Logout">
+                        <a class=" nav-link icon icon-logout" href="#accout-logout" role="button" data-toggle="modal">
+                        </a>
+                    </div>
+                    {% else %}
+                    <div class="navbaricon nav-item dropdown dropright active" title="Account">
+                        <a class="nav-link icon icon-account" href="#" id="navbarScrollingDropdown" role="button"
+                            data-toggle="dropdown" aria-expanded="false">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarScrollingDropdown">
+                            <a class="dropdown-item h5" href="{% url 'account_login' %}">Sign In</a>
+                            <hr class="dropdown-divider">
+                            <a class="dropdown-item h5" href="{% url 'account_signup' %}">Create Account</a>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                <!-- </div> -->
+                {% if request.user.is_authenticated %}
+                <div>
+                    <h5>Welcome {{request.user|title}} !</h5>
+                </div>
+                {% endif %}
+            </div>
         </div>
     </nav>
 

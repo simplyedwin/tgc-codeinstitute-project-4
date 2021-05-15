@@ -2,16 +2,16 @@
     padding: 0;
     margin: 0;
     font-family: "Oswald", sans-serif;
+    color: saddlebrown;
 }
 
-html,
-body {
-    height: 100%;
+html {
+    /* height: 100vh;
+    width: 100vw; */
     font-size: 12px;
     display: flex;
     flex-direction: column;
     user-select: none;
-    color: saddlebrown;
     /* font-family: "Lato", sans-serif; */
 
     /* supported by Chrome and Opera */
@@ -23,6 +23,10 @@ body {
     /* Firefox */
     -ms-user-select: none;
     /* Internet Explorer/Edge */
+}
+
+body {
+    height: 100vh;
 }
 
 a {
@@ -63,6 +67,33 @@ a {
     max-height: 22rem;
 }
 
+.mainsection {
+    flex: 1 0 auto;
+}
+
+.sloganpage {
+    background-image: url("/static/images/landingpage-cover.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 75vh;
+}
+
+#slogan {
+    background-color: white;
+    opacity: 70%;
+    color: #3cb371;
+    border-radius: 1rem;
+    font-size: 3.5rem;
+}
+
+#shopnow {
+    background-color: white;
+    opacity: 70%;
+    color: #3cb371;
+    border-radius: 1rem;
+}
+
 .form-control {
     font-size: 1.5rem;
 }
@@ -93,13 +124,12 @@ a {
 }
 
 .footer {
-    flex-shrink: 0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
     background-color: #fffaf0;
-    height: 12vh;
-}
-
-.mainsection {
-    flex: 1 0 auto;
+    text-align: center;
 }
 
 
@@ -144,13 +174,6 @@ a {
     border-radius: 10px;
 }
 
-
-#shopnow {
-    background-color: white;
-    opacity: 70%;
-    color: #3cb371;
-    border-radius: 1rem;
-}
 
 .msg {
     margin: 0 !important;
@@ -316,12 +339,6 @@ a:hover {
     border: none;
 }
 
-.sloganpage {
-    background-image: url("/static/images/landingpage-cover.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
 
 .iconnoshade {
     display: inline-block;
@@ -438,6 +455,48 @@ a:hover {
 /* Extra small devices (portrait phones, less than 576px)
  No media query for `xs` since this is the default in Bootstrap
  Small devices (landscape phones, 576px and up) */
+
+/* for Galay Fold */
+/* @media (min-width: 280px) {
+    .footer {
+        height: 24vh;
+    }
+} */
+
+
+/* for iphone 5/se */
+/* @media (min-width: 320px) {
+    .footer {
+        height: 19.5vh;
+        width: 100vw;
+    }
+} */
+
+/* for S5 and G4 */
+/* @media (min-width: 360px) {
+    .footer {
+        height: 17vh;
+    }
+} */
+
+@media (max-width: 400px) {
+    #shopnow {
+        font-size: 3rem;
+    }
+
+}
+
+@media (max-width: 540px) {
+    .iconbin,
+    .iconutube,
+    .iconinst,
+    .iconfb {
+        width: 8vw;
+        height: 4vh;
+    }
+
+}
+
 @media (min-width: 539px) {
     .tbgbodywidth {
         width: 60vw;
