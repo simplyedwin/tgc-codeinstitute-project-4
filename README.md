@@ -285,7 +285,12 @@ Intially,
 During processing the payment by stripe with webhook enabled, the stripe webhook keeps responding back with a status code 302 even though
 payment_completed function was exempted from CSRF. It was found out the "login_required" decorator was added on the payment_completed function
 which caused the problem. 
-    
+
+
+- *** Not scrollable body *** <br>
+During processing the payment by stripe with webhook enabled, the stripe webhook keeps responding back with a status code 302 even though
+payment_completed function was exempted from CSRF. It was found out the "login_required" decorator was added on the payment_completed function
+which caused the problem. 
 
 ## Deployment
 

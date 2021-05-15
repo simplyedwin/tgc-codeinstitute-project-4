@@ -6,8 +6,6 @@
 }
 
 html {
-    /* height: 100vh;
-    width: 100vw; */
     font-size: 12px;
     display: flex;
     flex-direction: column;
@@ -23,10 +21,6 @@ html {
     /* Firefox */
     -ms-user-select: none;
     /* Internet Explorer/Edge */
-}
-
-body {
-    height: 100vh;
 }
 
 a {
@@ -67,8 +61,17 @@ a {
     max-height: 22rem;
 }
 
-.mainsection {
-    flex: 1 0 auto;
+.tbgsignuploginpg {
+    width: 25vw
+}
+
+#tbgbrandicon {
+    width: 17vw;
+    height: 11vh;
+}
+
+#tbgsearchbar {
+    height: 5vh;
 }
 
 .sloganpage {
@@ -123,8 +126,24 @@ a {
     display: block;
 }
 
+
+.navbar {
+    height: 15vh;
+    background-color: #fffaf0;
+}
+
+.mainsection {
+    flex: 1 0 auto;
+    overflow: auto;
+    position: absolute;
+    top: 15vh;
+    bottom: 10vh;
+}
+
+
 .footer {
-    position: fixed;
+    position: absolute;
+    height: 10vh;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -133,10 +152,6 @@ a {
 }
 
 
-.navbar {
-    height: 15vh;
-    background-color: #fffaf0;
-}
 
 #myTab {
     background-color: #fffaf0;
@@ -253,8 +268,8 @@ li {
 
 .icon {
     display: inline-block;
-    width: 40px;
-    height: 40px;
+    width: 3rem;
+    height: 3rem;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -451,6 +466,12 @@ a:hover {
     background-image: url("/static/images/deletecarticon.svg");
 }
 
+#reviewicon,
+#watericon,
+#sunicon {
+    width: 6.5vw;
+    height: 2vh;
+}
 
 /* Extra small devices (portrait phones, less than 576px)
  No media query for `xs` since this is the default in Bootstrap
@@ -479,20 +500,88 @@ a:hover {
     }
 } */
 
+/* Only for Galaxy Fold */
+@media (width: 280px) {
+    #tbgbrandicon {
+        width: 22vw;
+        height: 11vh;
+    }
+
+    .h5 {
+        font-size: 0.7rem;
+    }
+
+    /* .h3 {
+        font-size: 0.8rem;
+    }
+    .h2 {
+        font-size: 0.9rem;
+    } */
+}
+
+/* Only for ipad pro */
+@media (width: 1024px) {
+    #tbgsearchbar {
+        height: 2.5vh;
+    }
+
+    #tbgbrandicon {
+        width: 14vw;
+        height: 11vh;
+    }
+
+}
+
+
 @media (max-width: 400px) {
-    #shopnow {
-        font-size: 3rem;
+    #slogan {
+        font-size: 2.5rem;
     }
 
 }
 
 @media (max-width: 540px) {
+
+
+    html {
+
+        font-size: 6px;
+
+    }
+
     .iconbin,
     .iconutube,
     .iconinst,
     .iconfb {
-        width: 8vw;
-        height: 4vh;
+        width: 5vw;
+        height: 3vh;
+    }
+
+    .icon {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .button {
+        border-radius: 5px;
+        padding: 5px 10px;
+        font-size: smaller;
+    }
+
+    .tbgsignuploginpg {
+        width: 70vw
+    }
+
+    .iconmidwatering,
+    .iconlowhwatering,
+    .iconhighwatering,
+    .iconreviews,
+    .iconnoshade,
+    .iconfullshade,
+    .iconhalfshade {
+        width: 2.5vw;
+        height: 2.5vh;
+
     }
 
 }
@@ -521,5 +610,12 @@ a:hover {
 @media (min-width: 1200px) {
     .tbgbodywidth {
         width: 30vw;
+    }
+
+    #reviewicon,
+    #watericon,
+    #sunicon {
+        width: 6.5vw;
+        height: 4vh;
     }
 }

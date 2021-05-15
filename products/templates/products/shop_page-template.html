@@ -1,18 +1,19 @@
 {% extends 'base-template.html' %}
 {% load static %}
 {% block content %}
-<div class="container mainsection d-flex justify-content-center">
-    <div class="row align-items-center">
+<div class="container-fluid mainsection d-flex justify-content-center">
+    <div class="row align-items-center justify-content-center">
         {% for plant in plants%}
-        <a href="{% url 'product_page' plant_id=plant.id %}" class="tbgatag">
-            <div class="col">
-                <div class="card shadow tbgbkg" style="width: 18rem;">
+        <div class="col-md-auto col-auto py-2">
+            <div class="card shadow tbgbkg" style="width: 18rem;">
+                <a href="{% url 'product_page' plant_id=plant.id %}" class="tbgatag">
+
                     <img src="{{ plant.image }}" class="card-img-top tbgshpgimgheight" alt="...">
                     <div class="card-body p-0 pt-1 text-center">
                         <h5 class="card-title">{{plant.name}}</h5>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item py-1 tbgbkg" >
+                        <li class="list-group-item py-1 tbgbkg">
                             <div class="row">
                                 <div class="col-12">
                                     <h5>
@@ -34,9 +35,9 @@
                                     </h5>
                                 </div>
                                 <div class="w-100"></div>
-                                <div class="col-3 iconreviews" title="Total no. of reviews">
+                                <div class="col-md-3  col-5 iconreviews" title="Total no. of reviews">
                                 </div>
-                                <div class="col-9">
+                                <div class="col-md-9 col-7">
                                     <h5>
                                         {% if plant.reviews > 0 %}
                                         {{ plant.reviews}}
@@ -49,52 +50,51 @@
                         </li>
                         <li class="list-group-item tbgbkg">
                             <div class="row">
-                                <div class="col-3
-                                    {% if plant.watering == 'Low' %}
-                                    iconlowwatering
-                                    {% elif plant.watering == 'Medium' %}
-                                    iconmidwatering
-                                    {% elif plant.watering == 'High' %}
-                                    iconhighwatering
-                                    {% endif %}                                    
-                                    " title="
-                                    {% if plant.watering == 'Low' %}
-                                    Low
-                                    {% elif plant.watering == 'Medium' %}
-                                    Medium
-                                    {% elif plant.watering == 'High' %}
-                                    High
-                                    {% endif %}  ">
+                                <div class="col-md-3 col-3
+                                            {% if plant.watering == 'Low' %}
+                                            iconlowwatering
+                                            {% elif plant.watering == 'Medium' %}
+                                            iconmidwatering
+                                            {% elif plant.watering == 'High' %}
+                                            iconhighwatering
+                                            {% endif %}                                    
+                                            " title="
+                                            {% if plant.watering == 'Low' %}
+                                            Low
+                                            {% elif plant.watering == 'Medium' %}
+                                            Medium
+                                            {% elif plant.watering == 'High' %}
+                                            High
+                                            {% endif %}  ">
                                 </div>
-                                <div class="col-3
-                                    {% if plant.sunlight == 'No_Shade' %}
-                                    iconnoshade
-                                    {% elif plant.sunlight == 'Half_Shade' %}
-                                    iconhalfshade
-                                    {% elif plant.sunlight == 'Full_Shade' %}
-                                    iconfullshade
-                                    {% endif %}                                    
-                                    " title="
-                                    {% if plant.sunlight == 'No_Shade' %}
-                                    Direct sunlight
-                                    {% elif plant.sunlight == 'Half_Shade' %}
-                                    Direct sunlight under shade
-                                    {% elif plant.sunlight == 'Full_Shade' %}
-                                    Indrect sunlight
-                                    {% endif %}  ">
+                                <div class="col-md-3 col-3
+                                            {% if plant.sunlight == 'No_Shade' %}
+                                            iconnoshade
+                                            {% elif plant.sunlight == 'Half_Shade' %}
+                                            iconhalfshade
+                                            {% elif plant.sunlight == 'Full_Shade' %}
+                                            iconfullshade
+                                            {% endif %}                                    
+                                            " title="
+                                            {% if plant.sunlight == 'No_Shade' %}
+                                            Direct sunlight
+                                            {% elif plant.sunlight == 'Half_Shade' %}
+                                            Direct sunlight under shade
+                                            {% elif plant.sunlight == 'Full_Shade' %}
+                                            Indrect sunlight
+                                            {% endif %}  ">
                                 </div>
-                                <div class="col-6 h6">
+                                <div class="col-md-6 col-6 h6">
                                     {{plant.level}}
                                 </div>
                             </div>
                         </li>
-                        <li class="d-flex align-items-center list-group-item tbgshpgheight tbgbkg"
-                            >
+                        <li class="d-flex align-items-center list-group-item tbgshpgheight tbgbkg">
                             <div class="row">
-                                <div class="col-4 py-0">
+                                <div class="col-md-4 col-4 py-0">
                                     <h5>${{plant.price|floatformat:2}}</h5>
                                 </div>
-                                <div class="col-8 py-0">
+                                <div class="col-md-8 col-8 py-0">
                                     {% if plant.qty > 3 %}
                                     <h5 class="m-0">Qty in stock: {{plant.qty}}</h5>
                                     {% elif  plant.qty <= 0 %}
@@ -122,23 +122,23 @@
                             </div>
                         </li>
                     </ul>
-        </a>
-        {% if plant.qty == 0 %}
-        <div class="card-body addcartbtn">
-            <h4 class="text-center" style="color:white; opacity:40%" inactive>Add to cart</h4>
+                </a>
+
+                {% if plant.qty == 0 %}
+                <div class="card-body button">
+                    <h4 class="text-center" style="color:white; opacity:40%" inactive>Add to cart</h4>
+                </div>
+                {% else %}
+                <div class="card-body button">
+                    <a href="{% url 'add_to_cart' plant_id=plant.id  %}" class="text-decoration-none">
+                        <h4 class="text-center" style="color:white;">Add to cart</h4>
+                    </a>
+                </div>
+                {% endif %}
+            </div>
         </div>
-        {% else %}
-        <div class="card-body btn addcartbtn">
-            <a href="{% url 'add_to_cart' plant_id=plant.id  %}" class="text-decoration-none">
-                <h4 class="text-center" style="color:white;">Add to cart</h4>
-            </a>
-        </div>
-        {% endif %}
+        {% endfor %}
     </div>
 </div>
 
-{% endfor %}
-</div>
-
-</div>
 {% endblock %}

@@ -1,9 +1,9 @@
 {% extends "base-template.html" %}
 {% load static %}
 {% block content %}
-<div class="container my-4 mainsection">
+<div class="container-fluid my-4 mainsection">
     <div class="row justify-content-center mt-3">
-        <div class="col-2">
+        <div class="col-md-2 col-3">
             <ul class="nav flex-column h3 text-decoration-none text-center" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <a class="nav-link" id="acc-detail-tab" data-toggle="tab" href="#acc-detail" role="tab"
@@ -25,7 +25,7 @@
                 </li>
             </ul>
         </div>
-        <div class="col-8">
+        <div class="col-md-5 col-9">
             <div class="tab-content w-100 mx-auto">
                 <div class="tab-pane tbgbkg shadow fade show " id="acc-detail" role="tabpanel" aria-labelledby="acc-detail-tab">
                     <form method="post" class="needs-validation p-5" novalidate>
@@ -123,10 +123,10 @@
                             SG-{{order.id}}-{{order.datetime_ordered|date:'Ymd'}}</h2>
                         <hr class="my-2">
                         <div class="row">
-                            <div class="col-md-2 text-center p-0">
+                            <div class="col-md-2 col-3 text-center p-0">
                                 <img src="{{plant.image}}" class="w-50" alt="plant image">
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-md-10 col-9">
                                 <div class="row h4">
                                     {{order.title}} ordered on: {{order.datetime_ordered}}
                                 </div>
