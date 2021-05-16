@@ -2,7 +2,6 @@
     padding: 0;
     margin: 0;
     font-family: "Oswald", sans-serif;
-    color: saddlebrown;
 }
 
 html {
@@ -23,7 +22,20 @@ html {
     /* Internet Explorer/Edge */
 }
 
-a {
+button {
+    background: transparent;
+    border: transparent;
+}
+
+a,
+p,
+h1,
+h2,
+h3,
+h4.h5,
+h6,
+label,
+div {
     color: saddlebrown;
     outline: none
 }
@@ -51,6 +63,8 @@ a {
 
 .tbgbigh1 {
     font-size: 4.5rem;
+    color: saddlebrown;
+
 }
 
 .tbgshpgheight {
@@ -473,32 +487,6 @@ a:hover {
     height: 2vh;
 }
 
-/* Extra small devices (portrait phones, less than 576px)
- No media query for `xs` since this is the default in Bootstrap
- Small devices (landscape phones, 576px and up) */
-
-/* for Galay Fold */
-/* @media (min-width: 280px) {
-    .footer {
-        height: 24vh;
-    }
-} */
-
-
-/* for iphone 5/se */
-/* @media (min-width: 320px) {
-    .footer {
-        height: 19.5vh;
-        width: 100vw;
-    }
-} */
-
-/* for S5 and G4 */
-/* @media (min-width: 360px) {
-    .footer {
-        height: 17vh;
-    }
-} */
 
 /* Only for Galaxy Fold */
 @media (width: 280px) {

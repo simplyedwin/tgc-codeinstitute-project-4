@@ -107,13 +107,13 @@
                                 </div>
                                 <div class="w-100">
                                 </div>
-                                <div class="col-12 text-center tbgfielderror">
+                                <div class="col-12 h6 text-center tbgfielderror">
                                     {% if not cart.shopping_cart %}
                                     {% for key, item in cart.items %}
                                     {% if plant.id == item.id|add:"0" %}
                                     {% if  item.qty < 6 %}
                                     {% else %}
-                                    <h6 class="m-0">Limit to 5 per user!</h6>
+                                    Limit to 5 per user!
                                     {% endif %}
                                     {% endif %}
                                     {% endfor %}
@@ -126,12 +126,12 @@
 
                 {% if plant.qty == 0 %}
                 <div class="card-body button">
-                    <button class="text-center h4 text-decoration-none" style="color:white; opacity:40%" disabled>Add to cart</button>
+                    <button class="text-center h4 text-decoration-none" style="color:white; opacity:40%" disabled>Add To Cart</button>
                 </div>
                 {% else %}
                 <div class="card-body button">
                     <a href="{% url 'add_to_cart' plant_id=plant.id  %}" class="text-decoration-none">
-                        <h4 class="text-center" style="color:white;">Add to cart</h4>
+                        <h4 class="text-center" style="color:white;">Add To Cart</h4>
                     </a>
                 </div>
                 {% endif %}

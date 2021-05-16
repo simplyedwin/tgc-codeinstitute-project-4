@@ -16,7 +16,9 @@ application shall be able to perform the following:
 - To search for a movie by filtering
 <br/>
 
-## UX
+## Frontend
+
+### UX
 Realization of this project depends on the availability of users and technologies. Users would be moviegoers or moive reviewers who wants to share 
 different types of movie they have watched. This application should fulfill their following needs:
 
@@ -39,10 +41,10 @@ or genre or keywords and adding movie info, the top bar would be built with thes
 <br/>Fig-1 Landing page of MovieFinder
 </p>
 
-A wireframe of this application can be found [here](https://xd.adobe.com/view/b9de51c0-dc0c-4f05-b796-5655a8f68da1-ec8d/).<br/>
+A wireframe of this application can be found [here](https://xd.adobe.com/view/c864c35f-f438-4c5f-9042-366ff94d3027-9d37/).<br/>
 
-## Features
-### Existing Features
+### Features
+#### Existing Features
 
 - ***Landing Page*** - The landing page displays movies filtered by different genre.
 <p align="center">
@@ -132,29 +134,109 @@ clicking onto the 'i' movie recorder button on the top bar.
   <br/>
 
 
+a.	password changed successfully can be shown using flash msg
+b.	Add pagination for product page, orders page, shop page
+c.	add filtering feature - BL
+d.	display the latest for the orders and the comments
+
+
   
   
 ### Feature Left to Implement
-- ***User Account Creation***<br/>
+- ***Showing Password Changed Successfully in Flash Message***<br/>
 This feature will allow user to create an account and thus, also provide a database of user for this application.<br/><br/> 
-- ***User Comments and Likes***<br/>
+- ***Pagnation Pages***<br/>
 This feature will allow user to provide their comments for a particular movie and whether they like the movie.  <br/><br/>
-- ***Movie rating***<br/>
+- ***Filtering Features***<br/>
 This feature will allow user to rate a movie.
 <br/><br/>
-- ***New Added Genre***<br/>
-This feature will allow user to have more genre to choose by retrieving newly added genre from the genre collection in the database.
-<br/><br/>
-- ***Image File Content Check***<br/>
-This feature will check whether the content of the uploaded image is appropriate using artificial intelligence.
-<br/><br/>
-- ***Filtering Genre for Landing Page***<br/>
-This feature will allow user to chose the order of the genre to be displayed on the landing page.
-<br/><br/>
-
 - ***Multi Languages Supports***<br/>
 This feature will allow user to search for different movie info in different langauges.
 <br/><br/>
+
+
+
+## Backend
+The backend structure of this application is built upon Django's app structures, 
+project structure and Model Template View (MTV) framework. The following explains further on each of this commponent:
+
+### Apps
+To build the fundamental functions, such as products, carts, for an e-commerce, 
+the following apps are created as such:  
+
+- product app - to manage all the product related logic or templates
+- review app - to manage all product reviews related logic or templates
+- checkout app - to manage on all the payment and order related logic or templates
+- cart app - to manage on all cart related logic or templates
+- users app - to manage on all user information related logic or templates
+### Views
+The views created for handling the logic for each app are as follow:
+
+- product views
+    - index - to render the landing page
+    - about_us - to render the about us page
+    - shop_page - to handle backend logic, render the query page and shop page
+    - product_page - to handle the backend logic for reviews and rating calculation and render the product page
+- review views
+    - write_review - to render the user review page
+    - create_review - to handle the backend logic to create and save the reviews
+- checkout views
+    - checkout - to handle the backend logic with stripe payment
+    - order_completed - to render the completed payment page
+    - order_not_completed - to render the uncompleted payment page
+    - payment_completed - to handle the backend logic after stripe payment is completed
+- cart views
+    - add_to_cart - to handle the backend logic to add an item to cart
+    - remove_from_cart - to handle the backend logic to remove an item from cart
+    - update_cart - to handle the backend logic to udpate the cart
+    - view_cart - to handle the backend logic on calculating the total price in cart and render the view cart page 
+- users views
+    - user_account - to handle the backend logic related to user account and render the user page
+ 
+
+### Templates
+The html templates created for handling each app are as follow:
+
+- product templates
+    - about_us - to show the about us page
+    - shop_page - to show the about shop page
+    - product_page - to show the product page
+    - landing_page - to show the landing page
+    - no_result -
+- review templates
+    - user_review - to show the user review page
+- checkout templates
+    - checkout - to show the stripe payment page
+    - order_completed - to show the completed payment page
+    - order_not_completed - to show the uncompleted payment page
+- cart templates
+    - view_cart - to show the view cart page
+- users templates
+    - user_info - to the user account page
+- allauth templates - to show the responses for all login/sign-up related pages
+
+### Model
+The models created for handling each app are as follow:
+- product model - Independent entity that contains the following attributes:
+    - name, species, size, description, rating, reviews, qty, watering, level, country, image, price
+- review model - Dependent entity that contains the following attributes:
+    - title, contents, date, plant(foreignkey), reviewed_by(foreignkey), rating, order(foreignkey)
+- checkout_order model - Dependent entity that contains the following attributes:
+    - title, price, datetime_ordered, plant(foreignkey), order_by(foreignkey), qty
+- cart model - not applicable as the line items in cart are stored in session
+- users_userinfo - Dependent entity that contains the following attributes and validation rule:
+    - user(foreignkey), date_of_birth
+    - age_check - to raise a validation error if received date data is in the future or below 6 years old
+
+### Schema
+The relationship between the entities as shown in the schema below can be described as follow:
+- An order can have 1 review or many reviews
+- A user can make 1 order or many orders
+- A plant can be bought by 1 order or many orders
+- A user can make 1 review or many reviews
+<br/>
+<img src="static/images/The Brilliant Greens ERD Diagram.png" height=400>
+
 
 ## Technologies Used
 
@@ -170,76 +252,28 @@ The project uses inkscape for creating svg files.
 The project uses JQuery to ease the manipulation of DOM. 
 - [Heroku](https://www.heroku.com/)<br/>
 The project uses Heroku to host the application. 
-- [Flask](https://flask.palletsprojects.com/en/1.1.x/)<br/>
-The project uses Flask as the backend frame for server side scripting.<br/>
-- [MongoDB](https://www.mongodb.com/)<br/>
-The project uses Mongo DB to store movie information.<br/>
-- [Cloudinary](https://cloudinary.com/)<br/>
-The project uses Cloudinary to store image files and provides the image url links. 
+- [Django](https://flask.palletsprojects.com/en/1.1.x/)<br/>
+The project uses Flask as the backend frame for server side scripting.
+- [PostgreSQL](https://www.postgresql.org/)<br/>
+The project uses PostgreSQL DB as database.<br/>
+- [Uploadcare](https://cloudinary.com/)<br/>
+The project uses Upload to store image files and provides the image url links. 
 <br/><br/>
 
 ## Testing
 
-| <h3>**Features Testing**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Test Case 1: Landing page is displayed as per Fig 1 when page is loaded or refreshed**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| **Expected:** The landing page shall be displayed as per Fig 1.<br/>**Test:** Refresh the page.<br/>**Result:** The  Landing page is displayed as per Fig 1 when page is loaded or refreshed.<br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| **Test Case 2: Movie info page is displayed after clicking onto one of the movie thumbnail on the landing page**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| **Expected:** The corresponding movie info page shall be displayed after clicking onto one of the movie thumbnail on the landing page.<br/>**Test:** Click onto one of the movie thumbnail on the landing page.<br/>**Result:** The corresponding movie info page is displayed after clicking onto one of the movie thumbnail on the landing page.<br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Test Case 3: Movie info list page filtered by genre is displayed after clicking onto one of the genre view more button**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| **Expected:** The corresponding movie info list page filtered by genre shall be displayed after clicking onto one of the genre view more button.<br/>**Test:** Click onto one of the genre view more button on the landing page.<br/>**Result:** The corresponding movie info list page filtered by genre is displayed after clicking onto one of the genre view more button.<br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Test Case 4: Not more than 3 movie thumbnails for each genre is displayed on the landing page**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| **Expected:** Each genre shall displays not more than 3 movie thumbnails.<br/>**Test:** Refresh the landing page or click onto the 'i' movie recorder button.<br/>**Result:** Each genre displayed not more than 3 movie thumbnails on the landing page.<br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Test Case 5: Movie info list displays a list of movies filtered by keywords in the movie info search bar**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| **Expected:** Movie info list shall displays a list of movies filtered by keywords in the movie info search bar.<br/>**Test:** Type in some queries in the movie info search bar.<br/>**Result:** Movie info list displayed a list of movies filtered by keywords in the movie info search bar.<br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Test Case 6: "Sorry we found no result for xxx" error message is flashed when xxx in the movie info search bar does not exist**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| **Expected:** "Sorry we found no result for xxx" error message shall be flashed if xxx in the movie info search bar does not exist.<br/>**Test:** Type in some invalid queries in the movie info search bar.<br/>**Result:** "Sorry we found no result for xxx" error message is flashed when xxx in the movie info search bar does not exist.<br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Test Case 7: Landing page is displayed when the 'i' class movie recorder button is triggered from other pages**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| **Expected:** Landing page shall be displayed when the 'i' class movie recorder button is triggered from other pages.<br/>**Test:** Clicked onto the 'i' class movie recorder button from movie info or movie info list page.<br/>**Result:** Landing page is displayed when the 'i' class movie recorder button is triggered from other pages.<br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Test Case 8: Movie info list is filtered by genre when the genre dropdown menu is selected from any pages**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| **Expected:** Movie info list shall be filtered by genre when the genre dropdown menu is selected from any pages.<br/>**Test:** Select one of the genre from the genre dropdown menu from any page.<br/>**Result:** Movie info list is filtered by genre when the genre dropdown menu is selected from other pages.<br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Test Case 9: Movie info list is filtered by year when the year dropdown menu is selected from any pages**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Expected:** Movie info list shall be filtered by year when the year dropdown menu is selected from any pages.<br/>**Test:** Select one of the year from the year dropdown menu from any page.<br/>**Result:** Movie info list is filtered by year when the year dropdown menu is selected from any pages.<br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Test Case 10: The release year of any newly added movies which does not exist in the database previously is added and sorted by year in the year dropdown menu**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Expected:** The release year of any newly added movies which does not exist in the database previously shall be added and sorted by year in the year dropdown menu.<br/>**Test:** Add a new movie with its release year not available in the database.<br/>**Result:** The release year of any newly added movies which does not exist in the database previously is added and sorted by year in the year dropdown menu.<br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Test Case 11: Add movie popout is shown when the add movie button is clicked from any pages**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Expected:** Add movie popout shall be shown when the add movie button is clicked from any pages.<br/>**Test:** Click the add movie button from any pages.<br/>**Result:** Add movie popout is shown when the add movie button is clicked from any pages.<br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Test Case 12: Movie info page is displayed after clicking onto one of the movie info card on the movie info list page**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Expected:** The corresponding movie info page shall be displayed after clicking onto one of the movie info card on the movie info list page.<br/>**Test:** Click onto one of movie info card on the movie info list page.<br/>**Result:** Movie info page is displayed after clicking onto one of the movie info card on the movie info list page.<br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|  **Test Case 13: "xxx is deleted" message is flashed and redirected back to the landing page after xxx movie is deleted**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Expected:** "xxx is deleted" message shall be flashed and redirected back to the landing page after xxx movie is deleted.<br/>**Test:** Click the waste bin button to delete the movie.<br/>**Result:** "xxx is deleted" message is flashed and redirected back to the landing page after xxx movie is deleted.<br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Test Case 14:A Custom 404 error page is displayed for an invalid url**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Expected:** A custom 404 error page shall be displayed for an invalid url.<br/>**Test:** Type in an invalid url after the '/'.<br/>**Result:** A Custom 404 error page is displayed for an invalid url.<br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Test Case 15: Movie text info is loaded onto the text input fields of the update movie popout when the edit button is clicked from the movie info page**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Expected:** Movie text info shall be loaded onto the text input fields of the update movie popout when the edit button is clicked from the movie info page.<br/>**Test:** Click onto the edit button from the movie info page.<br/>**Result:** Movie text info is loaded onto the text input fields of the update movie popout when the edit button is clicked from the movie info page.<br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Test Case 16: "xxx field cannot be blank" error message is flashed when text input fields contain only a space in the update/add movie popouts**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Expected:** "xxx field cannot be blank" error message shall be flashed when text input fields contain only a space in the update/add movie popouts.<br/>**Test:** Enter a space in any of the text input field.<br/>**Result:** "xxx field cannot be blank" error message is flashed when text input fields contain only a space in the update/add movie popouts.<br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Test Case 17: "Please fill up this field" message is flashed from the text input field which is blank from the update/add movie popouts**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Expected:** "Please fill up this field" message shall be flashed from the text input field which is blank from the update/add movie popouts.<br/>**Test:** Leave the text input field blank.<br/>**Result:** "Please fill up this field" message is flashed from the text input field which is blank from the update/add movie popouts.<br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| **Test Case 18:"Year field cannot be words or characters" error message is flashed when the year input field is not a number from the update/add movie popouts**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Expected:** "Year field cannot be words or characters" error message shall be flashed when the year input field is not a number from the update/add movie popouts.<br/>**Test:** Enter some words or characters in the year field.<br/>**Result:** "Year field cannot be words or characters" error message is flashed when the year input field is not a number from the update/add movie popouts.<br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Test Case 19:"Year field cannot be less than or equal to zero" error message is flashed when the year input field is <= 0 from the update/add movie popouts**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Expected:** "Year field cannot be less than or equal to zero" error message shall be flashed when the year input field <= 0 from the update/add movie popouts.<br/>**Test:** Enter 0 or less in the year field.<br/>**Result:** "Year field cannot be less than or equal to zero" error message is flashed when the year input field is <= 0 from the update/add movie popouts.<br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Test Case 20: "Trailer (Youtube url) format is incorrect" error message is flashed when the trailer youtubeurl field is of invalid format from the update/add movie popouts**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Expected:** "Trailer (Youtube url) format is incorrect" error message shall be flashed when the trailer youtubeurl field is of invalid format from the update/add movie popouts.<br/>**Test:** Enter invalid format in the trailer youtubeurl field.<br/>**Result:** "Trailer (Youtube url) format is incorrect" error message is flashed when the trailer youtubeurl field is of invalid format from the update/add movie popouts.<br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Test Case 21: "Backdrop file size cannot be more than 1MB" error message is flashed when the file size of the selected backdrop is > 1 MB from the update/add movie popouts**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Expected:** "Backdrop file size cannot be more than 1MB" error message shall be flashed when the file size of the selected backdrop is > 1 MB from the update/add movie popouts.<br/>**Test:** Upload a file of size > 1 MB in the backdrop file input field.<br/>**Result:** "Backdrop file size cannot be more than 1MB" error message is flashed when the file size of the selected backdrop is > 1 MB from the update/add movie popouts.<br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Test Case 22: "Poster file size cannot be more than 1MB" error message is flashed when the file size of the selected poster is > 1 MB from the update/add movie popouts**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Expected:** "Poster file size cannot be more than 1MB" error message shall be flashed when the file size of the selected poster is > 1 MB from the update/add movie popouts.<br/>**Test:** Upload a file of size > 1 MB in the poster file input field.<br/>**Result:** "Poster file size cannot be more than 1MB" error message is flashed when the file size of the selected poster is > 1 MB from the update/add movie popouts.<br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Test Case 23: "Thumbnails files size cannot be more than 2MB" error message is flashed when the total file size of the selected thumbnails is > 2 MB from the update/add movie popouts**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Expected:** "Thumbnails files size cannot be more than 2MB" error message shall be flashed when the total file size of the selected thumbnails is > 2 MB from the update/add movie popouts.<br/>**Test:** Upload a few files which each size > 1 MB in the thumbnails file input field.<br/>**Result:** "Thumbnails files size cannot be more than 2MB" error message is flashed when the total file size of the selected thumbnails is > 2 MB from the update/add movie popouts.<br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Test Case 24: Invalid fie extension error message is flashed when the file field is uploaded with file that is not .jpg/.png/.gif extension from the update/add movie popouts**                                                                                                                                                                                                                                                                                                                                                                                                  |
-| **Expected:** Invalid fie extension error message shall be flashed when the file field is uploaded with file that is not .jpg/.png/.gif extension from the update/add movie popouts.<br/>**Test:** Upload a file with extension that is not .jpg/.png/.gif extension.<br/>**Result:** Invalid fie extension error message is flashed when the file field is uploaded with file that is not .jpg/.png/.gif extension from the update/add movie popouts.<br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Test Case 25: The genre of any newly added movies which does not exist in the database previously is added into the genre dropdown menu**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Expected:** The genre of any newly added movies which does not exist in the database previously shall be added into genre dropdown menu.<br/>**Test:** Add a new movie with its genre not available in the database.<br/>**Result:** The genre of any newly added movies which does not exist in the database previously is added into the genre dropdown menu.<br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Test Case 26: Minimum characters prompt is triggered when less than 3 characters is submitted from the search bar**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Expected:** Minimum characters prompt shall be triggered when less than 3 characters is submitted from the search bar.<br/>**Test:** Type in less than 3 characters in the search bar and submit.<br/>**Result:** Minimum characters prompt is triggered when less than 3 characters is submitted from the search bar .<br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Test Case 27: Landing page displays the latest 3 newly added movie or less**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Expected:** Landing page shall display the latest 3 newly added movie or less.<br/>**Test:** Add a new movie.<br/>**Result:** Landing page displayed the latest 3 newly added movie or less.<br/>
-| **Test Case 28: The landing page and genre dropdown menu display genres which are available in the movie database**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Expected:** The landing page and genre dropdown menu shall display genres which are available in the movie database.<br/>**Test:** Delete the last movie of a genre.<br/>**Result:** The landing page and genre dropdown menu displayed genres which are available in the movie database.<br/>
+The testings for this application are categorized as per the following:
 
-### Responsiveness
+- UX Testing – To test the user experiences when using the website
+- Login/ Sign-up Testing – To test the login and sign up features of the website
+- User Account Testing – To test the user account features after logged into the website
+- Admin Testing – To test the admin features using Django administration tool.
+- Payment Testing – To test the payment features when user click the checkout button
+- Security Testing – To test the security features for the website
+
+There are in total 47 test cases performed and the test report can be accessed [here](https://tomato-constrictor-k5cksavp.ws-us04.gitpod.io/files/download/?id=14157348-0fb3-4cd1-b2b1-0628628fb33a).<br/>
+
+## Responsiveness
 **360 x 640 (Moto G4)**<br><p align="center">
 <img src="static/images/360by640_1.JPG" height=200>
 <img src="static/images/360by640_2.JPG" height=200>
@@ -273,31 +307,82 @@ The project uses Cloudinary to store image files and provides the image url link
 ### Bugs/Problems Encountered
 There are a numbers of bugs or problems encountered during the development of the project. The main ones are as explained below:
 
-- *** Form is not valid post back*** <br>
+- ***Form is not valid post back*** <br>
 Intially, whenever an invalid form is posted back to the url, there is no means to verify the invalid causes. It was later found 
-out from the django form api that it exists an form.error api to retrieve the problematic form field. Subsequently, all form invalid
+out from the django form api that it exists an form.errors api to retrieve the problematic form fields. Subsequently, all form invalid
 was easily resolved.
 
-- *** Render model for all template *** <br>
-Intially, 
+- ***Render model for all template*** <br>
+To enhance the user experiences when adding an item into the cart, the cart icon on the navigation bar changed to a filled up icon and 
+shows the number of items in the cart. As the cart icon resides in the base template, each template needs to retrieve the cart session information
+in order to pass to the base template to render the information. However, as the "login/sign-up" page uses the existing default template, it would
+takes some efforts to customize the views for these template in order to retreive and pass the cart session information. Fortuanately, there is a
+feature in Django that allows one to pass the model information at global level to all templates and this feature is known as context processor. Hence, 
+a context processor module for the cart session was created and solved the problem. The below is an extract of the code:
 
-- *** Status Code 302 response from Stripe Webhook*** <br>
+```
+            # this context processor is needed to pass the information of the cart
+            # to the base-template.html to render when the user is in the login/signup page
+
+            def cartinfo(request):
+
+                # to determine the qty of items in cart
+                cart = request.session.get('shopping_cart', {})
+
+                return {'cart': cart}
+
+```
+
+- ***Status Code 302 response from Stripe Webhook*** <br>
 During processing the payment by stripe with webhook enabled, the stripe webhook keeps responding back with a status code 302 even though
 payment_completed function was exempted from CSRF. It was found out the "login_required" decorator was added on the payment_completed function
-which caused the problem. 
+which caused the problem. It was resolved by removing the decorator.
 
 
-- *** Not scrollable body *** <br>
-During processing the payment by stripe with webhook enabled, the stripe webhook keeps responding back with a status code 302 even though
-payment_completed function was exempted from CSRF. It was found out the "login_required" decorator was added on the payment_completed function
-which caused the problem. 
+- ***Not scrollable body*** <br>
+During the development of the page content, some information of the page cannot be seen even though the page is scrollable. It was later found out that
+the height of these pages exceeded the viewing height of the body. This was resolved by dividing the pages into 3 section with different styling
+as shown in the below CSS codes. This makes the mainsection of the page to be scrollable and hence, increased the viewing height of the page.   
+
+```
+                .navbar {
+                    height: 15vh;
+                    background-color: #fffaf0;
+                }
+
+                .mainsection {
+                    flex: 1 0 auto;
+                    overflow: auto;
+                    position: absolute;
+                    top: 15vh;
+                    bottom: 10vh;
+                }
+
+
+                .footer {
+                    position: absolute;
+                    height: 10vh;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    background-color: #fffaf0;
+                    text-align: center;
+                }
+
+```
 
 ## Deployment
 
-The website is hosted using heroku and can be accessed via [here]( https://simplyedwin-tgc-proj3-movfdr.herokuapp.com/).
+The website is hosted using heroku and can be accessed via 
+[here](https://simplyedwin-tgc-proj4.herokuapp.com/).
 
 
 ## Credits
+
+### Media
+
+- The links for the youtube, facebook and instgram used are from the Code Institute corresponding social media platforms.
+
 
 ### Acknowledgements
 
@@ -309,6 +394,6 @@ The website is hosted using heroku and can be accessed via [here]( https://simpl
 
 - Readme template from [Code Institute](https://github.com/Code-Institute-Solutions/readme-template).
 
-- For creating the [progress bar](https://www.youtube.com/watch?v=f-wXTpbNWoM) during update or add movie
+- Model Template View from [Overiq](https://overiq.com/django-1-10/mvc-pattern-and-django/#:~:text=Django%20follows%20MVC%20pattern%20very,and%20controllers%20are%20called%20views.)
 
-- [IMDB](https://www.imdb.com/) for information of movie
+- Dependent and Independent Entities from [amazonaws](https://s3.amazonaws.com/erwin-us/Support/95/CA+ERwin+Data+Modeler+r9+5-ENU/Bookshelf_Files/HTML/ERwin%20Overview/index.htm?toc.htm?254581.html)
