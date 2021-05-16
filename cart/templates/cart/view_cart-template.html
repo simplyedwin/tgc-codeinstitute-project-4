@@ -18,31 +18,31 @@
         <div class="w-100"></div>
         <div class="col">
             {% for key, item in cart.items %}
-            <div class="row my-4 shadow align-items-center tbgbkg">
+            <div class="row my-4 shadow justify-content-center align-items-center tbgbkg">
                 <div class="col-md-1 col-3 text-center p-0">
                     <a href="{% url 'product_page' plant_id=item.id %}" class="text-decoration-none">
                         <img src="{{ item.image }}" class="w-100" alt="plant image">
                     </a>
                 </div>
-                <div class="col-md-11 col-9">
+                <div class="col-md-10 col-9">
                     <div class="d-flex col-12 justify-content-end">
                         <a href="{% url 'remove_from_cart' plant_id=item.id %}">
                             <span class="iconbin my-3"></span>
                         </a>
                     </div>
                     <div class="row align-items-center">
-                        <div class="col-m-4 col-4 h3 my-0">
+                        <div class="col-md-4 col-3 pr-0 h3 my-0">
                             <a href="{% url 'product_page' plant_id=item.id %}" class="text-decoration-none"
                                 id="a-viewcart">
                                 {{item.name}}
                             </a>
                         </div>
-                        <div class="col-m-4 col-4 h3 my-0">
+                        <div class="col-md-4 col-4 pr-0 h3 my-0">
                             <p> SGD ${% widthratio item.price item.qty 1 %} x {{item.qty}}
                                 = SGD ${{item.price|floatformat:2}} </p>
 
                         </div>
-                        <div class="col-m-3 col-4">
+                        <div class="col-md-3 col-4 pl-0">
                             <form method="POST" action="{% url 'update_cart' plant_id=item.id %}">
                                 <div class="row">
                                     {% csrf_token %}
@@ -102,9 +102,12 @@
     </div>
 </div>
 {% else %}
-<div class="container-fluid mainsection d-flex flex-column justify-content-center h-75">
-    <img src="{% static 'images/cartemptyicon.svg' %}" style="height: 20vh;" alt="carticon">
-    <h1 class="text-center font-weight-bold mt-5">Your cart is empty.</h1>
+<div class="container-fluid mainsection d-flex flex-column h-75">
+    <div class="text-center pt-5">
+        <img src="{% static 'images/cartemptyicon.svg' %}" style="height: 20vh;" alt="carticon">
+        <h1 class="font-weight-bold mt-3">Your cart is empty.</h1>
+    </div>
+
 </div>
 {% endif %}
 {% endblock %}

@@ -2,13 +2,10 @@
 {% load static %}
 
 {% block content %}
-<div class="container mx-auto d-flex mainsection tbgbodywidth">
-    <div class="row flex-column justify-content-center">
-        <div class="tbgbigh1">Page not found</div>
+<div class="container-fluid mainsection d-flex flex-column">
+    <div class="text-center pt-5">
         <img src="{% static 'images/custom404icon.svg' %}" style="min-height: 25vh;" alt="custom404">
-        <div class="text-center mt-5 h4">
-        </div>
+        <h1 class="tbgbigh1 font-weight-bold mt-3">Page not found.</h1>
     </div>
 </div>
-
 {% endblock %}

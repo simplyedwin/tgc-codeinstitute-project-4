@@ -28,7 +28,7 @@ UPLOADCARE = {
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'z@8gj!oy$g-%!*_hh5j0s2+60ly6&t5w#qpacyhfg!^7+4jigh'
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

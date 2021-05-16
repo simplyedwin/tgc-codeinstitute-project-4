@@ -4,9 +4,11 @@
 
 {% block content %}
 <div class="container-fluid my-4 mainsection">
-    <div class="row">
-        <div style="float: none; margin: 0 auto;">
-            <h1>My Review</h1>
+    <div class="row justify-content-center">
+        <!-- <div style="float: none; margin: 0 auto;"> -->
+        <h1>My Review</h1>
+        <div class="w-100"></div>
+        <div class="col-md-6 col-10 my-3">
             <form method="POST" action="{% url 'create_review' order_id=order.id %}" class="needs-validation h4"
                 novalidate>
                 {% csrf_token %}
@@ -34,10 +36,10 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="rating-id" class="col-md-2 col-form-label">Rating:</label>
+                    <h5 class="col-md-2 col-form-label">Rating:</h5>
                     <div class="col-md-10">
                         <ul class="product-rating">
-                            <li> <span class="product-ratingSelector">
+                            <li> <div class="product-ratingSelector">
                                     <input type="radio" name="rating" id="productstars-1-5" value="1" class="radio"
                                         required />
                                     <label class="full" for="productstars-1-5"></label>
@@ -56,7 +58,7 @@
                                     <div class="invalid-feedback">
                                         Please give your ratings.
                                     </div>
-                                </span>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -65,8 +67,8 @@
 
 
             </form>
-
         </div>
+        <!-- </div> -->
     </div>
 
 

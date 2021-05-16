@@ -3,9 +3,15 @@
 
 {% block content %}
 
-<div class="container-fluid mainsection d-flex flex-column justify-content-center">
-    <img src="{% static 'images/noresulticon.svg' %}" style="max-height: 20vh;" alt="carticon">
-    <h1 class="tbgbigh1 text-center font-weight-bold mt-5">No result found.</h1>
+<div class="container-fluid mainsection d-flex flex-column">
+
+    <div class="text-center pt-5">
+
+        <img src="{% static 'images/noresulticon.svg' %}" style="max-height: 20vh;" alt="carticon">
+        <h1 class="tbgbigh1 text-center font-weight-bold mt-3">No result found.</h1>
+
+    </div>
+
 </div>
 
 {% endblock %}

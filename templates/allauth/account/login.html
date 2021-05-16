@@ -24,7 +24,7 @@
             {% for field in form %}
             {% if field.label == 'Password' %}
             <div class="form-group">
-                <label for="password">{{field.label}}</label>
+                <label for="id_password">{{field.label}}</label>
                 <input type="password" class="form-control" name="password" placeholder="Password"
                     autocomplete="current-password" required=""  value="{% if form.non_field_errors %}{{field.data}}{% endif %}" id="id_password">
                 <div class="invalid-feedback">
@@ -33,12 +33,12 @@
             </div>
             {% elif field.label == 'Remember Me' %}
             <div class="d-flex flex-column form-group form-check">
-                <label for="remember">{{field.label}}</label>
+                <label for="id_remember">{{field.label}}</label>
                 <input type="checkbox" class="form-check-input" name="remember" id="id_remember">
             </div>
             {% else %}
             <div class="form-group">
-                <label for="login">{{field.label}}</label>
+                <label for="id_login">{{field.label}}</label>
                 <input type="text" class="form-control" name="login" placeholder="Username or e-mail"
                     autocomplete="email" required="" value="{% if form.non_field_errors %}{{field.data}}{% endif %}" id="id_login">
                 <div class="invalid-feedback">
