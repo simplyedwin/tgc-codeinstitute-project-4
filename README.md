@@ -46,112 +46,138 @@ A wireframe of this application can be found [here](https://xd.adobe.com/view/c8
 ### Features
 #### Existing Features
 
-- ***Landing Page*** - The landing page displays movies filtered by different genre.
+- ***Navigation Bar Icons*** - The navigation bar features are as follow:
+    1) Brand Icon - to display the landing page
+    2) Search Bar - to allow user to search for plant information by providing some input
+    3) Magnifying Glass Icon - to run and display the queried result
+    4) Shop Icon - to display the overall shop page
+    5) Cart Icon - to display the cart page
+    6) Account Icon - to display the user acccount information page 
+    7) Logout Icon - to logout 
+    8) User Logged In Status - to display the current logged in user's username
+
 <p align="center">
-<img src="static/images/moviefinder_landingpage.JPG" height=500>
+<img src="static/images/navbaricons.png" height=50>
 </p>
 
-- ***Movie Info Search Bar*** - This feature allow user to search for different number of movies in the movie database by keywords. This feature
-is currently limited to English language only.
+- ***Footer Icons*** - The footer features are as follow:
+    1) Facebook Icon - to open a new browser tab to the Code Institute Facebook page
+    2) About Us Link - to display the "about-us" page
+    3) Instgram Icon - to open a new browser tab to the Code Institute Instgram page
+    4) Youtuube Icon - to open a new browser tab to the Code Institute Youtube page
  <br/><p align="center">
-<img src="static/images/searchbar.JPG">
+<img src="static/images/footericons.png" height=50>
+</p>
+<br/>
+
+- ***Cart Icons*** - The figures below show 2 type of cart icon. The left is displayed when no item is added into the cart while the right is displayed when items are added into the cart.
+ <br/><p align="center">
+<img src="static/images/emptycarticon.JPG" height=50>
+<img src="static/images/filledcarticon.JPG" height=50>
+
+</p>
+
+- ***Shop Now Linkr*** - The below figure shows the shop now link which will redirect the user to the shop page. 
+ <br/><p align="center">
+<img src="static/images/shopnowicons.JPG" height=50>
+</p>
+
+<br/>
+
+- ***Account Icon Dropdown*** - The figure below shows the dropdown menu which will appear when hover over the account icon.
+ <br/><p align="center">
+<img src="static/images/accdrpdwnicon.png" height=100>
+</p>
+<br/>
+
+- ***Empty Cart Page*** - The figure show the empty cart page which will appear when no item is added to the cart.  
+ <br/><p align="center">
+<img src="static/images/emptycart.JPG" height=400>
+</p><br/>
+
+ - ***Filled Cart Page*** - The figure below shows the cart page which an item will appear in the cart page when the item is added to the cart.
+<br/>
+ <p align="center">
+<img src="static/images/viewcartpage.JPG" height=130>
 </p>
 <br/>
 
 
+- ***Login Page*** - The figure below shows the login page for user to log in to his/her account.
+ <br/><p align="center">
+<img src="static/images/loginpage.JPG" height=200>
+</p>
+<br/>
 
-- ***Top Bar Buttons*** - (From left to right) The "i" movie recorder button directs the user back to the landing page. 
-The genre dropdown menu displays a range of available genre and if selected, it directs the user to the movie info list of the selected genre.
-The year dropdown menu displays a range of available year and if selected, it directs the user to the movie info list of the selected year. The add movie
-button displays the add new movie popout.
- <br/><p align="center"><p align="center"><img src="static/images/moviefindertopbarbuttons.JPG"></p>
-  <br/>
+- ***Sign Out Page*** - The figure below shows the sign out pop out modal for user to sign out.
+ <br/><p align="center">
+<img src="static/images/signout.JPG" height=100>
+</p>
+<br/>
 
-- ***Movie Genre View More Button*** - The view more button directs the user to a movie info list page filtered by genre .
-<br/><p align="center"><img src="static/images/moviefinderviewmorebuttons.JPG"></p>
-  <br/>  
+- ***Password Reset Page*** - The figure below shows the password reset page for user to request for password reset. 
+ <br/><p align="center">
+<img src="static/images/passwordresetpage.JPG" height=150>
+</p>
+<br/>
 
+- ***Sign Up Page*** - The figure below shows the sign up which allows user to create a new account.
+ <br/><p align="center">
+<img src="static/images/signuppage.JPG" height=300>
+</p>
+<br/>
 
-- ***Movie Info Page Side Bar Button*** - (From top to bottom) The waste bin icon directs the user to the delete popout. The edit icon directs the user to the update popout.
-<br/><p align="center"><img src="static/images/moviefindersidebuttons.JPG"></p>
-  <br/>
+- ***Product Page with disable "Add To Cart" Button*** - The figure below shows the standard product page and also a disabled "Add To Cart" button when the plant is out of stock. 
+ <br/><p align="center">
+<img src="static/images/productpagecard.JPG" height=500>
+</p>
+<br/>
 
- - ***Movie Info List*** - The movie info list displays a list of filtered movies.
-<br/><p align="center"><img src="static/images/moviefinder_movieinfolist.JPG" height=400><img src="static/images/moviefinder_movieinfolistbyyear.JPG" height=400><img src="static/images/moviefinder_movieinfolistbykeyword.JPG" height=400></p>
-  <br/>
+- ***Shop Page with Warning Messages*** - The figure below shows the standard shop page. It also shows the warning features when the stock is running low or user's order limits 
+as well as a disabled "Add To Cart" button when the plant is out of stock.
+ <br/><p align="center">
+<img src="static/images/shoppagecard.JPG" height=300>
+</p>
+<br/>
 
-- ***Movie Info Page*** - The movie info page displays information of a selected movie.
+- ***Account Detail Page*** - The figure below shows the account detail page for user to update his or her information.
+ <br/><p align="center">
+<img src="static/images/accdetailpage.JPG" height=360>
+</p>
+<br/>
+
+- ***Orders History Page*** - The figure below shows the account detail page for user to view his or her orders history, as well as to write review. 
+ <br/><p align="center">
+<img src="static/images/orderhistorypage.JPG" height=300>
+</p>
+<br/>
+
+- ***Reviews History Page*** - The figure below shows the account detail page for user to view his or reviews history. 
+ <br/><p align="center">
+<img src="static/images/reviewhistorypage.JPG" height=300>
+</p>
+<br/>
+
+- ***Custom 404 Error Page*** - The figure below shows the custom 404 error page which directs the user to a customized 404 error page. The user can be redirected back to the landing page by 
+clicking onto the brand icon.
 <br/><p align="center">
-<img src="static/images/moviefinder_movieinfo.JPG" height=500></p>
-  <br/>
-
-- ***Add New Movie Popout*** - The add new movie popout allows user to add a new movie information into the database. It includes a backend validation feature to prevent invalid
-info to be uploaded into the database. Partial of the validation script is as shown below:
-<br/><p align="center">
-<img src="static/images/moviefinder_addmovie.JPG" height=500></p>
-  <br/>
-
-  ```
-            # To check whether field is empty
-        if len(imageurl.filename) == 0:
-            errors['file_is_blank'] = "Poster field cannot be blank"
-        elif '.' in imageurl.filename:
-            file_ext = os.path.splitext(imageurl.filename)[1]
-            # To validate file extension
-            if file_ext.lower() not in app.config['UPLOAD_EXTENSIONS']:
-                errors['poster_ext_is_wrong'] = "Poster file ext is invalid"
-            # To validate file size
-            elif poster_size > 1024 * 1024:
-                errors['poster_size_above_limit'] = "Poster file size cannot be  more than 1MB"
-
-        # To check whether field is empty
-        if len(backdrop.filename) == 0:
-            errors['backdrop_is_blank'] = "Backdrop field cannot be blank"
-        elif '.' in backdrop.filename:
-            file_ext = os.path.splitext(backdrop.filename)[1]
-            # To validate file extension
-            if file_ext.lower() not in app.config['UPLOAD_EXTENSIONS']:
-                errors['bkdrp_ext_is_wrong'] = "Backdrop file ext is invalid"
-            # To validate file size
-            elif backdrop_size > 1024 * 1024:
-                errors['backdrop_size_above_limit'] = "Backdrop file size cannot be more than 1MB"
-  ```
-
-- ***Update Movie Popout*** - The update movie popout allows user to edit a movie information and upload into the database. Same as the add new movie feature, it also includes a backend validation 
-feature to prevent invalid
-info to be uploaded into the database.
-<br/><p align="center"> <img src="static/images/moviefinder_updatemovie.JPG" height=500></p>
-  <br/>
-
-- ***Delete Movie Popout*** - The delete movie popout allowes user to delete movie info from the database. 
-<br/><p align="center"><img src="static/images/moviefinder_deletemovie.JPG" height=500></p>
-  <br/>
-
-- ***Custom 404 Error Page*** - The custom 404 error page directs the user to a customized 404 error page. The user can be redirected back to the landing page by 
-clicking onto the 'i' movie recorder button on the top bar.
-<br/><p align="center">
-<img src="static/images/custom404page.JPG" height=400></p>
+<img src="static/images/404error.JPG" height=400></p>
   <br/>
 
 
-a.	password changed successfully can be shown using flash msg
-b.	Add pagination for product page, orders page, shop page
-c.	add filtering feature - BL
-d.	display the latest for the orders and the comments
-
-
-  
-  
 ### Feature Left to Implement
 - ***Showing Password Changed Successfully in Flash Message***<br/>
-This feature will allow user to create an account and thus, also provide a database of user for this application.<br/><br/> 
-- ***Pagnation Pages***<br/>
-This feature will allow user to provide their comments for a particular movie and whether they like the movie.  <br/><br/>
-- ***Filtering Features***<br/>
-This feature will allow user to rate a movie.
-<br/><br/>
+This feature will show the password is changed successfully using flash message instead of directing to a page.<br/><br/> 
+
+- ***Pagnation Pages in Reviews or Orders History Page***<br/>
+This feature will limit the number of reviews or orders show in a page to enhance the user experiences.  <br/><br/>
+
+- ***Filtering Features in Reviews or Orders History Page***<br/>
+This feature will allow user to filter by the latest reviews or orders, as well as to filter to show orders that are yet to be reviewed.
+<br/><br/> 
+
 - ***Multi Languages Supports***<br/>
-This feature will allow user to search for different movie info in different langauges.
+This feature will allow user to access the application in different langauges.
 <br/><br/>
 
 
@@ -397,3 +423,5 @@ The website is hosted using heroku and can be accessed via
 - Model Template View from [Overiq](https://overiq.com/django-1-10/mvc-pattern-and-django/#:~:text=Django%20follows%20MVC%20pattern%20very,and%20controllers%20are%20called%20views.)
 
 - Dependent and Independent Entities from [amazonaws](https://s3.amazonaws.com/erwin-us/Support/95/CA+ERwin+Data+Modeler+r9+5-ENU/Bookshelf_Files/HTML/ERwin%20Overview/index.htm?toc.htm?254581.html)
+
+- [DBeaver ERD](https://dbeaver.com/docs/wiki/ER-Diagrams/) explanation and standard [references] (https://en.wikipedia.org/wiki/IDEF1X)
