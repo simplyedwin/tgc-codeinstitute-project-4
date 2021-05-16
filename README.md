@@ -2,7 +2,7 @@
 
 # Milestone Project 4 Fullstack Frameworks with Django - The Brilliant Greens E-commerce Shop
 <p align="center">
-<img src="static/images/moviefindergif.gif" height=340>
+<img src="static/images/TBGs.gif" height=340>
 </p>
 
 ## Problem Statement
@@ -19,16 +19,16 @@ application shall be able to perform the following:
 ## Frontend
 
 ### UX
-Realization of this project depends on the availability of users and technologies. Users would be moviegoers or moive reviewers who wants to share 
-different types of movie they have watched. This application should fulfill their following needs:
+Realization of this project depends on the availability of users and technologies. Users would be indoor plant enthusiast or someone who is looking to "greenify" their 
+home due to prolong working from home. This application should fulfill their following needs:
 
-- "I want to have different ways to filter for a particular movie information."
-- "I want to know what type of movie which I have just watched."
+- "I want my room to be more greenery."
+- "I want to purchase some plant from online ."
 - "I want to share and add this old movie info to somewhere for others to know."
 - "I want to edit and delete movie info which is wrong."
 - "I want to know which movies this particular actor/director is casted in."
 
-By using front-end and back-end technologies such as bootstrap, flask, the user's needs can be achieved.<br/>
+By using front-end and back-end technologies such as bootstrap, django, the user's needs can be achieved.<br/>
 
 The minimalist design approach on the styling of the appliation is to allow the content to stand out and be the focal point. Each buttons are designed and styled 
 in a similar fashion to allow ease of recognizing interactive features on the application. 
