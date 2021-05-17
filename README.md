@@ -78,7 +78,7 @@ A wireframe of this application can be found [here](https://xd.adobe.com/view/c8
     1) Facebook Icon - to open a new browser tab to the Code Institute Facebook page
     2) About Us Link - to display the "about-us" page
     3) Instgram Icon - to open a new browser tab to the Code Institute Instgram page
-    4) Youtuube Icon - to open a new browser tab to the Code Institute Youtube page
+    4) Youtube Icon - to open a new browser tab to the Code Institute Youtube page
  <br/>
  
  <p align="center">
@@ -86,7 +86,7 @@ A wireframe of this application can be found [here](https://xd.adobe.com/view/c8
 </p>
 <br/>
 
-- ***Cart Icons*** - The figures below show 2 type of cart icon. The left is displayed when no item is added into the cart while the right is displayed when items are added into the cart.
+- ***Cart Icons*** - The figures below show 2 type of cart icon. The left figure is displayed when no item is added into the cart while the right figure is displayed when items are added into the cart.
  <br/>
  <p align="center">
 <img src="static/images/emptycarticon.JPG" height=50>
@@ -101,20 +101,20 @@ A wireframe of this application can be found [here](https://xd.adobe.com/view/c8
 
 <br/>
 
-- ***Account Icon Dropdown*** - The figure below shows the dropdown menu which will appear when hover over the account icon.
+- ***Account Icon Dropdown*** - The figure below shows the dropdown menu when hover over the account icon.
  <br/>
  <p align="center">
 <img src="static/images/accdrpdwnicon.png" height=100>
 </p>
 <br/>
 
-- ***Empty Cart Page*** - The figure show the empty cart page which will appear when no item is added to the cart.  
+- ***Empty Cart Page*** - The figure below show the empty cart page when no item is added to the cart.  
  <br/>
  <p align="center">
 <img src="static/images/emptycart.JPG" height=400>
 </p><br/>
 
- - ***Filled Cart Page*** - The figure below shows the cart page which an item will appear in the cart page when the item is added to the cart.
+ - ***Filled Cart Page*** - The figure below shows the cart page when an item is added to the cart.
 <br/>
  <p align="center">
 <img src="static/images/viewcartpage.JPG" height=200>
@@ -122,7 +122,7 @@ A wireframe of this application can be found [here](https://xd.adobe.com/view/c8
 <br/>
 
 
-- ***Login Page*** - The figure below shows the login page for user to log in to his/her account.
+- ***Login Page*** - The figure below shows the login page for user to log in to account.
  <br/>
  <p align="center">
 <img src="static/images/loginpage.JPG" height=200>
@@ -143,7 +143,7 @@ A wireframe of this application can be found [here](https://xd.adobe.com/view/c8
 </p>
 <br/>
 
-- ***Sign Up Page*** - The figure below shows the sign up page which allows user to create a new account.
+- ***Sign Up Page*** - The figure below shows the sign up page for user to sign up for a new account.
  <br/>
  <p align="center">
 <img src="static/images/signuppage.JPG" height=300>
@@ -157,16 +157,16 @@ A wireframe of this application can be found [here](https://xd.adobe.com/view/c8
 </p>
 <br/>
 
-- ***Shop Page with Warning Messages*** - The figure below shows the standard shop page. It also shows the warning features when the stock is running low or user's order limits 
-as well as a disabled "Add To Cart" button when the plant is out of stock.
+- ***Shop Page with Warning Messages*** - The figure below shows the standard shop page. It also shows the warning features when the stock is running low, user reaches an order limits 
+and a disabled "Add To Cart" button when the plant is out of stock.
  <br/>
  <p align="center">
 <img src="static/images/shoppagecard.JPG" height=300>
 </p>
 <br/>
 
-- ***Account Detail Page*** - The figures below show the account detail pages for user to update his or her information. The right figure shows the error message when a user provides
-a date in future for his or her birthday information.
+- ***Account Detail Page*** - The figures below show the account detail pages for user to update information. The right figure shows the error message when a user provides
+a future date for birthday information.
  <br/>
  <p align="center">
 <img src="static/images/acctdetailpage.JPG" height=360>
@@ -174,14 +174,14 @@ a date in future for his or her birthday information.
 </p>
 <br/>
 
-- ***Orders History Page*** - The figure below shows the account detail page for user to view his or her orders history, as well as to write review. 
+- ***Orders History Page*** - The figure below shows the account detail page for user to view orders history, as well as to write review. 
  <br/>
  <p align="center">
 <img src="static/images/orderhistorypage.JPG" height=300>
 </p>
 <br/>
 
-- ***Reviews History Page*** - The figure below shows the account detail page for user to view his or reviews history. 
+- ***Reviews History Page*** - The figure below shows the account detail page for user to view reviews history. 
  <br/>
  <p align="center">
 <img src="static/images/reviewhistorypage.JPG" height=300>
@@ -332,7 +332,8 @@ The testings for this application are categorized as per the following:
 - Payment Testing – To test the payment features when user click the checkout button
 - Security Testing – To test the security features for the website
 
-There are in total 47 test cases performed and the test report can be accessed [here](https://tomato-constrictor-k5cksavp.ws-us04.gitpod.io/files/download/?id=14157348-0fb3-4cd1-b2b1-0628628fb33a).<br/>
+There are in total 47 test cases performed and the test report can be accessed 
+[here](https://github.com/simplyedwin/tgc-codeinstitute-project-4/blob/master/static/document/TGC_Django%20Project%204%20Test%20Reports.pdf).<br/>
 
 ## Responsiveness
 **360 x 640 (Moto G4)**<br><p align="center">
