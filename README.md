@@ -292,8 +292,10 @@ The relationship between the entities as shown in the schema below can be descri
 - A plant can be bought by 1 order or many orders
 - A user can make 1 review or many reviews
 <br/>
-<img src="static/images/The Brilliant Greens ERD Diagram.png" height=400>
 
+<p align="center">
+<img src="static/images/The Brilliant Greens ERD Diagram.png" height=400>
+  <br/>
 
 ## Technologies Used
 
@@ -304,17 +306,19 @@ The project uses Python as the primary programming language.
 - [Bootstrap](https://getbootstrap.com/)<br/>
 The project uses Bootstrap for the application responsiveness for different screen sizes.
 - [Inkscape](https://inkscape.org/)<br/>
-The project uses inkscape for creating svg files.
+The project uses Inkscape for creating svg files.
 - [JQuery](https://jquery.com/)<br/>
 The project uses JQuery to ease the manipulation of DOM. 
 - [Heroku](https://www.heroku.com/)<br/>
 The project uses Heroku to host the application. 
 - [Django](https://flask.palletsprojects.com/en/1.1.x/)<br/>
-The project uses Flask as the backend frame for server side scripting.
+The project uses Django as the web framework for server side scripting.
 - [PostgreSQL](https://www.postgresql.org/)<br/>
 The project uses PostgreSQL DB as database.<br/>
-- [Uploadcare](https://cloudinary.com/)<br/>
+- [Uploadcare](https://uploadcare.com/)<br/>
 The project uses Upload to store image files and provides the image url links. 
+- [Stripe](https://stripe.com/en-sg)<br/>
+The project uses Stripe for online payment testing. 
 <br/><br/>
 
 ## Testing
@@ -451,7 +455,7 @@ The media used in the application are from the below source:
 
 ### Acknowledgements
 
-- Trent colleage staff and classmates for feedbacks on website design
+- Trent colleage staff and classmates for feedbacks on website design.
 
 - Design of icons and logo are sourced from [Freepik](https://www.flaticon.com/authors/freepik).
 
@@ -459,11 +463,11 @@ The media used in the application are from the below source:
 
 - Readme template from [Code Institute](https://github.com/Code-Institute-Solutions/readme-template).
 
-- Model Template View from [Overiq](https://overiq.com/django-1-10/mvc-pattern-and-django/#:~:text=Django%20follows%20MVC%20pattern%20very,and%20controllers%20are%20called%20views.)
+- Model Template View from [Overiq](https://overiq.com/django-1-10/mvc-pattern-and-django/#:~:text=Django%20follows%20MVC%20pattern%20very,and%20controllers%20are%20called%20views.).
 
-- Dependent and Independent Entities from [amazonaws](https://s3.amazonaws.com/erwin-us/Support/95/CA+ERwin+Data+Modeler+r9+5-ENU/Bookshelf_Files/HTML/ERwin%20Overview/index.htm?toc.htm?254581.html)
+- Dependent and Independent Entities from [amazonaws](https://s3.amazonaws.com/erwin-us/Support/95/CA+ERwin+Data+Modeler+r9+5-ENU/Bookshelf_Files/HTML/ERwin%20Overview/index.htm?toc.htm?254581.html).
 
-- [DBeaver ERD](https://dbeaver.com/docs/wiki/ER-Diagrams/) explanation and standard [references] (https://en.wikipedia.org/wiki/IDEF1X)
+- [DBeaver ERD](https://dbeaver.com/docs/wiki/ER-Diagrams/) explanation and standard [references] (https://en.wikipedia.org/wiki/IDEF1X).
 
 - Plant Information
     - [Philodendron](https://gardeningbrain.com/pastazanum/)
@@ -471,10 +475,10 @@ The media used in the application are from the below source:
     - [Snake Plant](https://www.sublimesucculents.com/8-types-snake-plant/)
     - [Selaginella-plana](https://jaycjayc.com/selaginella-plana-cyperus-clubmoss/#.YIgxtrUzaUk)
 
-- Codes reference for the [star rating](https://www.w3schools.com/howto/howto_css_star_rating.asp)
+- Codes reference for the [star rating](https://www.w3schools.com/howto/howto_css_star_rating.asp).
 
-- CSS styling for the navbar [hover effects](css-tricks.com/change-color-of-svg-on-hover/)
+- CSS styling for the navbar [hover effects](https://css-tricks.com/change-color-of-svg-on-hover/).
 
-- Code references for the [dropdown menu](https://www.w3schools.com/howto/howto_css_dropdown.asp) when hover over the action icon
+- Code references for the [dropdown menu](https://www.w3schools.com/howto/howto_css_dropdown.asp) when hover over the action icon.
 
-- References for the [context processor](dev.to/gilbishkosma/custom-context-processors-in-django-3c93) on the cart session
+- References for the [context processor](https://dev.to/gilbishkosma/custom-context-processors-in-django-3c93) on the cart session.
