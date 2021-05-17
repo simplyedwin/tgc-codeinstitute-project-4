@@ -236,7 +236,7 @@ The views created for handling the logic for each app are as follow:
     - product_page - to handle the backend logic for reviews and rating calculation and render the product page
 - review views
     - write_review - to render the user review page
-    - create_review - to handle the backend logic to create and save the reviews
+    - create_review - to handle the backend logic to create and save the reviews, as well as each plant total reviews and rating calculation
 - checkout views
     - checkout - to handle the backend logic with stripe payment
     - order_completed - to render the completed payment page

@@ -9,7 +9,7 @@ from checkout.models import Order
 
 class Review(models.Model):
     title = models.CharField(blank=False, max_length=255)
-    content = models.TextField(blank=False)
+    content = models.TextField(blank=False, max_length=255)
     date = models.DateField(default=datetime.date.today)
     plant = models.ForeignKey(Plant, on_delete=models.CASCADE)
     reviewed_by = models.ForeignKey(User, on_delete=models.CASCADE)

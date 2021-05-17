@@ -3,6 +3,9 @@ from reviews.forms import ReviewForm
 from checkout.models import Order
 from django.contrib import messages
 from users.views import user_account
+from products.models import Plant
+from django.db.models import Avg, Q
+from reviews.models import Review
 
 
 # Create your views here.
@@ -41,6 +44,32 @@ def create_review(request, order_id):
             filled_review_form.order = order_model
 
             filled_review_form.save()
+
+            # to retrieve the plant to display on product page
+            plant = get_object_or_404(Plant, pk=filled_review_form.plant.id)
+
+            query = Q(plant__exact=plant)
+            # to retrieve all reviews
+            reviews = Review.objects.all()
+            # to retrieve all the reviews for the plant
+            plant_reviews = reviews.filter(query).values().distinct()
+
+            # to retrieve ave ratings of the selected plant
+            plant_ave_rating = plant_reviews.aggregate(Avg('rating'))
+
+            # to retrieve total number of reviews for the selected plant
+            plant_total_reviews = plant_reviews.count()
+
+            # to save the plant total reviews and average ratings
+            if plant_ave_rating != None and plant_total_reviews:
+
+                plant.rating = float(plant_ave_rating['rating__avg'])
+
+                plant.save(update_fields=["rating"])
+
+                plant.reviews = plant_total_reviews
+
+                plant.save(update_fields=["reviews"])
 
             messages.success(request, "Your review is successfully added.")
 
