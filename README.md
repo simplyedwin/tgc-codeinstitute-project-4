@@ -1,4 +1,4 @@
-![brandlogo](static/images/moviefindericon.svg)
+![brandlogo](static/images/TBGsBrandlogo.svg)
 
 # Milestone Project 4 Fullstack Frameworks with Django - The Brilliant Greens E-commerce Shop
 <p align="center">
@@ -6,14 +6,16 @@
 </p>
 
 ## Problem Statement
-The aim of this project is to demonstrate ones ability to utilize python web framework, Flask, to perform create, read, update and delete (CRUD) operation with a database. 
-To fulfill this requirement in a practical approach, an application which allows user to share movie information such as casts, director, images or short clips,
- was built. This
+The aim of this project is to demonstrate ones ability to develop a full stack application with django web framework and create, read, update and delete (CRUD) operation with a database. 
+To fulfill this requirement in a practical approach, an application which allows user to login or sign up and perform payment was built. This
 application shall be able to perform the following:
-- To add a new movie
-- To edit a movie info
-- To delete a movie
-- To search for a movie by filtering
+- To login or sign up an account
+- To handle user related information
+- To add items to a cart
+- To remove items from a cart
+- To write review and provide rating for purchased items 
+- To make payment
+- To search for information of a product
 <br/>
 
 ## Frontend
@@ -23,22 +25,34 @@ Realization of this project depends on the availability of users and technologie
 home due to prolong working from home. This application should fulfill their following needs:
 
 - "I want my room to be more greenery."
-- "I want to purchase some plant from online ."
-- "I want to share and add this old movie info to somewhere for others to know."
-- "I want to edit and delete movie info which is wrong."
-- "I want to know which movies this particular actor/director is casted in."
+- "I want to purchase some plants from an e-commerce shop."
+- "I want to know that there are stocks available for the plant that I want to purchase."
+- "I want to be able to type and search some information of plants."
+- "I want to be able to see maintenance information about some plants."
+- "I want to be able to log in to an plant e-commerce shop."
+- "I want to be able to sign up an account with an plant e-commerce shop."
+- "I want to be able to see the items added to my cart."
+- "I want to be able to remove items from my cart."
+- "I want to be able to reset my password if I have forgotten it."
+- "How many plants can I add to the cart?"
+- "How do I know I that I have logged in to the plant e-commerce shop?"
+- "How do I know that I have logged out from the plant e-commerce shop?"
+- "How do I know that there are errors for the information that I have provided?"
 
 By using front-end and back-end technologies such as bootstrap, django, the user's needs can be achieved.<br/>
 
-The minimalist design approach on the styling of the appliation is to allow the content to stand out and be the focal point. Each buttons are designed and styled 
-in a similar fashion to allow ease of recognizing interactive features on the application. 
-As filtering by genre is a common queries ones will seek before 
-reading further about a movie, this application would present a landing page showing different movies filtered by genre. For ease of access to filter movies by year
-or genre or keywords and adding movie info, the top bar would be built with these features and available in every pages.
+The minimalist design approach on the styling of the appliation is to allow the content to stand out and be the focal point. The choice of color used brings in a feel of nature 
+to a user visiting the e-commerce shop. Each buttons are designed and styled in a similar fashion to allow ease of recognizing interactive features on the application. To provide
+as much information as possible for each plant, meaningful and easy to understand icons are used to show on the shop page (See Fig-2).  
 
 <p align="center">
-<img src="static/images/moviefinder_landingpage.JPG" height=500>
-<br/>Fig-1 Landing page of MovieFinder
+<img src="static/images/TBGslandingpage.JPG" height=500>
+<br/>Fig-1 Landing page of The Brilliant Greens E-commerce Shop
+</p>
+<br/>
+<p align="center">
+<img src="static/images/singleshoppagecard.JPG" height=300>
+<br/>Fig-2 A plant information showing maintenance information, reviews and ratings icons in the shop page
 </p>
 
 A wireframe of this application can be found [here](https://xd.adobe.com/view/c864c35f-f438-4c5f-9042-366ff94d3027-9d37/).<br/>
@@ -98,7 +112,7 @@ A wireframe of this application can be found [here](https://xd.adobe.com/view/c8
  - ***Filled Cart Page*** - The figure below shows the cart page which an item will appear in the cart page when the item is added to the cart.
 <br/>
  <p align="center">
-<img src="static/images/viewcartpage.JPG" height=130>
+<img src="static/images/viewcartpage.JPG" height=200>
 </p>
 <br/>
 
@@ -121,7 +135,7 @@ A wireframe of this application can be found [here](https://xd.adobe.com/view/c8
 </p>
 <br/>
 
-- ***Sign Up Page*** - The figure below shows the sign up which allows user to create a new account.
+- ***Sign Up Page*** - The figure below shows the sign up page which allows user to create a new account.
  <br/><p align="center">
 <img src="static/images/signuppage.JPG" height=300>
 </p>
@@ -140,9 +154,11 @@ as well as a disabled "Add To Cart" button when the plant is out of stock.
 </p>
 <br/>
 
-- ***Account Detail Page*** - The figure below shows the account detail page for user to update his or her information.
+- ***Account Detail Page*** - The figures below show the account detail pages for user to update his or her information. The right figure shows the error message when a user provides
+a date in future for his or her birthday information.
  <br/><p align="center">
-<img src="static/images/accdetailpage.JPG" height=360>
+<img src="static/images/acctdetailpage.JPG" height=360>
+<img src="static/images/accdetailpagewitherrormsg.JPG" height=360>
 </p>
 <br/>
 
@@ -305,10 +321,10 @@ There are in total 47 test cases performed and the test report can be accessed [
 <img src="static/images/360by640_2.JPG" height=200>
 <img src="static/images/360by640_3.JPG" height=200>
 <img src="static/images/360by640_4.JPG" height=200>
-<img src="static/images/360by640_5.JPG" height=200></p>
-
-
-
+<img src="static/images/360by640_5.JPG" height=200>
+<img src="static/images/360by640_6.JPG" height=200>
+<img src="static/images/360by640_7.JPG" height=200>
+</p>
 <br>
 
 **414 x 736 (iPhone 6/7/8 Plus)**<br><p align="center">
@@ -316,18 +332,22 @@ There are in total 47 test cases performed and the test report can be accessed [
 <img src="static/images/414by736_2.JPG" height=200>
 <img src="static/images/414by736_3.JPG" height=200>
 <img src="static/images/414by736_4.JPG" height=200>
-<img src="static/images/414by736_5.JPG" height=200></p>
-
+<img src="static/images/414by736_5.JPG" height=200>
+<img src="static/images/414by736_6.JPG" height=200>
+<img src="static/images/414by736_7.JPG" height=200>
+</p>
 <br>
-
 
 **768 x 1024 (iPad)**<br><p align="center">
 <img src="static/images/768by1024_1.JPG" height=200>
 <img src="static/images/768by1024_2.JPG" height=200>
 <img src="static/images/768by1024_3.JPG" height=200>
 <img src="static/images/768by1024_4.JPG" height=200>
-<img src="static/images/768by1024_5.JPG" height=200></p>
+<img src="static/images/768by1024_5.JPG" height=200>
+<img src="static/images/768by1024_6.JPG" height=200>
+<img src="static/images/768by1024_7.JPG" height=200>
 
+</p>
 <br>
 
 ### Bugs/Problems Encountered
@@ -406,15 +426,15 @@ The website is hosted using heroku and can be accessed via
 ## Credits
 
 ### Media
-
-- The links for the youtube, facebook and instgram used are from the Code Institute corresponding social media platforms.
-
+The media used in the application are from the below source:
+- The links for the youtube, facebook and instgram icons used are from the Code Institute corresponding social media platforms.
+- [Landing page photo](https://betterhousekeeper.com/2020/02/25/effective-ways-to-spruce-up-your-home-with-the-help-of-plants/)
 
 ### Acknowledgements
 
 - Trent colleage staff and classmates for feedbacks on website design
 
-- Design of logo are sourced from [Freepik](https://www.flaticon.com/authors/freepik).
+- Design of icons and logo are sourced from [Freepik](https://www.flaticon.com/authors/freepik).
 
 - [Toast scripts](https://github.com/CodeSeven/toastr) used for flashing message.
 
@@ -425,3 +445,17 @@ The website is hosted using heroku and can be accessed via
 - Dependent and Independent Entities from [amazonaws](https://s3.amazonaws.com/erwin-us/Support/95/CA+ERwin+Data+Modeler+r9+5-ENU/Bookshelf_Files/HTML/ERwin%20Overview/index.htm?toc.htm?254581.html)
 
 - [DBeaver ERD](https://dbeaver.com/docs/wiki/ER-Diagrams/) explanation and standard [references] (https://en.wikipedia.org/wiki/IDEF1X)
+
+- Plant Information
+    - [Philodendron](https://gardeningbrain.com/pastazanum/)
+    - [Cheesy Plant](https://www.gardensbythebay.com.sg/en/stayhomewithgb/articles-infographics/bringing-the-gardens-home/swiss-cheese.html)
+    - [Snake Plant](https://www.sublimesucculents.com/8-types-snake-plant/)
+    - [Selaginella-plana](https://jaycjayc.com/selaginella-plana-cyperus-clubmoss/#.YIgxtrUzaUk)
+
+- Codes reference for the [star rating](https://www.w3schools.com/howto/howto_css_star_rating.asp)
+
+- CSS styling for the navbar [hover effects](css-tricks.com/change-color-of-svg-on-hover/)
+
+- Code references for the [dropdown menu](https://www.w3schools.com/howto/howto_css_dropdown.asp) when hover over the action icon
+
+- References for the [context processor](dev.to/gilbishkosma/custom-context-processors-in-django-3c93) on the cart session
