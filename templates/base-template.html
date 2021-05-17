@@ -74,6 +74,9 @@
                                 <a class=" icon icon-logout" href="#accout-logout" role="button" data-toggle="modal">
                                 </a>
                             </div>
+                            <div class="col-6 text-center text-center">
+                                <h5>Welcome {{request.user|title}} !</h5>
+                            </div>
                             {% else %}
                             <div class="col-3 text-center dropdown dropright active" title="Account">
                                 <a class="icon icon-account" href="#" id="navbarScrollingDropdown" role="button"

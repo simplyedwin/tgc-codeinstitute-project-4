@@ -422,6 +422,10 @@ as shown in the below CSS codes. This makes the mainsection of the page to be sc
 The website is hosted using heroku and can be accessed via 
 [here](https://simplyedwin-tgc-proj4.herokuapp.com/).
 
+The test credential is as follow:
+-   Username: tgcproj4tbgs
+-   Password: testtbgs1
+
 
 ## Credits
 
