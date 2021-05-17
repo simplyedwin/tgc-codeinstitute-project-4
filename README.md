@@ -79,33 +79,38 @@ A wireframe of this application can be found [here](https://xd.adobe.com/view/c8
     2) About Us Link - to display the "about-us" page
     3) Instgram Icon - to open a new browser tab to the Code Institute Instgram page
     4) Youtuube Icon - to open a new browser tab to the Code Institute Youtube page
- <br/><p align="center">
+ <br/>
+ 
+ <p align="center">
 <img src="static/images/footericons.png" height=50>
 </p>
 <br/>
 
 - ***Cart Icons*** - The figures below show 2 type of cart icon. The left is displayed when no item is added into the cart while the right is displayed when items are added into the cart.
- <br/><p align="center">
+ <br/>
+ <p align="center">
 <img src="static/images/emptycarticon.JPG" height=50>
 <img src="static/images/filledcarticon.JPG" height=50>
-
 </p>
 
 - ***Shop Now Linkr*** - The below figure shows the shop now link which will redirect the user to the shop page. 
- <br/><p align="center">
+ <br/>
+ <p align="center">
 <img src="static/images/shopnowicons.JPG" height=50>
 </p>
 
 <br/>
 
 - ***Account Icon Dropdown*** - The figure below shows the dropdown menu which will appear when hover over the account icon.
- <br/><p align="center">
+ <br/>
+ <p align="center">
 <img src="static/images/accdrpdwnicon.png" height=100>
 </p>
 <br/>
 
 - ***Empty Cart Page*** - The figure show the empty cart page which will appear when no item is added to the cart.  
- <br/><p align="center">
+ <br/>
+ <p align="center">
 <img src="static/images/emptycart.JPG" height=400>
 </p><br/>
 
@@ -118,65 +123,75 @@ A wireframe of this application can be found [here](https://xd.adobe.com/view/c8
 
 
 - ***Login Page*** - The figure below shows the login page for user to log in to his/her account.
- <br/><p align="center">
+ <br/>
+ <p align="center">
 <img src="static/images/loginpage.JPG" height=200>
 </p>
 <br/>
 
 - ***Sign Out Page*** - The figure below shows the sign out pop out modal for user to sign out.
- <br/><p align="center">
+ <br/>
+ <p align="center">
 <img src="static/images/signout.JPG" height=100>
 </p>
 <br/>
 
 - ***Password Reset Page*** - The figure below shows the password reset page for user to request for password reset. 
- <br/><p align="center">
+ <br/>
+ <p align="center">
 <img src="static/images/passwordresetpage.JPG" height=150>
 </p>
 <br/>
 
 - ***Sign Up Page*** - The figure below shows the sign up page which allows user to create a new account.
- <br/><p align="center">
+ <br/>
+ <p align="center">
 <img src="static/images/signuppage.JPG" height=300>
 </p>
 <br/>
 
 - ***Product Page with disable "Add To Cart" Button*** - The figure below shows the standard product page and also a disabled "Add To Cart" button when the plant is out of stock. 
- <br/><p align="center">
+ <br/>
+ <p align="center">
 <img src="static/images/productpagecard.JPG" height=500>
 </p>
 <br/>
 
 - ***Shop Page with Warning Messages*** - The figure below shows the standard shop page. It also shows the warning features when the stock is running low or user's order limits 
 as well as a disabled "Add To Cart" button when the plant is out of stock.
- <br/><p align="center">
+ <br/>
+ <p align="center">
 <img src="static/images/shoppagecard.JPG" height=300>
 </p>
 <br/>
 
 - ***Account Detail Page*** - The figures below show the account detail pages for user to update his or her information. The right figure shows the error message when a user provides
 a date in future for his or her birthday information.
- <br/><p align="center">
+ <br/>
+ <p align="center">
 <img src="static/images/acctdetailpage.JPG" height=360>
 <img src="static/images/accdetailpagewitherrormsg.JPG" height=360>
 </p>
 <br/>
 
 - ***Orders History Page*** - The figure below shows the account detail page for user to view his or her orders history, as well as to write review. 
- <br/><p align="center">
+ <br/>
+ <p align="center">
 <img src="static/images/orderhistorypage.JPG" height=300>
 </p>
 <br/>
 
 - ***Reviews History Page*** - The figure below shows the account detail page for user to view his or reviews history. 
- <br/><p align="center">
+ <br/>
+ <p align="center">
 <img src="static/images/reviewhistorypage.JPG" height=300>
 </p>
 <br/>
 
 - ***Custom 404 Error Page*** - The figure below shows the custom 404 error page which directs the user to a customized 404 error page. The user can be redirected back to the landing page by 
 clicking onto the brand icon.
-<br/><p align="center">
+<br/>
+<p align="center">
 <img src="static/images/404error.JPG" height=400></p>
   <br/>
 
