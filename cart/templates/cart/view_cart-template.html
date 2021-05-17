@@ -19,7 +19,7 @@
         <div class="col col-xl-6 col-12 p-0">
             {% for key, item in cart.items %}
             <div class="row my-4 shadow justify-content-center align-items-center tbgbkg">
-                <div class="col-md-1 col-3 text-center p-0">
+                <div class="col-md-2 col-3 text-center p-0">
                     <a href="{% url 'product_page' plant_id=item.id %}" class="text-decoration-none">
                         <img src="{{ item.image }}" class="w-100" alt="plant image">
                     </a>
