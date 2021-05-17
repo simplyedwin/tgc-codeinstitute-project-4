@@ -51,13 +51,13 @@
                             </div>
                         </div>
                     </form>
-                    <div class="col-xl-auto col-auto pt-2">
+                    <div class="col-xl-5 col-auto pt-2">
                         <div class="row justify-content-md-around">
                             <div class="col-3 text-center" title="Shop">
                                 <a class="icon icon-shop" href="{% url 'shop_page' %}">
                                 </a>
                             </div>
-                            <div class="col-xl-3 col-2 text-center text-center" title="Cart">
+                            <div class="col-xl-2 col-2 text-center text-center" title="Cart">
                                 <a class="icon {% if cart|length > 0 %} icon-cart {% else %} icon-cartempty {% endif %} h4 font-weight-bold m-0 pt-0"
                                     href="{% url 'view_cart' %}">
                                     {% if cart|length >= 1 %}
@@ -66,19 +66,19 @@
                                 </a>
                             </div>
                             {% if request.user.is_authenticated %}
-                            <div class="col-xl-3 col-2 text-center" title="Account">
+                            <div class="col-xl-2 col-2 text-center" title="Account">
                                 <a class=" icon icon-account" href="{% url 'user_account' %}" aria-expanded="false">
                                 </a>
                             </div>
-                            <div class="col-xl-3 col-2 text-center text-center" title="Logout">
+                            <div class="col-xl-2 col-2 text-center text-center" title="Logout">
                                 <a class=" icon icon-logout" href="#accout-logout" role="button" data-toggle="modal">
                                 </a>
                             </div>
-                            <div class="col-xl-3 col-2 text-center text-center">
+                            <div class="col-xl-4 col-4 text-center text-center">
                                 <h5>Welcome {{request.user|title}} !</h5>
                             </div>
                             {% else %}
-                            <div class="col-3 col-2 text-center dropdown dropright active" title="Account">
+                            <div class="col-2 col-2 text-center dropdown dropright active" title="Account">
                                 <a class="icon icon-account" href="#" id="navbarScrollingDropdown" role="button"
                                     data-toggle="dropdown" aria-expanded="false">
                                 </a>
