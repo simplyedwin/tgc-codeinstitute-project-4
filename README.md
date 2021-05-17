@@ -311,7 +311,7 @@ The project uses Inkscape for creating svg files.
 The project uses JQuery to ease the manipulation of DOM. 
 - [Heroku](https://www.heroku.com/)<br/>
 The project uses Heroku to host the application. 
-- [Django](https://flask.palletsprojects.com/en/1.1.x/)<br/>
+- [Django](https://www.djangoproject.com/)<br/>
 The project uses Django as the web framework for server side scripting.
 - [PostgreSQL](https://www.postgresql.org/)<br/>
 The project uses PostgreSQL DB as database.<br/>
@@ -319,7 +319,7 @@ The project uses PostgreSQL DB as database.<br/>
 The project uses Upload to store image files and provides the image url links. 
 - [Stripe](https://stripe.com/en-sg)<br/>
 The project uses Stripe for online payment testing. 
-<br/><br/>
+<br/>
 
 ## Testing
 
@@ -467,7 +467,7 @@ The media used in the application are from the below source:
 
 - Dependent and Independent Entities from [amazonaws](https://s3.amazonaws.com/erwin-us/Support/95/CA+ERwin+Data+Modeler+r9+5-ENU/Bookshelf_Files/HTML/ERwin%20Overview/index.htm?toc.htm?254581.html).
 
-- [DBeaver ERD](https://dbeaver.com/docs/wiki/ER-Diagrams/) explanation and standard [references] (https://en.wikipedia.org/wiki/IDEF1X).
+- [DBeaver ERD](https://dbeaver.com/docs/wiki/ER-Diagrams/) explanation and standard [references](https://en.wikipedia.org/wiki/IDEF1X).
 
 - Plant Information
     - [Philodendron](https://gardeningbrain.com/pastazanum/)
